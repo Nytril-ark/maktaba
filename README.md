@@ -4,6 +4,7 @@ website for the web technology uni project
 
 > [!IMPORTANT]
 > **Team notes**
+> 
 > we can split it into the following tasks:
 > 1. login & signup, navigation bar (different for normal user and admin)
 > 2. home page, contact / support page
@@ -12,7 +13,7 @@ website for the web technology uni project
 > 5. book page for each book (same page is reused of course)
 > 6. page that contains borrowed books list for a certain user
 
-###### ^ this is according to the pdf
+##### ^ this is according to the pdf
 
 # PHASE 1:
 
