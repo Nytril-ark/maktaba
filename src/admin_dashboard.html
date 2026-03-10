@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maktaba — Admin Dashboard</title>
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="admin_dashboard.css">
+</head>
+
+<body>
+
+  <main class="admin-container">
+
+    <h2 class="admin-title">Admin Dashboard</h2>
+
+    <section class="add-book-section">
+      <h3 class="section-title">Add New Book</h3>
+      <form class="add-book-form">
+        <div class="form-group">
+          <label for="book-id">Book ID</label>
+          <input type="text" id="book-id" name="book-id">
+        </div>
+        <div class="form-group">
+          <label for="book-name">Book Name</label>
+          <input type="text" id="book-name" name="book-name">
+        </div>
+        <div class="form-group">
+          <label for="author">Author</label>
+          <input type="text" id="author" name="author">
+        </div>
+        <div class="form-group">
+          <label for="category">Category</label>
+          <input type="text" id="category" name="category">
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea id="description" name="description"></textarea>
+        </div>
+        <button class="primary-button" type="submit">Add Book</button>
+      </form>
+    </section>
+
+    <section class="books-list-section">
+      <h3 class="section-title">Available Books</h3>
+      <table class="books-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Book Name</th>
+            <th>Author</th>
+            <th>Category</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody class="books-table-body">
+          <tr class="book-row">
+            <td class="book-id">1</td>
+            <td class="book-name">Kitab</td>
+            <td class="book-author">Some Dude</td>
+            <td class="book-category">Just Testing</td>
+            <td class="book-actions">
+              <button class="edit-button">Edit</button>
+              <button class="delete-button">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-columns">
+
+      <div class="footer-column">
+        <h3 class="footer-title">Project</h3>
+        <p class="footer-item">Maktaba</p>
+        <p class="footer-item">Library Management System</p>
+        <p class="footer-item">FCAI-CU</p>
+      </div>
+
+      <div class="footer-column">
+        <h3 class="footer-title">Developers</h3>
+        <p class="footer-item">Ramy Zaher</p>
+        <p class="footer-item">Mohammed Atef</p>
+        <p class="footer-item">Adham M. Megahed</p>
+        <p class="footer-item">Adham Amgad</p>
+        <p class="footer-item">NourEldeen Gamal</p>
+        <p class="footer-item">Ammen O.</p>
+      </div>
+
+      <div class="footer-column">
+        <h3 class="footer-title">Under Supervision Of</h3>
+        <p class="footer-item">TA: Mira Mohamed</p>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+
+</html>

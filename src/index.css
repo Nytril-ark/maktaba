@@ -1,0 +1,48 @@
+body
+{
+    margin: 0;
+    font-family: sans-serif;
+
+    background-color: var(--background);
+    color: var(--text);
+}
+
+.container
+{
+    max-width: 900px;
+    margin: 80px auto;
+    text-align: center;
+}
+
+.title
+{
+    margin-bottom: 30px;
+}
+
+.nav-list
+{
+    list-style: none;
+    padding: 0;
+}
+
+.nav-list li
+{
+    margin: 12px 0;
+}
+
+.nav-link
+{
+    display: block;
+
+    padding: 10px;
+
+    text-decoration: none;
+
+    background-color: var(--accent1);
+    color: var(--light-text);
+}
+
+.nav-link:hover
+{
+    background-color: var(--accent2);
+}

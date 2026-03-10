@@ -1,0 +1,195 @@
+.admin-container {
+  max-width: 900px;
+  margin: auto;
+  padding: 2rem;
+}
+
+.admin-title {
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+  color: var(--accent2);
+  border-bottom: 2px solid var(--accent0);
+  padding-bottom: 0.5rem;
+}
+
+.section-title {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: var(--accent2);
+}
+
+.add-book-section {
+  background-color: #fff;
+  border: 1px solid var(--accent0);
+  padding: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.add-book-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+  color: var(--accent1);
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--accent0);
+  background-color: var(--background);
+  color: var(--text);
+  font-family: Georgia, serif;
+  font-size: 0.95rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: 1px solid var(--accent1);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 70px;
+}
+
+.primary-button {
+  width: fit-content;
+  padding: 0.45rem 1.2rem;
+  border: none;
+  background-color: var(--accent1);
+  color: #fff;
+  font-family: Georgia, serif;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.primary-button:hover {
+  background-color: var(--accent2);
+}
+
+.books-list-section {
+  background-color: #fff;
+  border: 1px solid var(--accent0);
+  padding: 1.5rem;
+}
+
+.books-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.books-table th {
+  text-align: left;
+  padding: 0.5rem 0.7rem;
+  background-color: var(--accent1);
+  color: #fff;
+  font-weight: normal;
+  font-size: 0.85rem;
+}
+
+.books-table td {
+  padding: 0.5rem 0.7rem;
+  border-bottom: 1px solid var(--background);
+}
+
+.books-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.books-table tbody tr:hover td {
+  background-color: var(--background);
+}
+
+.book-actions {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.edit-button {
+  padding: 0.2rem 0.6rem;
+  border: 1px solid var(--accent1);
+  background-color: transparent;
+  color: var(--accent1);
+  font-family: Georgia, serif;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.edit-button:hover {
+  background-color: var(--accent1);
+  color: #fff;
+}
+
+.delete-button {
+  padding: 0.2rem 0.6rem;
+  border: 1px solid var(--accent3);
+  background-color: transparent;
+  color: var(--accent3);
+  font-family: Georgia, serif;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: var(--accent3);
+  color: var(--light-text);
+}
+
+
+.footer-columns {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between;
+  /* max-width: 900px; */
+  margin: 0 auto;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+  background-color: var(--accent1);
+}
+
+.footer {
+  background-color: var(--accent1);
+  color: var(--light-text);
+  padding: 30px 20px;
+  margin-top: 3rem;
+}
+
+.footer-columns {
+  display: flex;
+  justify-content: space-between;
+  /* max-width: 900px; */
+  margin: 0 auto;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+}
+
+.footer-title {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  color: var(--background);
+}
+
+.footer-item {
+  font-size: 0.88rem;
+  margin: 4px 0;
+}
