@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Maktaba — Browse/Search Books</title>
+</head>
+<body>
+    
+    <table width = "100%">
+        <tr>
+            <td>
+                <h1>Maktaba — Browse/Search Books</h1>
+            </td>
+        <td align="right">
+            <a href="home.html">Home Page</a>
+            <a href="BorrowedBooks.html">Borrowed Books</a>
+        </td>
+    </tr>
+</table>
+
+<hr>
+<form>
+<fieldset>
+    <legend>search</legend>
+    <div>
+        <label for="Search">search</label>
+        <input type="search" id="Search" placeholder="Enter book title or author name">
+        <button type="submit">Search</button>
+        <label for="Search By Cateogry">Search By Cateogry</label>
+        <input list="Category" name="" id="Search By Category" placeholder="Select or type....">
+        <datalist id = "Category">
+            <option value="Software Engineering">
+            <option value="Machine learning">
+            <option value="Cyber Security">
+        </datalist>
+    </div>
+</fieldset>
+<br>
+<fieldset>
+    <legend>Search Results</legend>
+    <table border="1" width = "100%">
+<tr>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Category</th>
+    <th>Status</th>
+    <th>Details</th>
+</tr>
+    <tr>
+        <td align="center">introduction to algorithms</td>
+        <td align="center">CLIFFORD STEIN</td>
+        <td align="center">Software Engineering</td>
+        <td align="center">Available</td>
+        <td align="center"><a href="book.html">View details</a></td>
+    </tr>
+    <tr>
+        <td align="center">Clean Code</td>
+        <td align="center">Robert C.Martin Clean</td>
+        <td align="center">Software Engineering</td>
+        <td align="center">Not Available</td>
+        <td align="center"><a href="book.html">View details</a></td>
+    </tr>
+
+    </table>
+</fieldset>
+</form>
+
+
+</body>
+
+
+</html>
