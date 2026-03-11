@@ -1,62 +1,104 @@
 <!DOCTYPE html>
 <html>
+
 <head>
- <title>My borrowed books</title>
+  <title>My borrowed books</title>
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="navbar.css">
+  <link rel="stylesheet" href="footer.css">
 </head>
+
 <body>
-<nav>
-  <a href="HomePage.html" > Home </a>
-  <a href="AvailableBooks.html"> Available Books </a>
-  <a href="BorrowedBooks.html"> Borrowed Books </a>
-  
-</nav>
+  <a href="home.html">
+    <h1>Maktaba</h1>
+  </a>
+  <div class="container">
+    <ul class="nav-list">
+      <li><a class="nav-link" href="index.html">Home Page</a></li>
+      <li><a class="nav-link" href="admin_dashboard.html">Admin Dashboard</a></li>
+      <li><a class="nav-link" href="browse-books.html">Browse / Search Books</a></li>
+      <li><a class="nav-link" href="BorrowedBooks.html">Borrowed Books</a></li>
+      <li><a class="nav-link" href="contact.html">Contact / Support</a></li>
+      <li><a class="nav-link" href="login.html">Login</a></li>
+      <li><a class="nav-link" href="signup.html">Signup</a></li>
+    </ul>
+  </div>
 
 
 
-<h1  align="center">Books You Borrowed</h1>
-<table border="2" align="center" width="1200" height="500">
-  <thead>
-    <tr>
-    <th>ID</th>
-    <th>Name</th>
-    <th>Author</th>
-    <th>Cateogry</th>
-    <th>Start-Date</th>
-    <th>End-Date</th>
-  </tr>
-  </thead>
-  
-  <tbody>
-    <tr align="center">
-    <td>1</td>
-    <td>Al-Ahly</td>
-    <td>Ramy</td>
-    <td>Sport</td>
-    <td>2025-3-3</td>
-    <td>2025-3-28</td>
-  </tr>
+  <h1 align="center">Books You Borrowed</h1>
+  <table border="2" align="center" width="1200" height="500">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Cateogry</th>
+        <th>Start-Date</th>
+        <th>End-Date</th>
+      </tr>
+    </thead>
 
-    <tr align="center">
-    <td>2</td>
-    <td>Zamalek</td>
-    <td>Adham</td>
-    <td>Sport</td>
-    <td>2025-3-4</td>
-    <td>2025-3-29</td>
-  </tr>
-  </tbody>
+    <tbody>
+      <tr align="center">
+        <td>1</td>
+        <td>Al-Ahly</td>
+        <td>Ramy</td>
+        <td>Sport</td>
+        <td>2025-3-3</td>
+        <td>2025-3-28</td>
+      </tr>
 
-  <tfoot>
-    <tr>
-       <th colspan="3">Number of Books: </th>
-    <th colspan="3"> 2 </th>
-    </tr>
-   
-    
-  </tfoot>
-  
+      <tr align="center">
+        <td>2</td>
+        <td>Zamalek</td>
+        <td>Adham</td>
+        <td>Sport</td>
+        <td>2025-3-4</td>
+        <td>2025-3-29</td>
+      </tr>
+    </tbody>
 
-</table>
+    <tfoot>
+      <tr>
+        <th colspan="3">Number of Books: </th>
+        <th colspan="3"> 2 </th>
+      </tr>
 
+
+    </tfoot>
+
+
+  </table>
+
+
+  <footer class="footer">
+    <div class="footer-columns">
+
+      <div class="footer-column">
+        <h3 class="footer-title">Project</h3>
+        <p class="footer-item">Maktaba</p>
+        <p class="footer-item">Library Management System</p>
+        <p class="footer-item">FCAI-CU</p>
+      </div>
+
+      <div class="footer-column">
+        <h3 class="footer-title">Developers</h3>
+        <p class="footer-item">Ramy Zaher</p>
+        <p class="footer-item">Mohammed Atef</p>
+        <p class="footer-item">Adham M. Megahed</p>
+        <p class="footer-item">Adham Amgad</p>
+        <p class="footer-item">NourEldeen Gamal</p>
+        <p class="footer-item">Ammen O.</p>
+      </div>
+
+      <div class="footer-column">
+        <h3 class="footer-title">Under Supervision Of</h3>
+        <p class="footer-item">TA: Mira Mohamed</p>
+      </div>
+
+    </div>
+  </footer>
 </body>
+
 </html>
