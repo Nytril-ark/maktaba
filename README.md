@@ -46,6 +46,10 @@ NEVER hardcode colors in your CSS/HTML, use the variables from main.css.
 - the array is stored in `books.js` and imported by all 3 pages. 
 - admin dashboard can delete or add items in that array 
 
+
+---
+
+
 ### JS: Login & Signup (1 person)
 - admin pages have something in their JS like 
 ```
