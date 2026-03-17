@@ -20,7 +20,8 @@ website for the web technology uni project
 
 # PHASE 2: 
 All pages import `main.css` which contains the color palette. We can change the pallette later if we want 
-NEVER hardcode colors in your CSS/HTML, use the variables from main.css.
+
+NEVER hardcode colors in your CSS/HTML, use or create variables from main.css so its easier to change them later
 
 # tasks:
 
