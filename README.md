@@ -35,10 +35,7 @@ NEVER hardcode colors in your CSS/HTML, use the variables from main.css.
 
 
 
-### JS 
-
-
-##### search, admin dashboard, book page. (3 people)
+### JS: search, admin dashboard, book page. (3 people)
 - book page: Make each of the book details have classes, like: 
 ```
 <div class="author"></div>
@@ -49,7 +46,7 @@ NEVER hardcode colors in your CSS/HTML, use the variables from main.css.
 - the array is stored in `books.js` and imported by all 3 pages. 
 - admin dashboard can delete or add items in that array 
 
-##### Login & Signup (1 person)
+##### JS: Login & Signup (1 person)
 - admin pages have something in their JS like 
 ```
 if (role !== admin) redirect();
