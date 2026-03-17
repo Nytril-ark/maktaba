@@ -55,7 +55,7 @@ NEVER hardcode colors in your CSS/HTML, use or create variables from main.css so
 - admin pages have something in their JS like 
 ```
 if (role !== admin) redirect();
-```
+``` 
 which sends the user away if he's not admin. the user role is stored in local storage. 
 
 if there is no role in localStorage, the user is a GUEST. HE only sees the home page, browse, and login. Other pages all redirect like above. 
@@ -67,4 +67,6 @@ if the role is ADMIN, he sees the admin page too..
 the JS for the login page checks if the input username/password is like the one stored in an array in login.js, if it matches, user gets the role using something like:
 ```
 localStorage.setItem("role", admin);
-```
+``` 
+
+navbar should change according to role too
