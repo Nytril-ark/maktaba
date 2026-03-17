@@ -22,9 +22,9 @@ website for the web technology uni project
 All pages import `main.css` which contains the color palette. We can change the pallette later if we want 
 NEVER hardcode colors in your CSS/HTML, use the variables from main.css.
 
-### tasks:
+# tasks:
 
-##### CSS
+### CSS
 - login, signup, and "forgot password" 
 - put contact page under home page, add more photos, better css, more fake contacts (facebook, whatsapp, instagram, etc)
 - better css & statistics for admin dashboard (number of books, number of users, etc)
@@ -41,13 +41,14 @@ this way we can have just 1 html book page and change the details from javascrip
 
 
 
-##### JS:
->>> search, admin dashboard, book page.
+### JS:
+
+##### search, admin dashboard, book page.
 - we make a JS class for books that has attributes like author, description, image, etc.. Then we store an array of that class in the JS of the search page. And the search function looks through that array. 
 - the array is stored in `books.js` and imported by all 3 pages. 
 - admin dashboard can delete or add items in that array 
 
->>> Login & Signup 
+##### Login & Signup 
 - admin pages have something in their JS like 
 ```
 if (role !== admin) redirect();
