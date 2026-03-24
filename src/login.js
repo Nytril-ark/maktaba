@@ -11,7 +11,10 @@ document.querySelector('form').addEventListener('submit', function(e) {
 
     if (foundUser) {
         if (foundUser.Password === passwordInput) {
-            window.location.replace("index.html");
+            localStorage( "Role", foundUser.role );
+            localStorage.setItem( "LogedUser", foundUser );
+            window.location.replace( "index.html" );
+            
         } else {
             alert("Password is Wrong");
         }
