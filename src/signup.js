@@ -1,5 +1,3 @@
-localStorage.setItem( "Role", "Guest" );
-
 document.querySelector( 'form' ).addEventListener( 'submit', function ( e ) {
     e.preventDefault();
     
@@ -22,21 +20,6 @@ document.querySelector( 'form' ).addEventListener( 'submit', function ( e ) {
     }
 
     var allUsers = JSON.parse( localStorage.getItem( "AllUsers" ) ) || [];
-
-    if ( allUsers.length === 0 ) {
-        let adminUser = {
-            FirstName: "Admin",
-            LastName: "System",
-            Birthday: "2000-01-01",
-            UserName: "admin",
-            Email: "admin@library.com",
-            Password: "admin", 
-            role: "Admin"      
-        };
-
-        allUsers.push( adminUser );
-        localStorage.setItem( "AllUsers", allUsers );
-    }
     
     if ( allUsers.find( u => u.Email === user.Email ) ) {
         alert("This email is already registered!");

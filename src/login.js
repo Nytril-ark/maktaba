@@ -11,8 +11,8 @@ document.querySelector('form').addEventListener('submit', function(e) {
 
     if (foundUser) {
         if (foundUser.Password === passwordInput) {
-            localStorage( "Role", foundUser.role );
-            localStorage.setItem( "LogedUser", foundUser );
+            localStorage.setItem( "Role", foundUser.role );
+            localStorage.setItem( "LogedUser", JSON.stringify(foundUser) );
             window.location.replace( "index.html" );
             
         } else {
