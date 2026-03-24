@@ -44,8 +44,9 @@ NEVER hardcode colors in your CSS/HTML, use or create variables from main.css so
 ```
 - this way we can have just 1 html book page and change the details from javascript. (function that get element by classname, and changes author, description, picture, etc depending on what book is being displayed)
 - we make a JS class for books that has attributes like author, description, image, etc.. Then we store an array of that class in JS. And the search function looks through that array. 
-- the array is stored in `books.js` and imported by all 3 pages. 
-- admin dashboard can delete or add items in that array 
+- the array is stored in `books.js` and imported by all 3 pages.
+- admin dashboard can delete or edit items in that array
+- make the borrow book button in the book page functional (borrowed books should appear in the borrowed page.)
 
 
 ---
