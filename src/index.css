@@ -1,0 +1,153 @@
+#image-section{
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.1)),
+     url("images/index-img9.jpg");
+    background-size: cover;
+    background-position: center  ;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    padding-left: 10%;
+
+}
+/* linear-gradient(to right, rgba(13, 61, 3, 0.85), rgba(92, 109, 73, 0.2))
+linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.1))
+linear-gradient(to right, rgba(15, 32, 39, 0.9), rgba(32, 58, 67, 0.3)) */
+.image-content{
+    color: white;
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-family: sans-serif;
+}
+.image-content h1{
+    font-size: x-large;
+    font-weight: bolder;
+    margin: 0;
+
+}
+.image-content p{
+    font-size: large;
+    line-height: 1.6;
+    font-weight: bold;
+}
+.image-button{
+    display: flex;
+    gap:20px;
+}
+.contact-btn,.browse-btn{
+    text-decoration: none;
+    color:white;
+    padding: 12px 30px;
+    border-radius: 12px;
+}
+.contact-btn{
+    border:2px solid white;
+    color:black;
+    background-color: white;
+}
+.browse-btn{
+    background-color: var(--accent1);
+}
+.contact-btn:hover{
+    color: white;
+    background-color: gray;
+    border:2px solid gray;
+}
+.browse-btn:hover{
+    background-color: green;
+}
+/* Weekly bestsellers*/
+.bestsellers-section{
+    padding: 15px;
+}
+
+.books-grid{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 40px;
+}
+.book-card{
+    background-color: white;
+    box-shadow: 10px 10px ;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.3s ease-in-out;
+    position: relative;
+    padding: 60px;
+    
+
+}
+.card-image-wrapper{
+    position: relative;
+    padding: 5px;
+}
+.card-image-wrapper a {
+    width: 100%;
+}
+.card-image-wrapper img {
+    width: 100%;
+    height: 350px;
+    object-fit: contain;
+    display: block;
+}
+.discount-badge{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border-radius:20px ;
+    background-color: orange;
+}
+.heart-icon{
+position: absolute;
+top: 10px;
+right: 10px;
+ border-radius:20px ;
+ border: none;
+ font-size: large;
+ 
+}
+.card-info{
+    padding: 15px;
+}
+
+.card-info h3{
+    font-weight: bolder;
+    margin: 10px;
+
+}
+.card-info .old-price{
+    text-decoration: line-through;
+
+}
+.card-info .new-price{
+   font-weight: bold;
+
+}
+/*  ---------------*/
+.book-card:hover{
+    transform: translateY(-15px) translateX(10px);
+
+   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    
+}
+.borrow-btn-hover {
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--accent1);
+    color: white;
+    padding: 10px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    opacity: 0; 
+    visibility: hidden; 
+    transition: all 0.3s ease-in-out;
+}
+.book-card:hover .borrow-btn-hover {
+    opacity: 1; 
+    visibility: visible;
+    bottom: 15px; 
+}
