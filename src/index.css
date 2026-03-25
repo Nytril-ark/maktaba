@@ -151,3 +151,23 @@ right: 10px;
     visibility: visible;
     bottom: 15px; 
 }
+
+@media(max-width: 1024px){
+    .books-grid {
+        grid-template-columns:repeat(2,1fr); 
+        gap:20px; 
+    }
+}
+@media(max-width: 768px){
+    .books-grid{
+        grid-template-columns:repeat(1,1fr); 
+    }
+#image-section{
+        min-height:60vh; 
+        padding-left:5%;
+    }
+    
+    .image-content{
+        max-width:90%; 
+    }
+}
