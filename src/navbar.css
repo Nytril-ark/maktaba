@@ -114,11 +114,14 @@ li,a,button{
     align-items: center;
     padding: 12px;
     gap: 8px;
-    color: var(--background);
+    color: var(--text);
+    background-color: var(--accent0);
+    font-weight:600;
     transition: 0.3s;
 }
 .logoutLink:hover{
-    background-color: var(--accent0);
+    background-color: var(--accent1);
+    color: white;
 }
 .logoutLink img{
     width: 18px;
