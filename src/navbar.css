@@ -1,41 +1,126 @@
-.container
-{
-    max-width: 900px;
-    margin: 0px auto;
-    text-align: center;
+li,a,button{
+    font-family: "Montserrat",sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--text);
+    text-decoration: none;
 }
+.container{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 5%;
+    height: 80px;
+    align-items: center;
+    background:#f0f0f0;
+    border-bottom: 1px solid #ddd;
 
-.title
-{
-    margin-bottom: 30px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
-
-.nav-list
-{
+.Logo{
+    cursor: pointer;
+    background: var(--accent1);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    padding: 10px;
+}
+.navLogo{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.nav-links{
     list-style: none;
-    padding: 0;
+
+}
+.nav-links li{
+    display: inline-block;
+    padding: 0px 5px;
+}
+.nav-links li a{
+    transition: all 0.3s ease 0s;
+    padding: 9px 25px;
+    border-radius: 50px;
+}
+.nav-links li a:hover{
+    color: white;
+    background-color: var(--accent0);
+}
+.nav-links li a.active{
+    background-color: var(--accent1);
+    color: white !important;
+}
+.nav-links li a.active:hover{
+    background-color: var(--accent0);
+}
+
+.loginButton{
+    padding: 9px 25px;
+    background-color: var(--accent1);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+.loginButton:hover{
+    background-color: var(--accent0);
+}
+.profile{
+    position: relative;
+}
+
+.profilebutton{
+    width: 45px;
+    height: 45px;
+    background: var(--accent1);
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
     display: flex;
     justify-content: center;
+    align-items: center;
+    
+}
+.profilebutton:hover{
+    background-color: var(--accent0);
 }
 
-.nav-list li
-{
-    margin: 12px 0;
+.dropDowncontent{
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 55px;
+    z-index: 1001;
+    background-color: var(--background);
+    min-width: 220px;
+    box-shadow: 0px 8px 16px lightgray;
+    border-radius: 8px;
+    overflow: hidden;
 }
-
-.nav-link
-{
-    display: inline-block;
-
-    padding: 10px;
-
-    text-decoration: none;
-
-    background-color: var(--accent1);
-    color: var(--light-text);
+.dropDowncontent.show{
+    display: block;
 }
-
-.nav-link:hover
-{
-    background-color: var(--accent2);
+.userInfo{
+    padding: 15px;
+    color: var(--text);
+    text-align: center;
+}
+.logoutLink{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    gap: 8px;
+    color: var(--background);
+    transition: 0.3s;
+}
+.logoutLink:hover{
+    background-color: var(--accent0);
+}
+.logoutLink img{
+    width: 18px;
+    height: 18px;
 }
