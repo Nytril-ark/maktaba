@@ -36,7 +36,7 @@ if ( logoutButton ) {
         e.preventDefault();
         localStorage.setItem( "Role", "Guest" );
         localStorage.removeItem( "LogedUser" );
-        window.location.replace( "login.html" );
+        window.location.replace( "index.html" );
     });
 }
 
