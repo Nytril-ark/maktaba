@@ -50,6 +50,20 @@
 .sidebar-user p {
   margin: 5px 0; 
 }
+.signoutLink{
+  display: flex;
+  justify-content: center;
+  background-color: var(--background);
+  padding: 10px 15px;
+  color: var(--text);
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: 0.3px;
+}
+.signoutLink:hover{
+  background-color: var(--accent0);
+}
 /* ------------------ */
 .stat-grid{
 display: grid;

@@ -11,17 +11,47 @@
 
 <body>
     <div class="container">
-        <ul class="nav-list">
-        <li><a class="nav-link" id="home" href="index.html">Home Page</a></li>
-        <li><a class="nav-link" id="admin_dashboard" href="admin_dashboard.html">Admin Dashboard</a></li>
-        <li><a class="nav-link" id="browse_books" href="browse-books.html">Browse / Search Books</a></li>
-        <li><a class="nav-link" id="borrow_books" href="BorrowedBooks.html">Borrowed Books</a></li>
-        <li><a class="nav-link" id="contact" href="contact.html">Contact / Support</a></li>
-        <li><a class="nav-link" id="login" href="login.html">Login</a></li>
-        <li><a class="nav-link" id="sign_up" href="signup.html">Signup</a></li>
-        <li><a class="nav-link" id="sign_out" href="#">Signout</a></li>
-        </ul>
+    <a href="index.html" class="navLogo">
+      <img class = "Logo" src="images/menu_book_16dp_E3E3E3_FILL0_wght400_GRAD0_opsz20.svg" alt="logo">
+      <div class="logoText">
+        <h2>Maktaba</h2>
+        <p>FCAI-CU Library</p>
+      </div>
+    </a>
+<!-- navbar links -->
+    <nav class="nav-links">
+      <ul>
+        <li><a href="index.html" class="navhome active"><span>Home</span></a></li>
+        <li><a href="browse-books.html" class="navbrowse"><span>Browse Books</span></a></li>
+        <li><a href="BorrowedBooks.html" class="navborrowed"><span>My Borrowed Books</span></a></li>
+      </ul>
+    
+    </nav>  
+<!-- search bar and profile icon -->
+    <div class="userAction">
+      <div class="searchBox">
+        <input type="search" class="searchInput" placeholder="search books.....">
+        <button class="searchIcon"><img src="images/search_22dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt=""></button>
+      </div>
+      <a href="login.html">
+        <button  id = "loginID" class="loginButton">login</button>
+      </a>
+      <div class="profile" style="display: none;">
+        <button id="profileIcon" class="profilebutton"><img src="images/account_circle_20dp_E3E3E3_FILL0_wght400_GRAD0_opsz20.svg" alt=""></button>
+        <div id="dropDownMenu" class="dropDowncontent">
+          <div class="userInfo">
+            <p class="role">student</p>
+            <p class="email">student@library.com</p>
+          </div>
+          <hr>
+          <a href="#" id="logoutButton" class="logoutLink">
+            <img src="images/logout_20dp_000000_FILL0_wght400_GRAD0_opsz20.svg" alt="">
+            logout
+          </a>
+        </div>
+      </div>
     </div>
+  </div>
   <hr />
   <h1> Contacts: </h1>
   <h4> Contact Phone Number: +20 1523456789 </h4>
@@ -31,25 +61,32 @@
     <div class="footer-columns">
 
       <div class="footer-column">
-        <h3 class="footer-title">Project</h3>
-        <p class="footer-item">Maktaba</p>
-        <p class="footer-item">Library Management System</p>
-        <p class="footer-item">FCAI-CU</p>
+        <a href="index.html" class="footerLogo">
+          <img class = "footerLogoIcon" src="images/menu_book_16dp_E3E3E3_FILL0_wght400_GRAD0_opsz20.svg" alt="logo">
+          <div class="logoText">
+          <h2>Maktaba</h2>
+          <p>FCAI-CU Library</p>
+          </div>
+        </a>
       </div>
 
       <div class="footer-column">
-        <h3 class="footer-title">Developers</h3>
-        <p class="footer-item">Ramy Zaher</p>
-        <p class="footer-item">Mohammed Atef</p>
-        <p class="footer-item">Adham M. Megahed</p>
-        <p class="footer-item">Adham Amgad</p>
-        <p class="footer-item">NourEldeen Gamal</p>
-        <p class="footer-item">Ammen O.</p>
+        <h3 class="footer-title">Links</h3>
+        <ul class="footerLinks">
+          <li><a href="index.html" class="footerhome"><span>Home</span></a></li>
+          <li><a href="browse-books.html" class="footerbrowse"><span>Browse Books</span></a></li>
+          <li><a href="contact.html" class="footerborrowed"><span>Contact us</span></a></li>
+        </ul>
       </div>
 
       <div class="footer-column">
-        <h3 class="footer-title">Under Supervision Of</h3>
-        <p class="footer-item">TA: Mira Mohamed</p>
+        <h3 class="footer-title">Contact us</h3>
+        <p class="footer-item">Email: <a href="mailto:Contact@Maktaba.com" class="contactLink">Contact@Maktaba.com</a> </p>
+        <p class="footer-item">Phone Number: <a href="tel:+201523456789" class="contactLink">+20 1523456789</a> </p>
+        <div class="socialMedia">
+          <a href="https://facebook.com"><img src="images/social.png" alt=""></a>
+          <a href="https://linkedin.com"><img src="images/linkedin.png" alt=""></a>
+        </div>
       </div>
 
     </div>
