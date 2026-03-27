@@ -130,6 +130,8 @@ margin: 0;
   position: relative; /* عشان المكتبة بتخلي canvas postion:abs */
   height: 250px;
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
 /* ---------------- */
 .recent-act{
