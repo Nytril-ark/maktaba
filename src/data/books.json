@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Introduction To Algorithms",
+    "authors": ["CORMEN", "LEISERSON", "RIVEST", "STEIN"],
+    "image": "images/61TX9gJwCDL._SY425_.jpg",
+    "category": "Software Algorithms",
+    "pages": 400,
+    "language": "English",
+    "description": "Intro",
+    "status": "Available",
+    "rating": 3
+  },
+  {
+    "id": 2,
+    "title": "Clean Code",
+    "authors": ["Robert C. Martin"],
+    "image": "images/book2.jpg",
+    "category": "Software Engineering",
+    "pages": 350,
+    "language": "English",
+    "description": "Clean code principles",
+    "status": "Available",
+    "rating": 5
+  }
+]

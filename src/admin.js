@@ -28,7 +28,7 @@ function saveBooks() {
 
 function loadCharts() {
 
-    // Monthly chart
+    // months chart
     const ctx1 = document.getElementById("monthlyChart");
 
     if (ctx1) {
@@ -45,7 +45,7 @@ function loadCharts() {
         });
     }
 
-    // Category chart
+    // categories chart
     const ctx2 = document.getElementById("categoryChart");
 
     if (ctx2) {

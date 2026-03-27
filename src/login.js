@@ -1,4 +1,3 @@
-
 document.querySelector('form').addEventListener('submit', function(e) {
     e.preventDefault();
     const emailInput = document.getElementById("email").value;
@@ -16,9 +15,9 @@ document.querySelector('form').addEventListener('submit', function(e) {
             window.location.replace( "index.html" );
             
             if (foundUser.role === "Admin") {
-                 window.location.replace("admin_dashboard.html"); // الأدمن يروح لوحته
+                 window.location.replace("admin_dashboard.html");
             } else {
-                window.location.replace("index.html"); // اليوزر العادي يروح الرئيسية
+                window.location.replace("index.html");
     }
         } else {
             alert("Password is Wrong");
