@@ -1,23 +1,46 @@
-if (!localStorage.getItem( "Role" ) ) {
+const loginButton = document.getElementById( "login" );
+const logoutButton = document.getElementById( "logoutButton" );
+const logoutButton2 = document.getElementById( "logoutButton2" );
+
+const profileSection = document.getElementById( "profileSection" );
+const profileIcon = document.getElementById( "profileIcon" );
+const dropDownMenu = document.getElementById( "dropDownMenu" );
+
+if ( !localStorage.getItem( "Role" ) ) {
     localStorage.setItem( "Role", "Guest" );
 }
 
-if ( localStorage.getItem( "Role" ) !== "Admin" ) {
-    document.getElementById( "admin_dashboard" ).style.display = "none";
-}
+    // if ( localStorage.getItem( "Role" ) === "Admin" ) {
+    //     if ( !window.location.href.includes( "admin_dashboard.html" ) ) {
+    //         window.location.replace( "admin_dashboard.html" );
+    //     }
+    // }
 
 if ( localStorage.getItem( "Role" ) !== "Guest" ) {
-    document.getElementById( "sign_up" ).style.display = "none";
-    document.getElementById( "login" ).style.display = "none";
-} else {
-    document.getElementById( "sign_out" ).style.display = "none";
+if ( loginButton ) {
+    loginButton.style.display = "none";
 }
 
-document.getElementById( "sign_out" ).addEventListener( "click", function ( e ) {
-    localStorage.setItem( "Role", "Guest" );
-    localStorage.removeItem( "LogedUser" );
-    window.location.replace( "login.html" );
-} );
+if ( profileSection ) {
+    profileSection.style.display = "block";
+}
+}
+
+if ( logoutButton ) {
+    logoutButton.addEventListener( "click", function ( e ) {
+        e.preventDefault();
+        localStorage.setItem( "Role", "Guest" );
+        localStorage.removeItem( "LogedUser" );
+        window.location.replace( "login.html" );
+    });
+}
+
+if ( profileIcon ) {
+    profileIcon.addEventListener( "click", function ( e ) {
+        e.preventDefault();
+        dropDownMenu.classList.toggle( "show" );
+    });
+}
 
 var allUsers = JSON.parse( localStorage.getItem( "AllUsers" ) ) || [];
 
