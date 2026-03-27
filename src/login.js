@@ -15,6 +15,11 @@ document.querySelector('form').addEventListener('submit', function(e) {
             localStorage.setItem( "LogedUser", JSON.stringify(foundUser) );
             window.location.replace( "index.html" );
             
+            if (foundUser.role === "Admin") {
+                 window.location.replace("admin_dashboard.html"); // الأدمن يروح لوحته
+            } else {
+                window.location.replace("index.html"); // اليوزر العادي يروح الرئيسية
+    }
         } else {
             alert("Password is Wrong");
         }
