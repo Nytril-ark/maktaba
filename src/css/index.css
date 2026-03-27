@@ -1,6 +1,6 @@
 #image-section{
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.1)),
-     url("images/index-img9.jpg");
+     url("../images/index-img9.jpg");
     background-size: cover;
     background-position: center  ;
     min-height: 85vh;

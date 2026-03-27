@@ -60,17 +60,17 @@ async function loadPage() {
   const id = parseInt(params.get("id"));
 
   if (!id) {
-    window.location.href = "404.html";
+    window.location.href = "../html/404.html";
     return;
   }
 
-  const res = await fetch("data/books.json");
+  const res = await fetch("../data/books.json");
   const data = await res.json();
 
   const found = data.find(b => b.id === id);
 
   if (!found) {
-    window.location.href = "404.html";
+    window.location.href = "../html/404.html";
     return;
   }
 
