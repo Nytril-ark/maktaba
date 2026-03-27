@@ -6,15 +6,14 @@ const profileSection = document.getElementById( "profileSection" );
 const profileIcon = document.getElementById( "profileIcon" );
 const dropDownMenu = document.getElementById( "dropDownMenu" );
 
+const username = document.getElementById( "username" );
+const email = document.getElementById( "email" );
+
+let logeUser = JSON.parse( localStorage.getItem( "LogedUser" ) ) || null;
+
 if ( !localStorage.getItem( "Role" ) ) {
     localStorage.setItem( "Role", "Guest" );
 }
-
-    // if ( localStorage.getItem( "Role" ) === "Admin" ) {
-    //     if ( !window.location.href.includes( "admin_dashboard.html" ) ) {
-    //         window.location.replace( "admin_dashboard.html" );
-    //     }
-    // }
 
 if ( localStorage.getItem( "Role" ) !== "Guest" ) {
 if ( loginButton ) {
@@ -40,6 +39,18 @@ if ( profileIcon ) {
         e.preventDefault();
         dropDownMenu.classList.toggle( "show" );
     });
+}
+
+if ( username ) {
+    if (logeUser) {    
+        username.textContent = logeUser.UserName;
+    }
+}
+
+if ( email ) {
+    if (logeUser) {    
+        email.textContent = logeUser.Email;
+    }
 }
 
 var allUsers = JSON.parse( localStorage.getItem( "AllUsers" ) ) || [];
