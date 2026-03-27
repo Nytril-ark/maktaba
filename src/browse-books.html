@@ -10,34 +10,35 @@
 </head>
 
 <body>
-    <div class="container">
+  <div class="container">
     <a href="index.html" class="navLogo">
-      <img class = "Logo" src="images/menu_book_16dp_E3E3E3_FILL0_wght400_GRAD0_opsz20.svg" alt="logo">
+      <img class="Logo" src="images/menu_book_16dp_E3E3E3_FILL0_wght400_GRAD0_opsz20.svg" alt="logo">
       <div class="logoText">
         <h2>Maktaba</h2>
         <p>FCAI-CU Library</p>
       </div>
     </a>
-<!-- navbar links -->
+    <!-- navbar links -->
     <nav class="nav-links">
       <ul>
         <li><a href="index.html" class="navhome"><span>Home</span></a></li>
         <li><a href="browse-books.html" class="navbrowse active"><span>Browse Books</span></a></li>
         <li><a href="BorrowedBooks.html" class="navborrowed"><span>My Borrowed Books</span></a></li>
       </ul>
-    
-    </nav>  
-<!-- search bar and profile icon -->
+
+    </nav>
+    <!-- search bar and profile icon -->
     <div class="userAction">
       <div class="searchBox">
         <input type="search" class="searchInput" placeholder="search books.....">
         <button class="searchIcon"><img src="images/search_22dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt=""></button>
       </div>
       <a href="login.html">
-        <button  id = "loginID" class="loginButton">login</button>
+        <button id="loginID" class="loginButton">login</button>
       </a>
       <div class="profile" style="display: none;">
-        <button id="profileIcon" class="profilebutton"><img src="images/account_circle_20dp_E3E3E3_FILL0_wght400_GRAD0_opsz20.svg" alt=""></button>
+        <button id="profileIcon" class="profilebutton"><img
+            src="images/account_circle_20dp_E3E3E3_FILL0_wght400_GRAD0_opsz20.svg" alt=""></button>
         <div id="dropDownMenu" class="dropDowncontent">
           <div class="userInfo">
             <p class="role">student</p>
@@ -82,7 +83,7 @@
   <br>
   <fieldset>
     <legend>Search Results</legend>
-    <table border="1" width="100%">
+    <table border="1" width="100%" id="booksTable">
       <tr>
         <th>Title</th>
         <th>Author</th>
