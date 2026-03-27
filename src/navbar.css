@@ -108,6 +108,54 @@ li,a,button{
     color: var(--text);
     text-align: center;
 }
+.userAction{
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: flex-end;
+    min-width: 140px;
+    gap: 15px;
+}
+.searchBox{
+    display: flex;
+    position: absolute;
+    background-color: white;
+    align-items: center;
+    border: 2px solid transparent;
+    border-radius: 50px;
+    height: 45px;
+    width: 45px;
+    right: 100px;
+    overflow: hidden;
+    transition: width .4s ease, border-color 0.4s ease;
+}
+.searchBox:hover,.searchBox:focus-within{
+    width: 220px;
+    border-color: var(--accent1);
+}
+.searchInput{
+    border: none;
+    outline: none;
+    width: calc(100% - 45px);
+    color: var(--text);
+    opacity: 0;
+    transition: opacity 0.3s ease, width 0.3s ease, padding 0.3s ease;
+}
+.searchBox:hover .searchInput,.searchBox:focus-within .searchInput{
+    opacity: 1;
+    width: 100%;
+    padding: 0 12px;
+}
+.searchIcon{
+    border: none;
+    background: none;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+}
 .logoutLink{
     display: flex;
     justify-content: center;
