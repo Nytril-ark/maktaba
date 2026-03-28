@@ -40,7 +40,7 @@ linear-gradient(to right, rgba(15, 32, 39, 0.9), rgba(32, 58, 67, 0.3)) */
     text-decoration: none;
     color:white;
     padding: 12px 30px;
-    border-radius: 12px;
+    border-radius: 50px;
 }
 .contact-btn{
     border:2px solid white;
