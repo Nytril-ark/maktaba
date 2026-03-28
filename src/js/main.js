@@ -1,4 +1,4 @@
-const role = localStorage.getItem( "Role" );
+const role = localStorage.getItem( "Role" )||"Guest";
 
 const loginButton = document.getElementById( "login" );
 const logoutButton = document.getElementById( "logoutButton" );
@@ -65,11 +65,12 @@ if ( email ) {
 
 if ( navBorrowed ) {
     navBorrowed.addEventListener( "click", function ( e ) {
+        e.preventDefault(); 
         if ( role === "Guest" ) {
             alert( "You have to login first" );
             window.location.replace( "login.html" );
         }
-    } );
+    });
 }
 
 var allUsers = JSON.parse( localStorage.getItem( "AllUsers" ) ) || [];
