@@ -75,3 +75,9 @@ if ( allUsers.length === 0 ) {
     allUsers.push( adminUser );
     localStorage.setItem( "AllUsers", JSON.stringify(allUsers) );
 }
+
+export async function getBooks() {
+    const res = await fetch("../data/books.json");
+    const data = await res.json();
+    return data
+}

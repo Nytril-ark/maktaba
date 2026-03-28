@@ -4,6 +4,7 @@
 <head>
   <title>My borrowed books</title>
   <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/borrowedBooks.css">
   <link rel="stylesheet" href="../css/navbar.css">
   <link rel="stylesheet" href="../css/footer.css">
 </head>
@@ -54,50 +55,58 @@
 
 
 
-  <h1 align="center">Books You Borrowed</h1>
-  <table border="2" align="center" width="1200" height="500">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Author</th>
-        <th>Cateogry</th>
-        <th>Start-Date</th>
-        <th>End-Date</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <tr align="center">
-        <td>1</td>
-        <td>Al-Ahly</td>
-        <td>Ramy</td>
-        <td>Sport</td>
-        <td>2025-3-3</td>
-        <td>2025-3-28</td>
-      </tr>
-
-      <tr align="center">
-        <td>2</td>
-        <td>Zamalek</td>
-        <td>Adham</td>
-        <td>Sport</td>
-        <td>2025-3-4</td>
-        <td>2025-3-29</td>
-      </tr>
-    </tbody>
-
-    <tfoot>
-      <tr>
-        <th colspan="3">Number of Books: </th>
-        <th colspan="3"> 2 </th>
-      </tr>
-
-
-    </tfoot>
-
-
-  </table>
+  <div class="table-wrapper">
+    <h1>Books You Borrowed</h1>
+    <table class="borrowed-table">
+      <thead>
+        <tr>
+          <th>#ID</th>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Category</th>
+          <th>ISBN</th>
+          <th>Year</th>
+          <th>Start-Date</th>
+          <th>End-Date</th>
+          <th>Status</th>
+          <th>book page</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Game Ai Pro 360</td>
+          <td>Steve Rabin</td>
+          <td>Programming</td>
+          <td>970-02600</td>
+          <td>2009</td>
+          <td>2025-3-3</td>
+          <td>2025-4-28</td>
+          <td class="Status-borrowd" id="Status-borrowd">Borrowed</td>
+          <td><a href="../html/book.html?id=1">view book page</a></td>
+          <td>
+            <button type="button" id="extend" class="extend">extend</button>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td class="book-title">Clean Code</td>
+          <td>Robert C. Martin</td>
+          <td>Software Engineering</td>
+          <td>970-02601</td>
+          <td>2006</td>
+          <td>2025-2-3</td>
+          <td>2025-2-28</td>
+          <td class="Status-expired" id="Status">Expired</td>
+          <td><a href="../html/book.html?id=2">view book page</a></td>
+          <td>
+            <button type="button" id="extend" class="extend">extend</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
 
   <footer class="footer">
@@ -134,7 +143,8 @@
 
     </div>
   </footer>
-  <script src="../js/main.js"></script>
+  <script type="module" src="../js/main.js"></script>
+  <script type="module" src="../js/search.js"></script>
 </body>
 
 </html>

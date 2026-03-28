@@ -1,4 +1,6 @@
-class Book {
+import {getBooks} from "./main.js";
+
+export class Book {
   constructor({
     id,
     title,
@@ -63,10 +65,7 @@ async function loadPage() {
     window.location.href = "../html/404.html";
     return;
   }
-
-  const res = await fetch("../data/books.json");
-  const data = await res.json();
-
+  const data = await getBooks();
   const found = data.find(b => b.id === id);
 
   if (!found) {
