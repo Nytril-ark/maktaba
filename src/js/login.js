@@ -15,7 +15,7 @@ document.querySelector('form').addEventListener('submit', function(e) {
             window.location.replace( "index.html" );
             
             if (foundUser.role === "Admin") {
-                 window.location.replace("admin_dashboard.html");
+                window.location.replace("admin_dashboard.html");
             } else {
                 window.location.replace("index.html");
     }

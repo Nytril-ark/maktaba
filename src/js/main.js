@@ -15,11 +15,11 @@ if ( !localStorage.getItem( "Role" ) ) {
     localStorage.setItem( "Role", "Guest" );
 }
 
-// if ( localStorage.getItem( "Role" ) === "Admin" ) {
-//     if ( !window.location.href.includes("admin_dashboard.html") ) {
-//         window.location.replace("admin_dashboard.html");
-//     }
-// }
+if ( localStorage.getItem( "Role" ) === "Admin" ) {
+    if ( !window.location.href.includes("admin_dashboard.html") && !window.location.href.includes("book_inventory.html") && !window.location.href.includes("add_book.html") ) {
+        window.location.replace("admin_dashboard.html");
+    }
+}
 
 if ( localStorage.getItem( "Role" ) !== "Guest" ) {
 if ( loginButton ) {
