@@ -69,6 +69,8 @@ if ( navBorrowed ) {
         if ( role === "Guest" ) {
             alert( "You have to login first" );
             window.location.replace( "login.html" );
+        } else {
+            window.location.replace( "BorrowedBooks.html" );
         }
     });
 }
