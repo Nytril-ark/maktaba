@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="../css/footer.css">
   <link rel="stylesheet" href="../css/navbar.css">
   <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/browse-books.css">
 </head>
 
 <body>
@@ -51,60 +52,97 @@
     </div>
   </div>
   
-  <table width="100%">
-    <tr>
-      <td>
-        <h1>Maktaba — Browse/Search Books</h1>
-      </td>
-    </tr>
-  </table>
+  <div class="shopPage">
+    <aside class="sidebar-categories">
+      <h3>book categories</h3>
+      <ul class="category-list">
+        <li><button class="categories-buttons active">All books</button></li>
+        <li><button class="categories-buttons">All books</button></li>
+        <li><button class="categories-buttons">All books</button></li>
+        <li><button class="categories-buttons">All books</button></li>
+        <li><button class="categories-buttons">All books</button></li>
+      </ul>
+    </aside>
 
-  <hr>
-  <form>
-    <fieldset>
-      <legend>search</legend>
-      <div>
-        <label for="Search">search</label>
-        <input type="search" id="Search" placeholder="Enter book title or author name">
-        <button type="submit">Search</button>
-        <label for="Search-Category">Search By Category</label>
-        <input list="Category" name="Category" id="Search-Category" placeholder="Select or type....">
-        <datalist id="Category">
-          <option value="Software Engineering">
-          <option value="Machine learning">
-          <option value="Cyber Security">
-        </datalist>
+    <div class="shop-area">
+      <div class="books-grid" id="booksGrid">
+        <div class="book-card">
+            <div class="card-img-container">
+                <img src="https://covers.openlibrary.org/b/id/13167358-M.jpg" alt="${book.title}" onerror="this.src='../images/default-book.png'">
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">Game Ai Pro 360</h3>
+ 
+                <div class="card-footer">
+                    <span class="card-status status-available">Available</span>
+                    <a href="book.html?id=1" class="button-details">View Details</a>
+                </div>
+            </div>
+        </div>
+        <div class="book-card">
+            <div class="card-img-container">
+                <img src="https://covers.openlibrary.org/b/id/13167358-M.jpg" alt="${book.title}" onerror="this.src='../images/default-book.png'">
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">Game Ai Pro 360</h3>
+ 
+                <div class="card-footer">
+                    <span class="card-status status-available">Available</span>
+                    <a href="book.html?id=1" class="button-details">View Details</a>
+                </div>
+            </div>
+        </div>
+        <div class="book-card">
+            <div class="card-img-container">
+                <img src="https://covers.openlibrary.org/b/id/13167358-M.jpg" alt="${book.title}" onerror="this.src='../images/default-book.png'">
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">Game Ai Pro 360</h3>
+ 
+                <div class="card-footer">
+                    <span class="card-status status-available">Available</span>
+                    <a href="book.html?id=1" class="button-details">View Details</a>
+                </div>
+            </div>
+        </div>
+        <div class="book-card">
+            <div class="card-img-container">
+                <img src="https://covers.openlibrary.org/b/id/13167358-M.jpg" alt="${book.title}" onerror="this.src='../images/default-book.png'">
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">Game Ai Pro 360</h3>
+ 
+                <div class="card-footer">
+                    <span class="card-status status-available">Available</span>
+                    <a href="book.html?id=1" class="button-details">View Details</a>
+                </div>
+            </div>
+        </div>
+        <div class="book-card">
+            <div class="card-img-container">
+                <img src="https://covers.openlibrary.org/b/id/13167358-M.jpg" alt="${book.title}" onerror="this.src='../images/default-book.png'">
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">Game Ai Pro 360</h3>
+ 
+                <div class="card-footer">
+                    <span class="card-status status-available">Available</span>
+                    <a href="book.html?id=1" class="button-details">View Details</a>
+                </div>
+            </div>
+        </div>`
       </div>
-    </fieldset>
-  </form>
-  <br>
-  <fieldset>
-    <legend>Search Results</legend>
-    <table border="1" width="100%" id="booksTable">
-      <tr>
-        <th>Title</th>
-        <th>Author</th>
-        <th>Category</th>
-        <th>Status</th>
-        <th>Details</th>
-      </tr>
-      <tr>
-        <td align="center">introduction to algorithms</td>
-        <td align="center">CLIFFORD STEIN</td>
-        <td align="center">Software Engineering</td>
-        <td align="center">Available</td>
-        <td align="center"><a href="book.html?id=1">View details</a></td>
-      </tr>
-      <tr>
-        <td align="center">Clean Code</td>
-        <td align="center">Robert C.Martin Clean</td>
-        <td align="center">Software Engineering</td>
-        <td align="center">Not Available</td>
-        <td align="center"><a href="book.html?id=2">View details</a></td>
-      </tr>
+      <div class="pageNumber" id="pageNumber">
+        <button class="page-button active">1</button>
+        <button class="page-button">2</button>
+        <button class="page-button">3</button>
+        <button class="page-button">4</button>
+        <span class="dots">....</span>
+        <button class="page-button nextPages">&gt;</button>
+      </div>
+    </div>
+  </div>
 
-    </table>
-  </fieldset>
 
   <footer class="footer">
     <div class="footer-columns">
