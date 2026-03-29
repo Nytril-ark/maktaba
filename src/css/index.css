@@ -65,16 +65,25 @@ linear-gradient(to right, rgba(15, 32, 39, 0.9), rgba(32, 58, 67, 0.3)) */
 }
 .section-header{
     padding-bottom: 10px;
+    padding-top: 10px;
 }
-.categories-grid{
-    display: grid;
-    grid-template-columns: repeat(6,1fr);
-    gap: 20px;
 
+.categories-grid{
+    padding-top: 15px;
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
 }
+.categories-grid::-webkit-scrollbar{
+    display: none;
+}
+
 .category-card{
     background-color: white;
-     padding: 25px 15px;
+    padding: 15px 20px;
     border-radius: 12px;
     text-align: center; 
     color: #333;
@@ -82,13 +91,9 @@ linear-gradient(to right, rgba(15, 32, 39, 0.9), rgba(32, 58, 67, 0.3)) */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     border: 1px solid transparent;
     transition: all 0.3s  ease-in-out;
-    /* display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px; */
 }
 .category-icon{
-    font-size: 2.5rem;
+    font-size: 0rem;
 }
 .category-name{
     font-weight: 600;
@@ -110,6 +115,7 @@ linear-gradient(to right, rgba(15, 32, 39, 0.9), rgba(32, 58, 67, 0.3)) */
     display: grid;
     grid-template-columns: repeat(4,1fr);
     gap: 40px;
+    padding-bottom: 20px;
 }
 .book-card{
     background-color: white;

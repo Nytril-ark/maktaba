@@ -1,123 +1,190 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="discription" content="Book page">
-  <title>Book page-1</title>
-  <link rel="stylesheet" href="../css/main.css">
-  <link rel="stylesheet" href="../css/navbar.css">
-  <link rel="stylesheet" href="../css/footer.css">
-  <link rel="stylesheet" href="../css/book.css">
-</head>
-<body>
-  <div class="container">
-    <a href="../html/index.html" class="navLogo">
-      <img class="Logo" src="../images/menu_book_16dp_E3E3E3_FILL0_wght400_GRAD0_opsz20.svg" alt="logo">
-      <div class="logoText">
-        <h2>Maktaba</h2>
-        <p>FCAI-CU Library</p>
-      </div>
-    </a>
-    <nav class="nav-links">
-      <ul>
-        <li><a href="../html/index.html" class="navhome" id="navhome"><span>Home</span></a></li>
-        <li><a href="../html/browse-books.html" class="navbrowse active" id="navbrowse"><span>Browse Books</span></a></li>
-        <li><a href="../html/BorrowedBooks.html" class="navborrowed" id="navborrowed"><span>My Borrowed Books</span></a></li>
-      </ul>
-    </nav>
-    <div class="userAction">
-      <div class="searchBox">
-        <input type="search" class="searchInput" placeholder="search books.....">
-        <button class="searchIcon"><img src="../images/search_22dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt=""></button>
-      </div>
-      <a id="login" href="../html/login.html">
-        <button class="loginButton">login</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="discription" content="Book page" />
+    <title>Book page-1</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/navbar.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
+    <link rel="stylesheet" href="../css/book.css" />
+  </head>
+  <body>
+    <div class="container">
+      <a href="../html/index.html" class="navLogo">
+        <img
+          class="Logo"
+          src="../images/menu_book_16dp_E3E3E3_FILL0_wght400_GRAD0_opsz20.svg"
+          alt="logo"
+        />
+        <div class="logoText">
+          <h2>Maktaba</h2>
+          <p>FCAI-CU Library</p>
+        </div>
       </a>
-      <div id="profileSection" class="profile" style="display: none;">
-        <button id="profileIcon" class="profilebutton"><img src="../images/account_circle_20dp_E3E3E3_FILL0_wght400_GRAD0_opsz20.svg" alt=""></button>
-        <div id="dropDownMenu" class="dropDowncontent">
-          <div class="userInfo">
-            <p id="username" class="role"></p>
-            <p id="email" class="email"></p>
+      <nav class="nav-links">
+        <ul>
+          <li>
+            <a href="../html/index.html" class="navhome" id="navhome"
+              ><span>Home</span></a
+            >
+          </li>
+          <li>
+            <a
+              href="../html/browse-books.html"
+              class="navbrowse active"
+              id="navbrowse"
+              ><span>Browse Books</span></a
+            >
+          </li>
+          <li>
+            <a
+              href="../html/BorrowedBooks.html"
+              class="navborrowed"
+              id="navborrowed"
+              ><span>My Borrowed Books</span></a
+            >
+          </li>
+        </ul>
+      </nav>
+      <div class="userAction">
+        <div class="searchBox">
+          <input
+            type="search"
+            class="searchInput"
+            placeholder="search books....."
+          />
+          <button class="searchIcon">
+            <img
+              src="../images/search_22dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
+              alt=""
+            />
+          </button>
+        </div>
+        <a id="login" href="../html/login.html">
+          <button class="loginButton">login</button>
+        </a>
+        <div id="profileSection" class="profile" style="display: none">
+          <button id="profileIcon" class="profilebutton">
+            <img
+              src="../images/account_circle_20dp_E3E3E3_FILL0_wght400_GRAD0_opsz20.svg"
+              alt=""
+            />
+          </button>
+          <div id="dropDownMenu" class="dropDowncontent">
+            <div class="userInfo">
+              <p id="username" class="role"></p>
+              <p id="email" class="email"></p>
+            </div>
+            <hr />
+            <a href="#" id="logoutButton" class="logoutLink">
+              <img
+                src="../images/logout_20dp_000000_FILL0_wght400_GRAD0_opsz20.svg"
+                alt=""
+              />
+              logout
+            </a>
           </div>
-          <hr>
-          <a href="#" id="logoutButton" class="logoutLink">
-            <img src="../images/logout_20dp_000000_FILL0_wght400_GRAD0_opsz20.svg" alt="">
-            logout
-          </a>
         </div>
       </div>
     </div>
-  </div>
-  <div class="container-1">
-    <div class="child-1">
-      <div class="Book-1">
-        <div class="book-layout">
-          <img id="bookImage" src="" alt="Book Cover">
-          <div class="book-details">
-            <h2 id="bookTitle"></h2>
-            <div class="author-1">
-              <h4>Authors:</h4>
-              <ul id="bookAuthors"></ul>
-            </div>
-            <aside class="aboutbook-1">
-              <h4 id="bookCategory"></h4>
-              <h4 id="bookPages"></h4>
-              <h4 id="bookLanguage"></h4>
-            </aside>
-            <article class="discription-1">
-              <h3>Description:</h3>
-              <p id="bookDescription"></p>
-            </article>
-            <div class="footer-1">
-              <h4 id="bookStatus"></h4>
-              <div class="rate-1">
-                <h4 id="bookRating"></h4>
-                <button id="borrowBookButton">Borrow Book</button>
-                <!-- <button>Add to Favorite</button> -->
+    <div class="container-1">
+      <div class="child-1">
+        <div class="Book-1">
+          <div class="book-layout">
+            <img id="bookImage" src="" alt="Book Cover" />
+            <div class="book-details">
+              <h2 id="bookTitle"></h2>
+              <div class="author-1">
+                <h4>Authors:</h4>
+                <ul id="bookAuthors"></ul>
+              </div>
+              <aside class="aboutbook-1">
+                <h4 id="bookCategory"></h4>
+                <h4 id="bookPages"></h4>
+                <h4 id="bookLanguage"></h4>
+              </aside>
+              <article class="discription-1">
+                <h3>Description:</h3>
+                <p id="bookDescription"></p>
+              </article>
+              <div class="footer-1">
+                <h4 id="bookStatus"></h4>
+                <div class="rate-1">
+                  <h4 id="bookRating"></h4>
+                  <button id="borrowBookButton">borrow</button>
+                  <!-- <button>Add to Favorite</button> -->
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <footer class="footer">
-    <div class="footer-columns">
+        <footer class="footer">
+          <div class="footer-columns">
+            <div class="footer-column">
+              <a href="../html/index.html" class="footerLogo">
+                <img
+                  class="footerLogoIcon"
+                  src="../images/menu_book_16dp_E3E3E3_FILL0_wght400_GRAD0_opsz20.svg"
+                  alt="logo"
+                />
+                <div class="logoText">
+                  <h2>Maktaba</h2>
+                  <p>FCAI-CU Library</p>
+                </div>
+              </a>
+            </div>
 
-      <div class="footer-column">
-        <a href="../html/index.html" class="footerLogo">
-          <img class = "footerLogoIcon" src="../images/menu_book_16dp_E3E3E3_FILL0_wght400_GRAD0_opsz20.svg" alt="logo">
-          <div class="logoText">
-          <h2>Maktaba</h2>
-          <p>FCAI-CU Library</p>
+            <div class="footer-column">
+              <h3 class="footer-title">Links</h3>
+              <ul class="footerLinks">
+                <li>
+                  <a href="../html/index.html" class="footerhome"
+                    ><span>Home</span></a
+                  >
+                </li>
+                <li>
+                  <a href="../html/browse-books.html" class="footerbrowse"
+                    ><span>Browse Books</span></a
+                  >
+                </li>
+                <li>
+                  <a href="../html/contact.html" class="footerborrowed"
+                    ><span>Contact us</span></a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div class="footer-column">
+              <h3 class="footer-title">Contact us</h3>
+              <p class="footer-item">
+                Email:
+                <a href="mailto:Contact@Maktaba.com" class="contactLink"
+                  >Contact@Maktaba.com</a
+                >
+              </p>
+              <p class="footer-item">
+                Phone Number:
+                <a href="tel:+201523456789" class="contactLink"
+                  >+20 1523456789</a
+                >
+              </p>
+              <div class="socialMedia">
+                <a href="https://facebook.com"
+                  ><img src="../images/facebook.png" alt=""
+                /></a>
+                <a href="https://linkedin.com"
+                  ><img src="../images/linkedin.png" alt=""
+                /></a>
+              </div>
+            </div>
           </div>
-        </a>
+        </footer>
       </div>
-
-      <div class="footer-column">
-        <h3 class="footer-title">Links</h3>
-        <ul class="footerLinks">
-          <li><a href="../html/index.html" class="footerhome"><span>Home</span></a></li>
-          <li><a href="../html/browse-books.html" class="footerbrowse"><span>Browse Books</span></a></li>
-          <li><a href="../html/contact.html" class="footerborrowed"><span>Contact us</span></a></li>
-        </ul>
-      </div>
-
-      <div class="footer-column">
-        <h3 class="footer-title">Contact us</h3>
-        <p class="footer-item">Email: <a href="mailto:Contact@Maktaba.com" class="contactLink">Contact@Maktaba.com</a> </p>
-        <p class="footer-item">Phone Number: <a href="tel:+201523456789" class="contactLink">+20 1523456789</a> </p>
-        <div class="socialMedia">
-          <a href="https://facebook.com"><img src="../images/facebook.png" alt=""></a>
-          <a href="https://linkedin.com"><img src="../images/linkedin.png" alt=""></a>
-        </div>
-      </div>
-
     </div>
-  </footer>
-    </div>
-  </div>
-  <script type="module" src="../js/main.js"></script>
-  <script type="module" src="../js/search.js"></script>
-  <script type="module" src="../js/book.js"></script>
-</body>
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/search.js"></script>
+    <script type="module" src="../js/book.js"></script>
+  </body>
 </html>
