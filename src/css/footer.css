@@ -47,6 +47,11 @@
   justify-content: center;
   gap: 10px;
 }
+.socialMedia img{
+  width: 24px;
+  height: 24px;
+  margin-top: 10px;
+}
 .footer-columns {
   display: flex;
   justify-content: space-between;
