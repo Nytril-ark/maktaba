@@ -10,34 +10,35 @@
 </head>
 
 <body>
-    <div class="container">
+  <div class="container">
     <a href="../html/index.html" class="navLogo">
-      <img class = "Logo" src="../images/menu_book_16dp_E3E3E3_FILL0_wght400_GRAD0_opsz20.svg" alt="logo">
+      <img class="Logo" src="../images/menu_book_16dp_E3E3E3_FILL0_wght400_GRAD0_opsz20.svg" alt="logo">
       <div class="logoText">
         <h2>Maktaba</h2>
         <p>FCAI-CU Library</p>
       </div>
     </a>
-<!-- navbar links -->
     <nav class="nav-links">
       <ul>
         <li><a href="../html/index.html" class="navhome" id="navhome"><span>Home</span></a></li>
         <li><a href="../html/browse-books.html" class="navbrowse" id="navbrowse"><span>Browse Books</span></a></li>
-        <li><a href="../html/BorrowedBooks.html" class="navborrowed active" id="navborrowed"><span>My Borrowed Books</span></a></li>
+        <li><a href="../html/BorrowedBooks.html" class="navborrowed active" id="navborrowed"><span>My Borrowed
+              Books</span></a></li>
       </ul>
-    
-    </nav>  
-<!-- search bar and profile icon -->
+
+    </nav>
     <div class="userAction">
       <div class="searchBox">
         <input type="search" class="searchInput" placeholder="search books.....">
-        <button class="searchIcon"><img src="../images/search_22dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt=""></button>
+        <button class="searchIcon"><img src="../images/search_22dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
+            alt=""></button>
       </div>
-      <a id = "login" href="../html/login.html">
-        <button  class="loginButton">login</button>
+      <a id="login" href="../html/login.html">
+        <button class="loginButton">login</button>
       </a>
       <div id="profileSection" class="profile" style="display: none;">
-        <button id="profileIcon" class="profilebutton"><img src="../images/account_circle_20dp_E3E3E3_FILL0_wght400_GRAD0_opsz20.svg" alt=""></button>
+        <button id="profileIcon" class="profilebutton"><img
+            src="../images/account_circle_20dp_E3E3E3_FILL0_wght400_GRAD0_opsz20.svg" alt=""></button>
         <div id="dropDownMenu" class="dropDowncontent">
           <div class="userInfo">
             <p id="username" class="role"></p>
@@ -64,47 +65,16 @@
           <th>Title</th>
           <th>Author</th>
           <th>Category</th>
-          <th>ISBN</th>
-          <th>Year</th>
-          <th>Start-Date</th>
-          <th>End-Date</th>
+          <!-- <th>ISBN</th> -->
+          <!-- <th>Year</th> -->
+          <!-- <th>Start-Date</th> -->
+          <!-- <th>End-Date</th> -->
           <th>Status</th>
           <th>book page</th>
           <th>Actions</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Game Ai Pro 360</td>
-          <td>Steve Rabin</td>
-          <td>Programming</td>
-          <td>970-02600</td>
-          <td>2009</td>
-          <td>2025-3-3</td>
-          <td>2025-4-28</td>
-          <td class="Status-borrowd" id="Status-borrowd">Borrowed</td>
-          <td><a href="../html/book.html?id=1">view book page</a></td>
-          <td>
-            <button type="button" id="extend" class="extend">extend</button>
-          </td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td class="book-title">Clean Code</td>
-          <td>Robert C. Martin</td>
-          <td>Software Engineering</td>
-          <td>970-02601</td>
-          <td>2006</td>
-          <td>2025-2-3</td>
-          <td>2025-2-28</td>
-          <td class="Status-expired" id="Status">Expired</td>
-          <td><a href="../html/book.html?id=2">view book page</a></td>
-          <td>
-            <button type="button" id="extend" class="extend">extend</button>
-          </td>
-        </tr>
-      </tbody>
+      <tbody id="borrowedTableBody"></tbody>
     </table>
   </div>
 
@@ -114,10 +84,10 @@
 
       <div class="footer-column">
         <a href="../html/index.html" class="footerLogo">
-          <img class = "footerLogoIcon" src="../images/menu_book_16dp_E3E3E3_FILL0_wght400_GRAD0_opsz20.svg" alt="logo">
+          <img class="footerLogoIcon" src="../images/menu_book_16dp_E3E3E3_FILL0_wght400_GRAD0_opsz20.svg" alt="logo">
           <div class="logoText">
-          <h2>Maktaba</h2>
-          <p>FCAI-CU Library</p>
+            <h2>Maktaba</h2>
+            <p>FCAI-CU Library</p>
           </div>
         </a>
       </div>
@@ -133,7 +103,8 @@
 
       <div class="footer-column">
         <h3 class="footer-title">Contact us</h3>
-        <p class="footer-item">Email: <a href="mailto:Contact@Maktaba.com" class="contactLink">Contact@Maktaba.com</a> </p>
+        <p class="footer-item">Email: <a href="mailto:Contact@Maktaba.com" class="contactLink">Contact@Maktaba.com</a>
+        </p>
         <p class="footer-item">Phone Number: <a href="tel:+201523456789" class="contactLink">+20 1523456789</a> </p>
         <div class="socialMedia">
           <a href="https://facebook.com"><img src="../images/facebook.png" alt=""></a>
@@ -145,6 +116,7 @@
   </footer>
   <script type="module" src="../js/main.js"></script>
   <script type="module" src="../js/search.js"></script>
+  <script type="module" src="../js/borrowed_books.js"></script>
 </body>
 
 </html>

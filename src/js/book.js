@@ -78,3 +78,18 @@ async function loadPage() {
 }
 
 loadPage();
+
+
+const borrowBtn = document.getElementById("borrowBookButton");
+if (borrowBtn) {
+  borrowBtn.addEventListener("click", () => {
+    const params = new URLSearchParams(window.location.search);
+    const id = parseInt(params.get("id"));
+    if (!id) return;
+    let borrowed = JSON.parse(localStorage.getItem("borrowedBooks")) || [];
+    if (!borrowed.includes(id)) {
+      borrowed.push(id);
+      localStorage.setItem("borrowedBooks", JSON.stringify(borrowed));
+    }
+  });
+}
