@@ -38,6 +38,9 @@ function categoryListeners(){
 
 function Pagination(Items){
     const pagination = document.getElementById("pageNumber");
+    if(!pagination){
+        return;
+    }
     pagination.innerHTML = "";
     const tPages = Math.ceil(Items/BooksPerPage);
     
@@ -121,6 +124,9 @@ function Pagination(Items){
 
 function renderGrid(displayBook){
     const Grid = document.getElementById("booksGrid");
+    if(!Grid){
+        return;
+    }
     Grid.innerHTML="";
     displayBook.forEach(book => {
     const card = `
@@ -143,6 +149,9 @@ function renderGrid(displayBook){
 
 function categorySideBar(books){
     const categorylist = document.querySelector(".category-list");
+    if(!categorylist){
+        return;
+    }
     const categories = 
     new Set(books.map(book => book.category).filter(Boolean));
 
@@ -184,7 +193,7 @@ function filter(){
     renderGrid(bookPages);
 }
 
-async function pre_search(){
+async function Search(){
     books = await getBooks();
 
     categorySideBar(books);
@@ -204,4 +213,4 @@ async function pre_search(){
     filter();
 }
 
-pre_search();
+Search();
