@@ -1,27 +1,31 @@
+const role = localStorage.getItem( "Role" )||"Guest";
+
 const loginButton = document.getElementById( "login" );
 const logoutButton = document.getElementById( "logoutButton" );
-const logoutButton2 = document.getElementById( "logoutButton2" );
 
 const profileSection = document.getElementById( "profileSection" );
 const profileIcon = document.getElementById( "profileIcon" );
 const dropDownMenu = document.getElementById( "dropDownMenu" );
 
+const navBorrowed = document.getElementById( "navborrowed" );
+
 const username = document.getElementById( "username" );
 const email = document.getElementById( "email" );
 
+
 let logeUser = JSON.parse( localStorage.getItem( "LogedUser" ) ) || null;
 
-if ( !localStorage.getItem( "Role" ) ) {
+if ( !role ) {
     localStorage.setItem( "Role", "Guest" );
 }
 
-// if ( localStorage.getItem( "Role" ) === "Admin" ) {
-//     if ( !window.location.href.includes("admin_dashboard.html") ) {
-//         window.location.replace("admin_dashboard.html");
-//     }
-// }
+if ( role === "Admin" ) {
+    if ( !window.location.href.includes("admin_dashboard.html") && !window.location.href.includes("book_inventory.html") && !window.location.href.includes("add_book.html") ) {
+        window.location.replace("admin_dashboard.html");
+    }
+}
 
-if ( localStorage.getItem( "Role" ) !== "Guest" ) {
+if ( role !== "Guest" ) {
 if ( loginButton ) {
     loginButton.style.display = "none";
 }
@@ -57,6 +61,18 @@ if ( email ) {
     if (logeUser) {    
         email.textContent = logeUser.Email;
     }
+}
+
+if ( navBorrowed ) {
+    navBorrowed.addEventListener( "click", function ( e ) {
+        e.preventDefault(); 
+        if ( role === "Guest" ) {
+            alert( "You have to login first" );
+            window.location.replace( "login.html" );
+        } else {
+            window.location.replace( "BorrowedBooks.html" );
+        }
+    });
 }
 
 var allUsers = JSON.parse( localStorage.getItem( "AllUsers" ) ) || [];

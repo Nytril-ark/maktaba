@@ -60,3 +60,17 @@
 .extend:hover{
     background-color: var(--accent0);
 }
+
+.table-wrapper button {
+  padding: 9px 20px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  background-color: var(--accent1);
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.table-wrapper button:hover {
+  background-color: var(--accent0);
+}
