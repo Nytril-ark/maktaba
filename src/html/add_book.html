@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="../css/formpage.css">
 
-  
+
 </head>
 
 <body>
@@ -30,89 +30,89 @@
       <div class="sidebar-user">
         <p id="username"></p>
         <p id="email"></p>
-        <a href="#" id="logoutButton" class="signoutLink">
-            <img src="../images/logout_20dp_000000_FILL0_wght400_GRAD0_opsz20.svg" alt="">
-            logout
+        <a href="../html/login.html" id="logoutButton" class="signoutLink">
+          <img src="../images/logout_20dp_000000_FILL0_wght400_GRAD0_opsz20.svg" alt="">
+          logout
         </a>
       </div>
 
     </aside>
 
     <main class="main">
-        <header class="page-header">
-            <a href="book_inventory.html" class="back-link">⬅️ Back to Inventory</a>
-            <h1>Add Book</h1>
-            <p>Add a new book to the library inventory</p>
-           
-            
+      <header class="page-header">
+        <a href="book_inventory.html" class="back-link">⬅️ Back to Inventory</a>
+        <h1>Add Book</h1>
+        <p>Add a new book to the library inventory</p>
+
+
       </header>
 
       <div class="form-card">
         <div class="form-header">
-            <h3>Book Details</h3>
-            <p>Enter the book information below. All fields marked with * are required.</p>
+          <h3>Book Details</h3>
+          <p>Enter the book information below. All fields marked with * are required.</p>
         </div>
-        <form action="book_inventory.html">
+        <form action="book_inventory.html" id="addBookForm">
 
-            <div class="form-group full-width">
-                <label >Book Title *</label>
-                <input type="text" placeholder="Introduction to Algorithms" required>
+          <div class="form-group full-width">
+            <label>Book Title *</label>
+            <input type="text" placeholder="Introduction to Algorithms" required id="title">
+          </div>
+
+          <div class="form-group full-width">
+            <label>Author(s) *</label>
+            <input type="text" placeholder="Thomas H.Cormen , Charles E.messi" required id="authors">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Category*</label>
+              <select required id="category">
+                <option value="SE" selected>Software Engineering</option>
+                <option value="AI &DS">AI & Data science</option>
+                <option value="Cyper">Cypersecurity</option>
+                <option value="Embedded">Embedded Systems</option>
+                <option value="Management">Management</option>
+                <option value="self-help">Self-Help</option>
+              </select>
             </div>
 
-            <div class="form-group full-width">
-                <label >Author(s) *</label>
-                <input type="text" placeholder="Thomas H.Cormen , Charles E.messi" required>
+            <div class="form-group">
+              <label>ISBN* *</label>
+              <input type="text" placeholder="970-02600" required id="isbn">
             </div>
-            <div class="form-row">
-                <div class="form-group">
-                    <label >Category*</label>
-                    <select required>
-                        <option value="SE" selected>Software Engineering</option>
-                         <option value="AI &DS">AI & Data science</option>
-                         <option value="Cyper">Cypersecurity</option>
-                         <option value="Embedded">Embedded Systems</option>
-                         <option value="Management">Management</option>
-                         <option value="self-help">Self-Help</option>
-                    </select>
-                </div>
+          </div>
 
-                <div class="form-group">
-                       <label >ISBN* *</label>
-                <input type="text" placeholder="970-02600" required>
-                </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Publication year*</label>
+              <input type="number" placeholder="2009" required id="year">
             </div>
 
-            <div class="form-row">
-                <div class="form-group">
-                    <label >Publication year*</label>
-                   <input type="number" placeholder="2009" required>
-                </div>
-
-                <div class="form-group">
-                       <label >Quantity *</label>
-                <input type="number" placeholder="19" required>
-                </div>
-
-            </div>
-            
-            <div class="form-group full-width">
-                <label>Status *</label>
-                <select required>
-                    <option value="available" selected>Available</option>
-                    <option value="borrowed">Borrowed</option>
-                    <option value="maintenance">Under Maintenance</option>
-                    <option value="lost">Lost</option>
-                </select>
+            <div class="form-group">
+              <label>Quantity *</label>
+              <input type="number" placeholder="19" required id="quantity">
             </div>
 
+          </div>
+
+          <div class="form-group full-width">
+            <label>Status *</label>
+            <select required id="status">
+              <option value="available" selected>Available</option>
+              <option value="borrowed">Borrowed</option>
+              <option value="maintenance">Under Maintenance</option>
+              <option value="lost">Lost</option>
+            </select>
+          </div>
 
 
-            <div class="form-group full-width">
-                <label >Description *</label>
-                <textarea rows="4" placeholder="Enter Book Description or summary"></textarea>
-            </div>
 
-            <div class="form-actions">
+          <div class="form-group full-width">
+            <label>Description *</label>
+            <textarea rows="4" placeholder="Enter Book Description or summary" id="description"></textarea>
+          </div>
+
+          <div class="form-actions">
             <button type="submit" class="submit-btn">Add Book</button>
             <a href="book_inventory.html" class="cancel-btn">Cancel</a>
           </div>
@@ -124,6 +124,7 @@
     </main>
   </div>
   <script type="module" src="../js/main.js"></script>
+  <script src="../js/admin.js"></script>
 </body>
 
 </html>
