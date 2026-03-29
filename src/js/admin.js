@@ -3,6 +3,39 @@ function initializeDefaultBooks() {
 
     if (books && books.length > 0) return;
 
+    const defaultBooks = [
+        {
+            id: 1,
+            title: "Introduction to Algorithms",
+            authors: ["Thomas H. Cormen"],
+            category: "Computer Science",
+            isbn: "970-02600",
+            year: 2009,
+            status: "available",
+            description: ""
+        },
+        {
+            id: 2,
+            title: "Clean Code",
+            authors: ["Robert C. Martin"],
+            category: "Software Engineering",
+            isbn: "970-02601",
+            year: 2006,
+            status: "borrowed",
+            description: ""
+        },
+        {
+            id: 3,
+            title: "Artificial Intelligence",
+            authors: ["Stuart Russell"],
+            category: "AI & ML",
+            isbn: "970-0700",
+            year: 2024,
+            status: "available",
+            description: ""
+        }
+    ];
+
     localStorage.setItem("books", JSON.stringify(defaultBooks));
 }
 
@@ -13,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
     handleAddBook();
     loadBooks();
     handleEditBook();
+    deleteBook();
 });
 
 function handleAddBook() {
