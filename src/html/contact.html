@@ -12,44 +12,52 @@
 <body>
     <div class="container">
     <a href="../html/index.html" class="navLogo">
-      <img class = "Logo" src="../images/menu_book_16dp_E3E3E3_FILL0_wght400_GRAD0_opsz20.svg" alt="logo">
+      <img class="Logo" src="../images/menu_book_16dp_E3E3E3_FILL0_wght400_GRAD0_opsz20.svg" alt="logo">
       <div class="logoText">
         <h2>Maktaba</h2>
         <p>FCAI-CU Library</p>
       </div>
     </a>
-    <nav class="nav-links">
-      <ul>
-        <li><a href="../html/index.html" class="navhome active"><span>Home</span></a></li>
-        <li><a href="../html/browse-books.html" class="navbrowse"><span>Browse Books</span></a></li>
-        <li><a href="../html/BorrowedBooks.html" class="navborrowed"><span>My Borrowed Books</span></a></li>
-      </ul>
-    
-    </nav>  
-    <div class="userAction">
-      <div class="searchBox">
-        <input type="search" class="searchInput" placeholder="search books.....">
-        <button class="searchIcon"><img src="../images/search_22dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt=""></button>
-      </div>
-      <a href="../html/login.html">
-        <button  id = "loginID" class="loginButton">login</button>
-      </a>
-      <div class="profile" style="display: none;">
-        <button id="profileIcon" class="profilebutton"><img src="../images/account_circle_20dp_E3E3E3_FILL0_wght400_GRAD0_opsz20.svg" alt=""></button>
-        <div id="dropDownMenu" class="dropDowncontent">
-          <div class="userInfo">
-            <p class="role">student</p>
-            <p class="email">student@library.com</p>
+    <button class="Mobile-view-menu" id="Mobile-view-menu">
+      <img src="../images/menu_24dp_5C6D49_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+    </button>
+    <div class="wrapper-nav">
+      <button class="close" id="close-button">&times;</button>
+      <nav class="nav-links">
+        <ul>
+          <li><a href="../html/index.html" class="navhome active" id="navhome"><span>Home</span></a></li>
+          <li><a href="../html/browse-books.html" class="navbrowse" id="navbrowse"><span>Browse Books</span></a></li>
+          <li><a href="#" class="navborrowed" id="navborrowed"><span>My Borrowed Books</span></a></li>
+        </ul>
+  
+      </nav>
+      <div class="userAction">
+        <div class="searchBox">
+          <input type="search" class="searchInput" placeholder="search books.....">
+          <button class="searchIcon"><img src="../images/search_22dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
+              alt=""></button>
+        </div>
+        <a id="login" href="../html/login.html">
+          <button class="loginButton">login</button>
+        </a>
+        <div id="profileSection" class="profile" style="display: none;">
+          <button id="profileIcon" class="profilebutton"><img
+              src="../images/account_circle_20dp_E3E3E3_FILL0_wght400_GRAD0_opsz20.svg" alt=""></button>
+          <div id="dropDownMenu" class="dropDowncontent">
+            <div class="userInfo">
+              <p id="username" class="role"></p>
+              <p id="email" class="email"></p>
+            </div>
+            <hr>
+            <a href="#" id="logoutButton" class="logoutLink">
+              <img src="../images/logout_20dp_000000_FILL0_wght400_GRAD0_opsz20.svg" alt="">
+              logout
+            </a>
           </div>
-          <hr>
-          <a href="#" id="logoutButton" class="logoutLink">
-            <img src="../images/logout_20dp_000000_FILL0_wght400_GRAD0_opsz20.svg" alt="">
-            logout
-          </a>
         </div>
       </div>
     </div>
-  </div>
+    </div>
   <hr />
   <h1> Contacts: </h1>
   <h4> Contact Phone Number: +20 1523456789 </h4>

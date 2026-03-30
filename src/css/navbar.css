@@ -32,7 +32,7 @@ li,a,button{
 }
 .nav-links{
     list-style: none;
-
+    margin: 0 auto;
 }
 .nav-links li{
     display: inline-block;
@@ -173,4 +173,92 @@ li,a,button{
 .logoutLink img{
     width: 18px;
     height: 18px;
+}
+
+.wrapper-nav{
+    display: flex;
+    flex: 1;
+    align-items: center;
+}
+.close{
+    display: none;
+}
+.Mobile-view-menu{
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+@media(max-width: 900px){
+    .Mobile-view-menu{
+        display: block;
+    }
+    .navLogo{
+        margin-right: auto;
+    }
+    .wrapper-nav{
+        position: fixed;
+        top: 0;
+        right: -320px;
+        width: 300px;
+        height: 100%;
+        background-color: #f0f0f0;
+        justify-content: flex-start;
+        flex-direction: column;
+        padding: 80px 20px 30px;
+        box-shadow: -5px 0px 20px gray;
+        z-index: 1001;
+        transition: right 0.5s cubic-bezier(0.215, 0.61, 0.355, 1)
+    }
+    .wrapper-nav.active{
+        right: 0;
+    }
+    .close{
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 25px;
+        background: none;
+        border: none;
+        font-size: 35px;
+        cursor: pointer;
+        color: var(--text);
+        transition: color 0.3s ease;
+    }
+    .close:hover{
+        color: var(--accent0);
+    }
+    .nav-links{
+        width: 100%;
+        margin-bottom:30px;
+    }
+    .nav-links ul{
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        width: 100%;
+        text-align: center;
+    }
+    .userAction{
+        flex-direction: column;
+        width: 100%;
+        gap: 20px;
+        justify-content: center;
+    }
+    .searchBox{
+        position: relative;
+        right: 0;
+        width: 100%;
+        border-color: var(--accent1);
+    }
+    .searchInput{
+        opacity: 1;
+        width: 100%;
+        padding: 0 12px;
+
+    }
+    .searchBox:hover,.searchBox:focus-within{
+        width: 100%;
+    }
 }
