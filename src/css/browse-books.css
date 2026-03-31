@@ -156,3 +156,37 @@
     background-color:var(--accent1) ;
     color: white;
 }
+
+@media(max-width:650px){
+    .shopPage{
+        flex-direction: column;
+        padding: 15px;
+        gap: 20px;
+    }
+    .sidebar-categories{
+        width: 100%;  
+    }
+    .card-content{
+        transform: translateY(0) !important;
+    }
+    .card-footer{
+        padding-bottom: 35px;
+    }
+    .button-details{
+        opacity: 1;
+        transform:translateX(20%) translateY(-80%);
+    }
+
+    .sidebar-categories h2{
+        margin-bottom: 10px;
+    }
+    .category-list{
+        display: flex;
+        overflow-x: auto;
+        gap: 10px;
+    }
+    .categories-buttons{
+        white-space: nowrap;
+        border-radius: 50px;
+    }
+}

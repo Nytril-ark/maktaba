@@ -190,7 +190,7 @@ li,a,button{
     cursor: pointer;
     padding: 5px;
 }
-@media(max-width: 900px){
+@media(max-width: 650px){
     .Mobile-view-menu{
         display: block;
     }
