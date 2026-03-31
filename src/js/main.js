@@ -1,4 +1,5 @@
-const role = localStorage.getItem( "Role" )||"Guest";
+document.addEventListener( "DOMContentLoaded", () => { 
+const role = localStorage.getItem( "Role" ) || "Guest";
 
 const loginButton = document.getElementById( "login" );
 const logoutButton = document.getElementById( "logoutButton" );
@@ -7,13 +8,16 @@ const profileSection = document.getElementById( "profileSection" );
 const profileIcon = document.getElementById( "profileIcon" );
 const dropDownMenu = document.getElementById( "dropDownMenu" );
 
+const mobileNav = document.getElementById( "Mobile-view-menu" );
+const wrapperNav = document.getElementById( "wrapper-nav" );
+const closeBtn = document.getElementById("close-button");
 const navBorrowed = document.getElementById( "navborrowed" );
 
 const username = document.getElementById( "username" );
 const email = document.getElementById( "email" );
 
 
-let logeUser = JSON.parse( localStorage.getItem( "LogedUser" ) ) || null;
+let logedUser = JSON.parse( localStorage.getItem( "LogedUser" ) ) || null;
 
 if ( !role ) {
     localStorage.setItem( "Role", "Guest" );
@@ -52,15 +56,27 @@ if ( profileIcon ) {
 }
 
 if ( username ) {
-    if (logeUser) {    
+    if (logedUser) {    
         username.textContent = logeUser.UserName;
     }
 }
 
 if ( email ) {
-    if (logeUser) {    
+    if (logedUser) {    
         email.textContent = logeUser.Email;
     }
+}
+
+if ( mobileNav && wrapperNav) {
+    mobileNav.addEventListener( "click", function ( e ) {
+        e.preventDefault();
+        wrapperNav.classList.add( "active" );
+    } );
+}
+if ( closeBtn && wrapperNav) {
+    closeBtn.addEventListener( "click", function ( e ) {
+        wrapperNav.classList.remove( "active" );
+    })
 }
 
 if ( navBorrowed ) {
@@ -74,6 +90,9 @@ if ( navBorrowed ) {
         }
     });
 }
+
+} );
+
 
 var allUsers = JSON.parse( localStorage.getItem( "AllUsers" ) ) || [];
 
