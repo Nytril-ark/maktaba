@@ -13,7 +13,7 @@ function loadCategories(books) {
 
   categories.forEach(name => {
     const card = document.createElement("a");
-    // card.href = `../html/browse-books.html?category=${encodeURIComponent(name)}`;
+    card.href = `../html/browse-books.html?category=${encodeURIComponent(name)}`;
     card.className = "category-card";
 
     card.innerHTML = `

@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded",() => {
     function redirect(){
         const Query = mainSearch.value.trim();
         if(Query){
-            window.location.href = `../html/browse-books.html?q=${encodeURIComponent(Query)}`;
+            window.location.href = `../html/browse-books.html?search=${encodeURIComponent(Query)}`;
         }
     }
 
@@ -24,17 +24,34 @@ document.addEventListener("DOMContentLoaded",() => {
     })
 })
 
-function categoryListeners(){
+function categoryListeners(category){
     const categoryButtons = document.querySelectorAll(".categories-buttons");
+    if(category){
+        let f = false
+        categoryButtons.forEach(button1 => {
+            if(button1.textContent.trim().toLowerCase() === category.toLowerCase()){ 
+                categoryButtons.forEach(button2 => button2.classList.remove("active"))
+                button1.classList.add("active");
+                f = true;
+            }
+
+        })
+        if(f){
+            currentPage = 1;
+            filter();
+        }
+    }
+    
     categoryButtons.forEach(button1 => {
         button1.addEventListener("click", () => {
-            categoryButtons.forEach(button2 => button2.classList.remove("active"))
-            button1.classList.add("active");
-            currentPage = 1;
-                filter();
+        categoryButtons.forEach(button2 => button2.classList.remove("active"))
+        button1.classList.add("active");
+        currentPage = 1;
+        filter();
         })
     })
 }
+
 
 function Pagination(Items){
     const pagination = document.getElementById("pageNumber");
@@ -163,7 +180,6 @@ function categorySideBar(books){
         List.innerHTML = `<button class="categories-buttons">${Name}</button>` 
         categorylist.appendChild(List);
     })
-    categoryListeners();
 }
 
 function filter(){
@@ -199,12 +215,18 @@ async function Search(){
     categorySideBar(books);
 
     const parameters = new URLSearchParams(window.location.search);
-    const URLquery = parameters.get('q');
-    const mainSearch = document.querySelector(".searchInput");
-    if(URLquery && mainSearch){
-        mainSearch.value = URLquery;
-    }
+    const mainSearch = document.querySelector(".searchInput"); 
+    if(parameters.has("search")){
+        const URLquery = parameters.get('search');
 
+        if(URLquery && mainSearch){
+            mainSearch.value = URLquery;
+        }
+    }
+    if(parameters.has("category")){
+        const URLquery = parameters.get('category');
+        categoryListeners(URLquery);
+    }
     mainSearch?.addEventListener("input",() => {
         currentPage = 1;
         filter();
