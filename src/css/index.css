@@ -270,4 +270,7 @@ linear-gradient(to right, rgba(15, 32, 39, 0.9), rgba(32, 58, 67, 0.3)) */
   .categories-section {
     padding: 40px 5%;
   }
+  .top-categories-grid{
+    overflow-x: scroll;
+  }
 }
