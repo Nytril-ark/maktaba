@@ -180,6 +180,7 @@ function categorySideBar(books){
         List.innerHTML = `<button class="categories-buttons">${Name}</button>` 
         categorylist.appendChild(List);
     })
+    categoryListeners();
 }
 
 function filter(){

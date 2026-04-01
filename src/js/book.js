@@ -31,7 +31,7 @@ export class Book {
 }
 
 function loadBook(book) {
-  document.getElementById("bookImage").src = book.image;
+  document.getElementById("bookImage").src = book.image ? book.image : "../images/index-img2.jpg";
   document.getElementById("bookTitle").textContent = "Title : " + book.title;
 
   const authorsEl = document.getElementById("bookAuthors");

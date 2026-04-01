@@ -46,7 +46,7 @@ function renderRecommendations(books) {
       <div class="book-card">
         <div class="card-image-wrapper">
           <a href="../html/book.html?id=${book.id}">
-            <img src="${book.image}" alt="${book.title}">
+            <img src="${book.image?book.image:"../images/index-img2.jpg"}" alt="${book.title}">
           </a>
         </div>
 
