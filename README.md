@@ -83,7 +83,7 @@ navbar should change according to role too
 # PHASE 3 
 ## tasks:
 #### SEARCH AND BOOK PAGE (1 person):
-- create the schema for the DB because the rest of the work depends on it (what columns / attributes do we have for the books / users)
+- create DB schema because the rest of the work depends on it (what columns / attributes do we have for the books / users)
 - they get the book data from the backend DB instead.
 
 #### LOGIN (1 person): 
