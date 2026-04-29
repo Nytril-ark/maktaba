@@ -71,3 +71,12 @@ localStorage.setItem("role", admin);
 ``` 
 
 navbar should change according to role too
+
+---
+---
+---
+---
+---
+
+# PHASE 3 
+
