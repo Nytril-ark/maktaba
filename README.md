@@ -1,7 +1,10 @@
 # maktaba
 website for the web technology uni project
 
-
+<details><summary>
+PHASE 1:
+  </summary>
+  
 > [!IMPORTANT]
 > **Team notes**
 > 
@@ -13,12 +16,15 @@ website for the web technology uni project
 > 5. book page for each book (same page is reused of course)
 > 6. page that contains borrowed books list for a certain user
 
-# ~~PHASE 1:~~
+
 
 ~~phase 1 has to be just html and css (no frameworks or javascript)~~ 
 ~~each of us makes an html page and an associated css file for the page.~~
+</details>
 
-# PHASE 2: 
+<details><summary>
+PHASE 2:
+  </summary>
 All pages import `main.css` which contains the color palette. We can change the pallette later if we want 
 
 NEVER hardcode colors in your CSS/HTML, use or create variables from main.css so its easier to change them later
@@ -33,8 +39,6 @@ NEVER hardcode colors in your CSS/HTML, use or create variables from main.css so
 
 - browse page: better css for search bar, use cards for books instead of table, like: https://uiverse.io/cards or like https://uiverse.io/Satwinder04/young-zebra-44. Use grid layout for cards 
 - borrowed books: use cards too. 
-
-
 
 ### JS: search, admin dashboard, book page. (3 people)
 - book page: Make each of the book details have classes, like: 
@@ -71,6 +75,7 @@ localStorage.setItem("role", admin);
 ``` 
 
 navbar should change according to role too
+</details>
 
 ---
 ---
