@@ -90,9 +90,9 @@ navbar should change according to role too
 - login, username's, passwords, and admin users should now be in the database. 
 - the password of the current user is saved in session storage so that he stays loggedin while the page is open, but the rest of the data isnt saved in local storage anymore. 
 
-#### BORROWED BOOKS (1 person): 
+#### BORROWED BOOKS AND HOME PAGE (1 person): 
 - borrowed books are saved in the DB now and they are tied to the user by their email (because email is unique).
-- fix small issues from previous phase if needed
+- make the home page fetch random books from DB instead
 
 #### ADMIN: (3 people): 
 - Book statistics should be from the DB.
