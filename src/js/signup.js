@@ -1,39 +1,33 @@
-document.querySelector( 'form' ).addEventListener( 'submit', function ( e ) {
-    e.preventDefault();
-    
-    const passwordInput = document.getElementById( "password" ).value;
-    const confirmPasswordInput = document.getElementById( "confirmPassword" ).value;
-    
-    if ( passwordInput !== confirmPasswordInput ) {
-        alert( "Password and Confirm Password is different" );
-        return;
-    }
+document.querySelector("form").addEventListener("submit", async function (e) {
+  e.preventDefault();
 
-    let user = {
-        FirstName: document.getElementById( "fname" ).value,
-        LastName: document.getElementById( "lname" ).value,
-        Birthday: document.getElementById( "birthday" ).value,
-        UserName: document.getElementById( "username" ).value,
-        Email: document.getElementById( "email" ).value,
-        Password: passwordInput,
-        role : "STUDENT",
-    }
+  const password = document.getElementById("password").value;
+  const confirmPassword = document.getElementById("confirmPassword").value;
 
-    var allUsers = JSON.parse( localStorage.getItem( "AllUsers" ) ) || [];
-    
-    if ( allUsers.find( u => u.Email === user.Email ) ) {
-        alert("This email is already registered!");
-        return;
-    }
-    
-    if ( allUsers.find( u => u.UserName === user.UserName ) ) {
-        alert("This Username is already Taken");
-        return;
-    }
-    
-    allUsers.push( user );
-    localStorage.setItem( "AllUsers", JSON.stringify( allUsers ) );
-    
-    alert( "Account created successfully!" );
-    window.location.replace( "login.html" );
+  if (password !== confirmPassword) {
+    alert("Password and Confirm Password is different");
+    return;
+  }
+
+  const res = await fetch("http://127.0.0.1:8000/api/accounts/signup/", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      username: document.getElementById("username").value,
+      email: document.getElementById("email").value,
+      password,
+    }),
+    credentials: "include",
+  });
+
+  const data = await res.json();
+
+  if (!res.ok) {
+    alert(data.error);
+    return;
+  }
+
+  sessionStorage.setItem("role", data.role);
+  sessionStorage.setItem("email", data.email);
+  window.location.replace("index.html");
 });
