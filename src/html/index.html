@@ -14,21 +14,21 @@
 
 <body>
   <div class="container">
-    <a href="../html/index.html" class="navLogo">
-      <img class="Logo" src="../images/menu_book_16dp_E3E3E3_FILL0_wght400_GRAD0_opsz20.svg" alt="logo">
+    <a href="/api/accounts/login/" class="navLogo">
+      <img class="Logo" src="{% static '/images/menu_book_16dp_E3E3E3_FILL0_wght400_GRAD0_opsz20.svg' %}" alt="logo">
       <div class="logoText">
         <h2>Maktaba</h2>
         <p>FCAI-CU Library</p>
       </div>
     </a>
     <button class="Mobile-view-menu" id="Mobile-view-menu">
-      <img src="../images/menu_24dp_5C6D49_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+      <img src="{%static '/images/menu_24dp_5C6D49_FILL0_wght400_GRAD0_opsz24.svg' %}" alt="">
     </button>
     <div class="wrapper-nav" id="wrapper-nav">
       <button class="close" id="close-button">&times;</button>
       <nav class="nav-links">
         <ul>
-          <li><a href="../html/index.html" class="navhome active" id="navhome"><span>Home</span></a></li>
+          <li><a href="/api/accounts/login/" class="navhome active" id="navhome"><span>Home</span></a></li>
           <li><a href="../html/browse-books.html" class="navbrowse" id="navbrowse"><span>Browse Books</span></a></li>
           <li><a href="#" class="navborrowed" id="navborrowed"><span>My Borrowed Books</span></a></li>
         </ul>
@@ -40,12 +40,12 @@
           <button class="searchIcon"><img src="../images/search_22dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
               alt=""></button>
         </div>
-        <a id="login" href="../html/login.html">
+        <a id="login" href="/api/accounts/login/">
           <button class="loginButton">login</button>
         </a>
         <div id="profileSection" class="profile" style="display: none;">
           <button id="profileIcon" class="profilebutton"><img
-              src="../images/account_circle_20dp_E3E3E3_FILL0_wght400_GRAD0_opsz20.svg" alt=""></button>
+              src="{% static '/images/account_circle_20dp_E3E3E3_FILL0_wght400_GRAD0_opsz20.svg' %}" alt=""></button>
           <div id="dropDownMenu" class="dropDowncontent">
             <div class="userInfo">
               <p id="username" class="role"></p>
@@ -53,7 +53,7 @@
             </div>
             <hr>
             <a href="#" id="logoutButton" class="logoutLink">
-              <img src="../images/logout_20dp_000000_FILL0_wght400_GRAD0_opsz20.svg" alt="">
+              <img src="{% static '/images/logout_20dp_000000_FILL0_wght400_GRAD0_opsz20.svg' %}" alt="">
               logout
             </a>
           </div>
@@ -132,7 +132,7 @@
     <footer class="footer">
       <div class="footer-columns">
         <div class="footer-column">
-          <a href="../html/index.html" class="footerLogo">
+          <a href="/api/accounts/login/" class="footerLogo">
             <img class="footerLogoIcon" src="../images/menu_book_16dp_E3E3E3_FILL0_wght400_GRAD0_opsz20.svg" alt="logo" />
             <div class="logoText">
               <h2>Maktaba</h2>
@@ -145,7 +145,7 @@
           <h3 class="footer-title">Links</h3>
           <ul class="footerLinks">
             <li>
-              <a href="../html/index.html" class="footerhome"><span>Home</span></a>
+              <a href="/api/accounts/login/" class="footerhome"><span>Home</span></a>
             </li>
             <li>
               <a href="../html/browse-books.html" class="footerbrowse"><span>Browse Books</span></a>

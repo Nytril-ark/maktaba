@@ -25,6 +25,12 @@ document.querySelector('form').addEventListener('submit',async function(e) {
    }
    else{
     sessionStorage.setItem("currentPassword",result.password)
+       localStorage.setItem("Role",result.role);
+    let logedUser={
+      Email:emailInput,
+      username:emailInput.split('@')
+    };
+    localStorage.setItem("LogedUser",JSON.stringify(logedUser))
     if(result.role=="Admin"){
       window.location.replace("../html/admin_dashboard.html");//we need to replace this path with django path
     }
