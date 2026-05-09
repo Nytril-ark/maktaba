@@ -1,13 +1,14 @@
+{%load static%}
 <!DOCTYPE html>
 <html>
 
 <head>
   <title>My borrowed books</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/main.css">
-  <link rel="stylesheet" href="../css/borrowedBooks.css">
-  <link rel="stylesheet" href="../css/navbar.css">
-  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+  <link rel="stylesheet" href="{% static 'css/borrowedBooks.css' %}">
+  <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
 </head>
 
 <body>
@@ -120,9 +121,9 @@
 
     </div>
   </footer>
-  <script type="module" src="../js/main.js"></script>
-  <script type="module" src="../js/search.js"></script>
-  <script type="module" src="../js/borrowed_books.js"></script>
+  <script type="module" src="{% static 'js/main.js' %}"></script>
+  <script type="module" src="{% static 'js/search.js' %}"></script>
+  <script type="module" src="{% static 'js/borrowed_books.js' %}"></script>
 </body>
 
 </html>

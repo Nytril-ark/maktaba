@@ -1,3 +1,4 @@
+{%load static%}
 <!doctype html>
 <html lang="en">
   <head>
@@ -5,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="discription" content="Book page" />
     <title>Book page-1</title>
-    <link rel="stylesheet" href="../css/main.css" />
-    <link rel="stylesheet" href="../css/navbar.css" />
-    <link rel="stylesheet" href="../css/footer.css" />
-    <link rel="stylesheet" href="../css/book.css" />
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/book.css' %}">
   </head>
   <body>
     <div class="container">
@@ -154,8 +155,8 @@
         </footer>
       </div>
     </div>
-    <script type="module" src="../js/main.js"></script>
-    <script type="module" src="../js/search.js"></script>
-    <script type="module" src="../js/book.js"></script>
+    <script type="module" src="{% static 'js/main.js' %}"></script>
+    <script type="module" src="{% static 'js/search.js' %}"></script>
+    <script type="module" src="{% static 'js/book.js' %}"></script>
   </body>
 </html>
