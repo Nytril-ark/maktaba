@@ -1,28 +1,40 @@
-document.querySelector('form').addEventListener('submit', function(e) {
+document.querySelector('form').addEventListener('submit',async function(e) {
     e.preventDefault();
     const emailInput = document.getElementById("email").value;
     const passwordInput = document.getElementById("password").value;
 
-    const rawData = localStorage.getItem("AllUsers");
-    const allUsers = JSON.parse(rawData) || [];
-
-    const foundUser = allUsers.find(user => user.Email === emailInput);
-
-    if (foundUser) {
-        if (foundUser.Password === passwordInput) {
-            localStorage.setItem( "Role", foundUser.role );
-            localStorage.setItem( "LogedUser", JSON.stringify(foundUser) );
-            window.location.replace( "index.html" );
-            
-            if (foundUser.role === "Admin") {
-                window.location.replace("admin_dashboard.html");
-            } else {
-                window.location.replace("index.html");
+    let user={
+      email:emailInput,
+      password:passwordInput
     }
-        } else {
-            alert("Password is Wrong");
-        }
-    } else {
-        alert("Account not found");
+
+   const csrfToken=document.querySelector('[name=csrfmiddlewaretoken]').value
+
+    const response=await fetch('/api/accounts/login/',{
+    method:'POST',
+    headers:{
+      'Content-Type':'application/json',
+      'X-CSRFToken':csrfToken
+    },
+    body:JSON.stringify(user)
+   });
+
+    const result=await response.json();
+    if(result.error){
+    alert(result.error);
+   }
+   else{
+    sessionStorage.setItem("currentPassword",result.password)
+    if(result.role=="Admin"){
+      window.location.replace("../html/admin_dashboard.html");//we need to replace this path with django path
     }
+    else{
+        window.location.replace("../html/index.html");//we need to replace this path with django path
+    }
+ }
+
+
+
+
+ 
 });

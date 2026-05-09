@@ -10,26 +10,27 @@
     <body>
         <div>
             <form class="wrapper">
-                <img class = "loginLogo" src="../images/menu_book_16dp_E3E3E3_FILL0_wght400_GRAD0_opsz20.svg" alt="logo">
+                <img class = "loginLogo" src="{% static 'images/menu_book_16dp_E3E3E3_FILL0_wght400_GRAD0_opsz20.svg' %}" alt="logo">
                 <h1>Login</h1>
+                {% csrf_token %}
                 <div class="inputBox">
                     <input type="email" id="email" name="email" placeholder="Email" required>
-                    <img src="../images/person_20dp_999999_FILL0_wght400_GRAD0_opsz20.svg" alt="">
+                    <img src="{% static 'images/person_20dp_999999_FILL0_wght400_GRAD0_opsz20.svg' %}" alt="">
                 </div>
 
                 <div class="inputBox">
                     <input type = "password" id="password" name = "password" placeholder="password" required>
-                    <img src="../images/lock_20dp_999999_FILL0_wght400_GRAD0_opsz20.svg" alt="">
+                    <img src="{% static 'images/lock_20dp_999999_FILL0_wght400_GRAD0_opsz20.svg' %}" alt="">
                 </div>
                 
                 <div class="forgetPassword">
                     <label class="checkBoxLabel"><input type="checkbox">Remember me</label>
-                    <a href="../html/forget_password.html" class="Forget">Forget Password?</a>
+                    <a href="{% url 'forget_password' %}" class="Forget">Forget Password?</a>
                 </div>
                 <input type = "submit" id="submit" name = "submit" value="Log in" required>
 
                 <div class="registerLink">
-                    <p>Don't have an account? <a href="../html/signup.html">Register</a></p>
+                    <p>Don't have an account? <a href="{% url 'sign_up' %}">Register</a></p>
                 </div>
             </form>
         </div>

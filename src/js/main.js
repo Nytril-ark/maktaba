@@ -38,13 +38,14 @@ document.addEventListener( "DOMContentLoaded", () => {
             profileSection.style.display = "block";
         }
     }
-
+// Ramy edited log out only in this file
     if ( logoutButton ) {
-        logoutButton.addEventListener( "click", function ( e ) {
+        logoutButton.addEventListener( "click", async function ( e ) {
             e.preventDefault();
+            sessionStorage.clear();
             localStorage.setItem( "Role", "Guest" );
-            localStorage.removeItem( "LogedUser" );
-            window.location.replace( "index.html" );
+            await fetch('/api/accounts/api/logout/',{method:'POST'});
+            window.location.replace( "/api/accounts/api/login/" );
         } );
     }
 

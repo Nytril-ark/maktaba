@@ -1,4 +1,4 @@
-document.querySelector( 'form' ).addEventListener( 'submit', function ( e ) {
+document.querySelector( 'form' ).addEventListener( 'submit', async function ( e ) {
     e.preventDefault();
     
     const passwordInput = document.getElementById( "password" ).value;
@@ -10,30 +10,30 @@ document.querySelector( 'form' ).addEventListener( 'submit', function ( e ) {
     }
 
     let user = {
-        FirstName: document.getElementById( "fname" ).value,
-        LastName: document.getElementById( "lname" ).value,
-        Birthday: document.getElementById( "birthday" ).value,
-        UserName: document.getElementById( "username" ).value,
-        Email: document.getElementById( "email" ).value,
-        Password: passwordInput,
-        role : "STUDENT",
+        first_name: document.getElementById( "fname" ).value,
+        last_name: document.getElementById( "lname" ).value,
+        birth_date: document.getElementById( "birthday" ).value,
+        username: document.getElementById( "username" ).value,
+        email: document.getElementById( "email" ).value,
+        password: passwordInput,
     }
 
-    var allUsers = JSON.parse( localStorage.getItem( "AllUsers" ) ) || [];
+   const csrfToken=document.querySelector('[name=csrfmiddlewaretoken]').value
     
-    if ( allUsers.find( u => u.Email === user.Email ) ) {
-        alert("This email is already registered!");
-        return;
-    }
-    
-    if ( allUsers.find( u => u.UserName === user.UserName ) ) {
-        alert("This Username is already Taken");
-        return;
-    }
-    
-    allUsers.push( user );
-    localStorage.setItem( "AllUsers", JSON.stringify( allUsers ) );
-    
-    alert( "Account created successfully!" );
-    window.location.replace( "login.html" );
+    const response=await fetch('/api/accounts/api/signup/',{
+    method:'POST',
+    headers:{
+      'Content-Type':'application/json',
+      'X-CSRFToken':csrfToken
+    },
+    body:JSON.stringify(user)
+   });
+   const result=await response.json();
+   if(result.error){
+    alert(result.error);
+   }
+   else{
+    alert(result.message);
+    window.location.replace("/api/accounts/login/");
+   }
 });
