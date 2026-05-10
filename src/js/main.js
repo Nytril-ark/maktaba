@@ -110,9 +110,9 @@ if ( allUsers.length === 0 ) {
     allUsers.push( adminUser );
     localStorage.setItem( "AllUsers", JSON.stringify(allUsers) );
 }
-
+// browse books
 export async function getBooks() {
-    const res = await fetch("../data/books.json");
+    const res = await fetch("/api/books/js/");
     const data = await res.json();
     return data
 }
