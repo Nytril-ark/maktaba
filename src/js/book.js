@@ -31,7 +31,7 @@ export class Book {
 }
 
 function loadBook(book) {
-  document.getElementById("bookImage").src = book.image ? book.image : "../images/index-img2.jpg";
+  document.getElementById("bookImage").src = book.image ? book.image : "/static/images/index-img2.jpg";
   document.getElementById("bookTitle").textContent = "Title : " + book.title;
 
   const authorsEl = document.getElementById("bookAuthors");
@@ -62,14 +62,14 @@ function getBookIdFromURL() {
 
 async function loadPage() {
   const params = new URLSearchParams(window.location.search);
-  const id = parseInt(params.get("id"));
+  const id = params.get("id");
 
   if (!id) {
     window.location.href = "../html/404.html";
     return;
   }
   const data = await getBooks();
-  const found = data.find((b) => b.id === id);
+  const found = data.find((b) => String(b.id) === String(id));
 
   if (!found) {
     window.location.href = "../html/404.html";
@@ -84,7 +84,7 @@ const borrowBtn = document.getElementById("borrowBookButton");
 
 if (borrowBtn) {
   const params = new URLSearchParams(window.location.search);
-  const id = parseInt(params.get("id"));
+  const id = params.get("id");
 
   let borrowed = JSON.parse(localStorage.getItem("borrowedBooks")) || [];
   if (borrowed.includes(id)) {

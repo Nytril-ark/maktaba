@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded",() => {
     function redirect(){
         const Query = mainSearch.value.trim();
         if(Query){
-            window.location.href = `../html/browse-books.html?search=${encodeURIComponent(Query)}`;
+            window.location.href = `/api/books/browse/?search=${encodeURIComponent(Query)}`;
         }
     }
 
@@ -147,16 +147,16 @@ function renderGrid(displayBook){
     Grid.innerHTML="";
     displayBook.forEach(book => {
     const card = `
-        <div class="book-card" onclick="window.location.href='book.html?id=${book.id}'">
+        <div class="book-card" onclick="window.location.href='/api/books/details/?id=${book.id}'">
             <div class="card-img-container">
-                <img src="${book.image?book.image:"../images/index-img2.jpg"}" alt="${book.title}" >
+                <img src="${book.image?book.image:"/static/images/index-img2.jpg"}" alt="${book.title}" >
             </div>
             <div class="card-content">
                 <h3 class="card-title">${book.title}</h3>
  
                 <div class="card-footer">
                     <span class="card-status status-${book.status.toLowerCase().replace(/\s/g, '-')}">${book.status}</span>
-                    <a href="book.html?id=${book.id}" class="button-details">View Details</a>
+                    <a href="/api/books/details/?id=${book.id}" class="button-details">View Details</a>
                 </div>
             </div>
         </div>`;

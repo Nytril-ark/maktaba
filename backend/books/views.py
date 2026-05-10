@@ -21,3 +21,6 @@ def get_books_api (request):
 
 def browse_books_page(request):
     return render(request,'browse-books.html')
+
+def book_details_page(request):
+    return render(request,'book.html')
