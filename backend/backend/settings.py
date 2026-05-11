@@ -43,8 +43,8 @@ INSTALLED_APPS = [
     'pages.apps.PagesConfig',
     'books.apps.BooksConfig',
     'accounts.apps.AccountsConfig',
+    'admine.apps.AdmineConfig',
     'borrowing.apps.BorrowingConfig',
-    'admin.apps.AdminConfig',
     'corsheaders',
 ]
 # to use my model
