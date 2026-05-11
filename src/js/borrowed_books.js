@@ -1,16 +1,17 @@
-import { getBooks } from "./main.js";
+async function getBooks() {
+  try {
+    const response = await fetch( '/api/borrowing/my/' );
+    if ( !response.ok ) {
+      throw Error( "Server connection issues" )
+    }
 
-function getBorrowedIds() {
-  return JSON.parse(localStorage.getItem("borrowedBooks")) || [];
-}
+    const data = await response.json();
+    const books = data.borrowedBooks;
 
-function renderBorrowedBooks(books, borrowedIds) {
-  const tbody = document.getElementById("borrowedTableBody");
-  tbody.innerHTML = "";
+    const tbody = document.getElementById( "borrowedTableBody" );
+    tbody.innerHTML = "";
 
-  borrowedIds.forEach(id => {
-    const book = books.find(b => b.id === id);
-    if (!book) return;
+    books.forEach(book => {
 
     const tr = document.createElement("tr");
 
@@ -28,29 +29,33 @@ function renderBorrowedBooks(books, borrowedIds) {
 
     tbody.appendChild(tr);
   });
+  }
+  catch ( error ) {
+    console.error( "Error fetching books:", error );
+  }
+
 }
 
-function setupReturnButtons() {
-  document.addEventListener("click", (e) => {
-    if (!e.target.classList.contains("returnBtn")) return;
+// function setupReturnButtons() {
+//   document.addEventListener("click", (e) => {
+//     if (!e.target.classList.contains("returnBtn")) return;
 
-    const id = parseInt(e.target.dataset.id);
+//     const id = parseInt(e.target.dataset.id);
 
-    let borrowed = getBorrowedIds();
-    borrowed = borrowed.filter(b => b !== id);
+//     let borrowed = getBorrowedIds();
+//     borrowed = borrowed.filter(b => b !== id);
 
-    localStorage.setItem("borrowedBooks", JSON.stringify(borrowed));
+//     localStorage.setItem("borrowedBooks", JSON.stringify(borrowed));
 
-    init();
-  });
-}
+//     init();
+//   });
+// }
 
 async function init() {
-  const books = await getBooks();
-  const borrowedIds = getBorrowedIds();
 
-  renderBorrowedBooks(books, borrowedIds);
+  getBooks()
+  // renderBorrowedBooks(books, borrowedIds);
 }
 
-setupReturnButtons();
+// setupReturnButtons();
 init();

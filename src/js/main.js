@@ -45,7 +45,7 @@ document.addEventListener( "DOMContentLoaded", () => {
             sessionStorage.clear();
             localStorage.setItem( "Role", "Guest" );
             await fetch('/api/accounts/api/logout/',{method:'POST'});
-            window.location.replace( "/api/accounts/api/login/" );
+            window.location.replace( "/api/accounts/login/" );
         } );
     }
 
@@ -87,7 +87,7 @@ document.addEventListener( "DOMContentLoaded", () => {
                 alert( "You have to login first" );
                 window.location.replace( "login.html" );
             } else {
-                window.location.replace( "BorrowedBooks.html" );
+                window.location.replace( '/api/borrowing/borrowedbooks/' );
             }
         } );
     }

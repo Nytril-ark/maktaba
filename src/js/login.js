@@ -10,7 +10,7 @@ document.querySelector('form').addEventListener('submit',async function(e) {
 
    const csrfToken=document.querySelector('[name=csrfmiddlewaretoken]').value
 
-    const response=await fetch('/api/accounts/login/',{
+    const response=await fetch('/api/accounts/api/login/',{
     method:'POST',
     headers:{
       'Content-Type':'application/json',
@@ -32,10 +32,10 @@ document.querySelector('form').addEventListener('submit',async function(e) {
     };
     localStorage.setItem("LogedUser",JSON.stringify(logedUser))
     if(result.role=="Admin"){
-      window.location.replace("../html/admin_dashboard.html");//we need to replace this path with django path
+      window.location.replace("/api/accounts/dashboard/");//we need to replace this path with django path
     }
     else{
-        window.location.replace("../html/index.html");//we need to replace this path with django path
+        window.location.replace("/");//we need to replace this path with django path
     }
  }
 
