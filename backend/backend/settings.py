@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'pages.apps.PagesConfig',
     'books.apps.BooksConfig',
     'accounts.apps.AccountsConfig',
-    'admine.apps.AdmineConfig',
     'borrowing.apps.BorrowingConfig',
     'corsheaders',
 ]
