@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'books.apps.BooksConfig',
     'accounts.apps.AccountsConfig',
     'borrowing.apps.BorrowingConfig',
+    'admin.apps.AdminConfig',
     'corsheaders',
 ]
 # to use my model
