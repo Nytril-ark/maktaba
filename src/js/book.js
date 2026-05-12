@@ -82,41 +82,43 @@ async function loadPage() {
 
 const borrowBtn = document.getElementById("borrowBookButton");
 
-if (borrowBtn) {
-  const params = new URLSearchParams(window.location.search);
-  const id = params.get("id");
+function setupBorrowButtons() {
+  borrowBtn.addEventListener( "click", async ( e ) => {
+    
+    if (!borrowBtn) return;
+    e.preventDefault();
 
-  let borrowed = JSON.parse(localStorage.getItem("borrowedBooks")) || [];
-  if (borrowed.includes(id)) {
-    borrowBtn.textContent = "return";
-    borrowBtn.classList.add("returnBtn");
-  }
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const bookISBN = params.get("id");
+      const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+      
+      const btn = e.target;
+      
+      const response = await fetch( '/api/borrowing/borrow/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRFToken': csrfToken
+        },
+        body: JSON.stringify( { book_ISBN: bookISBN } )
+      } );
 
-  borrowBtn.addEventListener("click", function () {
-    if (role !== "Guest") {
-      if (!id) return;
-      let borrowed = JSON.parse(localStorage.getItem("borrowedBooks")) || [];
-
-      if (borrowed.includes(id)) {
-        borrowed = borrowed.filter(function (b) {
-          return b !== id;
-        });
-        localStorage.setItem("borrowedBooks", JSON.stringify(borrowed));
-        borrowBtn.textContent = "borrow";
-        borrowBtn.classList.remove("returnBtn");
-        alert("Book returned successfully");
+      const data = await response.json();
+      
+      if ( response.ok && data.status === 'success' ) {
+        alert( data.message );
+        btn.innerText = "return";
       } else {
-        borrowed.push(id);
-        localStorage.setItem("borrowedBooks", JSON.stringify(borrowed));
-        borrowBtn.textContent = "return";
-        borrowBtn.classList.add("returnBtn");
-        alert("Book borrowed successfully");
+        alert( data.message );
       }
-    } else {
-      alert("You have to login first");
-      window.location.replace("login.html");
+    } catch ( error ) {
+      console.error( "Error borrowing book:", error );
     }
+    
   });
 }
 
+
+setupBorrowButtons()
 loadPage();

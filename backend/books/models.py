@@ -10,7 +10,7 @@ class Book(models.Model):
     pages = models.IntegerField()
     language = models.CharField(max_length=100)
     description = models.TextField(null=True,blank=True)
-    STATUS_CHOICES = [("avalible", "Avalible"), ("unavalible", "Unavalible")]
+    STATUS_CHOICES = [("available", "Available"), ("unavailable", "Unavailable")]
     status = models.CharField(max_length=50,choices=STATUS_CHOICES)
     rating = models.IntegerField()
     ISBN = models.CharField(max_length=100,unique=True,null=True,blank=True)
