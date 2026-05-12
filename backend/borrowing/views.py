@@ -18,8 +18,12 @@ from books.models import Book
 def borrow_book(request):
     data = json.loads(request.body)
     book_ISBN = data.get('book_ISBN')
-    
     book = Book.objects.get(ISBN=book_ISBN)
+
+    already_borrowed=BorrowRecord.objects.filter(
+        user=request.user,
+        book=book,
+        )
 
     if book.status=='available':
         BorrowRecord.objects.create(
@@ -34,6 +38,8 @@ def borrow_book(request):
                 status='unavailable'
             )
         return JsonResponse({'status':'success','message':'Book borrowed successfully'})
+    elif already_borrowed:
+        return JsonResponse({'status':'error','message':'You have borrowed this book already'})
     else:
         return JsonResponse({'status':'fail','message':'Book is unavalible'})
 
