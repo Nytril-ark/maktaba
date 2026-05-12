@@ -17,7 +17,7 @@ class Command(BaseCommand):
                 pages = item.get('pages',0),
                 language = item.get('language','English'),
                 description = item.get('description',''),
-                status = item.get('status','Available'),
+                status = item.get('status','available').lower(),
                 rating = item.get('rating',0),
                 ISBN=f"ISBN-{item.get('id', '000')}" 
             )
