@@ -1,0 +1,130 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>My borrowed books</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+  <link rel="stylesheet" href="{% static 'css/borrowedBooks.css' %}">
+  <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+</head>
+
+<body>
+  {% csrf_token %}
+  <div class="container">
+    <a href="/api/accounts/login/" class="navLogo">
+      <img class="Logo" src="../images/menu_book_16dp_E3E3E3_FILL0_wght400_GRAD0_opsz20.svg" alt="logo">
+      <div class="logoText">
+        <h2>Maktaba</h2>
+        <p>FCAI-CU Library</p>
+      </div>
+    </a>
+    <button class="Mobile-view-menu" id="Mobile-view-menu">
+      <img src="../images/menu_24dp_5C6D49_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+    </button>
+    <div class="wrapper-nav" id="wrapper-nav">
+      <button class="close" id="close-button">&times;</button>
+      <nav class="nav-links">
+        <ul>
+          <li><a href="/api/accounts/login/" class="navhome" id="navhome"><span>Home</span></a></li>
+          <li><a href="../html/browse-books.html" class="navbrowse" id="navbrowse"><span>Browse Books</span></a></li>
+          <li><a href="#" class="navborrowed" id="navborrowed active"><span>My Borrowed Books</span></a></li>
+        </ul>
+  
+      </nav>
+      <div class="userAction">
+        <div class="searchBox">
+          <input type="search" class="searchInput" placeholder="search books.....">
+          <button class="searchIcon"><img src="../images/search_22dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
+              alt=""></button>
+        </div>
+        <a id="login" href="../html/login.html">
+          <button class="loginButton">login</button>
+        </a>
+        <div id="profileSection" class="profile" style="display: none;">
+          <button id="profileIcon" class="profilebutton"><img
+              src="../images/account_circle_20dp_E3E3E3_FILL0_wght400_GRAD0_opsz20.svg" alt=""></button>
+          <div id="dropDownMenu" class="dropDowncontent">
+            <div class="userInfo">
+              <p id="username" class="role"></p>
+              <p id="email" class="email"></p>
+            </div>
+            <hr>
+            <a href="#" id="logoutButton" class="logoutLink">
+              <img src="../images/logout_20dp_000000_FILL0_wght400_GRAD0_opsz20.svg" alt="">
+              logout
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+
+  <div class="table-wrapper">
+    <h1>Books You Borrowed</h1>
+    <table class="borrowed-table">
+      <thead>
+        <tr>
+          <th>#ID</th>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Category</th>
+          <!-- <th>ISBN</th> -->
+          <!-- <th>Year</th> -->
+          <!-- <th>Start-Date</th> -->
+          <!-- <th>End-Date</th> -->
+          <th>Status</th>
+          <th>book page</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="borrowedTableBody"></tbody>
+    </table>
+  </div>
+
+
+  <footer class="footer">
+    <div class="footer-columns">
+
+      <div class="footer-column">
+        <a href="/api/accounts/login/" class="footerLogo">
+          <img class="footerLogoIcon" src="../images/menu_book_16dp_E3E3E3_FILL0_wght400_GRAD0_opsz20.svg" alt="logo">
+          <div class="logoText">
+            <h2>Maktaba</h2>
+            <p>FCAI-CU Library</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="footer-column">
+        <h3 class="footer-title">Links</h3>
+        <ul class="footerLinks">
+          <li><a href="/api/accounts/login/" class="footerhome"><span>Home</span></a></li>
+          <li><a href="../html/browse-books.html" class="footerbrowse"><span>Browse Books</span></a></li>
+          <li><a href="../html/contact.html" class="footerborrowed"><span>Contact us</span></a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3 class="footer-title">Contact us</h3>
+        <p class="footer-item">Email: <a href="mailto:Contact@Maktaba.com" class="contactLink">Contact@Maktaba.com</a>
+        </p>
+        <p class="footer-item">Phone Number: <a href="tel:+201523456789" class="contactLink">+20 1523456789</a> </p>
+        <div class="socialMedia">
+          <a href="https://facebook.com"><img src="../images/facebook.png" alt=""></a>
+          <a href="https://linkedin.com"><img src="../images/linkedin.png" alt=""></a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+  <script type="module" src="{% static 'js/main.js' %}"></script>
+  <script type="module" src="{% static 'js/search.js' %}"></script>
+  <script type="module" src="{% static 'js/borrowed_books.js' %}"></script>
+</body>
+
+</html>

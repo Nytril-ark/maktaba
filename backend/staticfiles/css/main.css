@@ -1,0 +1,25 @@
+:root {
+  --background: #E3E3D1;
+  --text: #392F2E;
+  --accent0: #A3AB82;
+  --accent1: #5C6D49;
+  --accent2: #0D3D03;
+  --accent3: #2E2C1F;
+  --light-text: #CBC9BA;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Georgia, serif;
+  background-color: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

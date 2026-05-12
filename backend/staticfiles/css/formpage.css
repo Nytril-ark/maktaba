@@ -1,0 +1,138 @@
+/* this css is for edit book & add book  */
+
+.page-header{
+    margin-bottom: 30px;
+    text-align: center;
+}
+.back-link{
+    display: inline-block;
+    color: #666;
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    transition: 0.3s;
+}
+.back-link:hover{
+color: black;
+}
+
+.page-header h1{
+    margin: 0 0 5px 0;
+    color: #333;
+    font-size: 2rem;
+    font-weight: normal;
+}
+.page-header p{
+    margin: 0;
+    color: #777;
+   
+}
+
+.form-card{
+    background-color: white;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    padding: 40px;
+
+}
+.form-header{
+    margin-bottom: 30px;
+}
+
+.form-header h3{
+  margin: 0 0 5px 0;
+    color: #333;
+    font-size: 1.2rem;
+}
+.form-header p{
+  margin: 0 ;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-row{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+.form-group label{
+    margin-bottom: 8px;
+    color: #555;
+    font-size: 0.85rem;
+
+}
+.form-group input , .form-group select, .form-group textarea{
+
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    font-family: inherit;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: #333;
+    outline: none;
+    transition:  border-color 0.3s;
+}
+
+.form-group input:focus , .form-group select :focus, .form-group textarea:focus{
+
+    border-color: var(--accent1);
+}
+.form-actions{
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 20px;
+}
+.submit-btn,.cancel-btn{
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.3s;
+    border: none;
+}
+.submit-btn{
+    background-color: #5c6d49;
+    color: white;
+}
+.submit-btn:hover{
+    background-color:var(--accent0);
+  
+}
+
+.cancel-btn{
+    background-color: #e8e8e4;
+    color: #555;
+}
+
+
+.cancel-btn:hover{
+    background-color: #dcdcdc;
+}
+
+@media (max-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  .form-actions {
+    grid-template-columns: 1fr;
+  }
+}
+

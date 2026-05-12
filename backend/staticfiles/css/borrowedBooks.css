@@ -1,0 +1,76 @@
+.table-wrapper{
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0px 5px 20px lightgray;
+    padding: 20px;
+    width: 95%;
+    margin: 20px auto;
+    max-width: 1320px;
+    overflow-x: auto;
+}
+.borrowed-table{
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+.borrowed-table th{
+    color: gray;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #a1a3a5f4;
+    font-weight: 600;
+    border-right: none !important;
+    border-left: none !important;
+}
+.borrowed-table td{
+    padding: 15px 10px;
+    border-bottom: 2px solid #eee;
+    font-weight: 600;
+    border-right: none !important;
+    border-left: none !important;
+    white-space: nowrap;
+}
+.borrowed-table tbody tr:hover{
+    background-color: #e9eaeb;
+}
+.Status-borrowd{
+    color: green;
+}
+.Status-expired{
+    color: red;
+}
+.borrowed-table a{
+    color: var(--accent1);
+    font-weight: bold;
+}
+.borrowed-table a:hover{
+    text-decoration: underline;
+}
+
+.extend{
+    background-color: var(--accent1);
+    color: white;
+    border: none;
+    border-radius:50px ;
+    padding: 6px 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.extend:hover{
+    background-color: var(--accent0);
+}
+
+.table-wrapper button {
+  padding: 9px 20px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  background-color: var(--accent1);
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.table-wrapper button:hover {
+  background-color: var(--accent0);
+}

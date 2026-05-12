@@ -1,0 +1,261 @@
+li,a,button{
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--text);
+    text-decoration: none;
+}
+.container{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 5%;
+    height: 80px;
+    align-items: center;
+    background:#f0f0f0;
+    border-bottom: 1px solid #ddd;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.Logo{
+    cursor: pointer;
+    background: var(--accent1);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    padding: 10px;
+}
+.navLogo{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.nav-links{
+    list-style: none;
+    margin: 0 auto;
+}
+.nav-links li{
+    display: inline-block;
+    padding: 0px 5px;
+}
+.nav-links li a{
+    transition: all 0.3s ease 0s;
+    padding: 9px 25px;
+    border-radius: 50px;
+}
+.nav-links li a:hover{
+    color: white;
+    background-color: var(--accent0);
+}
+.nav-links li a.active{
+    background-color: var(--accent1);
+    color: white !important;
+}
+.nav-links li a.active:hover{
+    background-color: var(--accent0);
+}
+
+.loginButton{
+    padding: 9px 25px;
+    background-color: var(--accent1);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+.loginButton:hover{
+    background-color: var(--accent0);
+}
+.profile{
+    position: relative;
+}
+
+.profilebutton{
+    width: 45px;
+    height: 45px;
+    background: var(--accent1);
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.profilebutton:hover{
+    background-color: var(--accent0);
+}
+
+.dropDowncontent{
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 55px;
+    z-index: 1001;
+    background-color: var(--background);
+    min-width: 220px;
+    box-shadow: 0px 8px 16px lightgray;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.dropDowncontent.show{
+    display: block;
+}
+.userInfo{
+    padding: 15px;
+    color: var(--text);
+    text-align: center;
+}
+.userAction{
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: flex-end;
+    min-width: 140px;
+    gap: 15px;
+}
+.searchBox{
+    display: flex;
+    position: absolute;
+    background-color: white;
+    align-items: center;
+    border: 2px solid transparent;
+    border-radius: 50px;
+    height: 45px;
+    width: 45px;
+    right: 100px;
+    overflow: hidden;
+    transition: width .4s ease, border-color 0.4s ease;
+}
+.searchBox:hover,.searchBox:focus-within{
+    width: 220px;
+    border-color: var(--accent1);
+}
+.searchInput{
+    border: none;
+    outline: none;
+    width: calc(100% - 45px);
+    color: var(--text);
+    opacity: 0;
+    transition: opacity 0.3s ease, width 0.3s ease, padding 0.3s ease;
+}
+.searchBox:hover .searchInput,.searchBox:focus-within .searchInput{
+    opacity: 1;
+    width: 100%;
+    padding: 0 12px;
+}
+.searchIcon{
+    border: none;
+    background: none;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+}
+.logoutLink{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    gap: 8px;
+    color: var(--text);
+    background-color: var(--accent0);
+    font-weight:600;
+    transition: 0.3s;
+}
+.logoutLink:hover{
+    background-color: var(--accent1);
+    color: white;
+}
+.logoutLink img{
+    width: 18px;
+    height: 18px;
+}
+
+.wrapper-nav{
+    display: flex;
+    flex: 1;
+    align-items: center;
+}
+.close{
+    display: none;
+}
+.Mobile-view-menu{
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+@media(max-width: 650px){
+    .Mobile-view-menu{
+        display: block;
+    }
+    .navLogo{
+        margin-right: auto;
+    }
+    .wrapper-nav{
+        position: fixed;
+        top: 0;
+        right: -320px;
+        width: 300px;
+        height: 100%;
+        background-color: #f0f0f0;
+        justify-content: flex-start;
+        flex-direction: column;
+        padding: 80px 20px 30px;
+        box-shadow: -5px 0px 20px gray;
+        z-index: 1001;
+        transition: right 0.5s cubic-bezier(0.215, 0.61, 0.355, 1)
+    }
+    .wrapper-nav.active{
+        right: 0;
+    }
+    .close{
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 25px;
+        background: none;
+        border: none;
+        font-size: 35px;
+        cursor: pointer;
+        color: var(--text);
+        transition: color 0.3s ease;
+    }
+    .nav-links{
+        width: 100%;
+        margin-bottom:30px;
+    }
+    .nav-links ul{
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        width: 100%;
+        text-align: center;
+    }
+    .userAction{
+        flex-direction: column;
+        width: 100%;
+        gap: 20px;
+        justify-content: center;
+    }
+    .searchBox{
+        position: relative;
+        right: 0;
+        width: 100%;
+        border-color: var(--accent1);
+    }
+    .searchInput{
+        opacity: 1;
+        width: 100%;
+        padding: 0 12px;
+
+    }
+    .searchBox:hover,.searchBox:focus-within{
+        width: 100%;
+    }
+}
