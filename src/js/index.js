@@ -13,7 +13,6 @@
 
       categories.forEach( cat => {
       var card = `<a href="/api/books/browse?category=${cat.name}" class="category-card">
-          <img class="top-category-icon" src="../images/code.svg" alt="${cat.name}" />
           <span class="category-name">${cat.name}</span>
         </a>`
       grid.insertAdjacentHTML("beforeend", card);
@@ -45,7 +44,7 @@
         <div class="book-card">
           <div class="card-image-wrapper">
             <a href="../html/book.html?id=${book.id}">
-              <img src="${book.image?book.image:"../images/index-img2.jpg"}" alt="${book.title}">
+              <img src="${book.image?book.image:"/static/images/index-img2.jpg"}" alt="${book.title}">
             </a>
           </div>
 
