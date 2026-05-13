@@ -98,14 +98,14 @@ async function loadPage() {
   const id = params.get("id");
 
   if (!id) {
-    window.location.href = "../html/404.html";
+    window.location.href = "/Error";
     return;
   }
   const data = await getBooks();
   const found = data.find((b) => String(b.id) === String(id));
 
   if (!found) {
-    window.location.href = "../html/404.html";
+    window.location.href = "/Error";
     return;
   }
 
