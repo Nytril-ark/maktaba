@@ -30,7 +30,7 @@
           <p id="email"></p>
           <a href="../html/login.html" id="logoutButton" class="signoutLink">
             <img
-              src="../images/logout_20dp_000000_FILL0_wght400_GRAD0_opsz20.svg"
+              src="{%static 'images/logout_20dp_000000_FILL0_wght400_GRAD0_opsz20.svg' %}"
               alt=""
             />
             logout
@@ -49,12 +49,8 @@
               <span class="stat-icon"></span>
             </div>
             <div class="stat-numbers">
-              <h2>8,545</h2>
+              <h2 id="Total-books">0</h2>
               <p>Across all categories</p>
-            </div>
-            <div class="stat-trend">
-              <img class="trend-icon" src="../images/up.svg" alt="up" /> 12%
-              from last month
             </div>
           </div>
 
@@ -64,12 +60,12 @@
               <span class="stat-icon"></span>
             </div>
             <div class="stat-numbers">
-              <h2>2,543</h2>
+              <h2 id="Active-Borrowers">0</h2>
               <p>Currently active users</p>
             </div>
             <div class="stat-trend">
-              <img class="trend-icon" src="../images/up.svg" alt="up" /> 8% from
-              last month
+              <img class="trend-icon" src="{% static 'images/up.svg' %}" alt="up" /> 
+              <span id="borrower_trend">0%</span> from last month
             </div>
           </div>
 
@@ -79,12 +75,12 @@
               <span class="stat-icon"></span>
             </div>
             <div class="stat-numbers">
-              <h2>25</h2>
+              <h2 id="Overdue-Books">0</h2>
               <p>Require follow-up</p>
             </div>
             <div class="stat-trend down">
-              <img class="trend-icon" src="../images/up.svg" alt="down" /> 5%
-              from last month
+              <img class="trend-icon" src="{% static 'images/up.svg' %}" alt="down" /> 
+             <span id="overdue_trend">0%</span> from last month
             </div>
           </div>
 
@@ -94,12 +90,12 @@
               <span class="stat-icon"></span>
             </div>
             <div class="stat-numbers">
-              <h2>153</h2>
+              <h2 id="Borrowed-Today">0</h2>
               <p>Active transactions</p>
             </div>
             <div class="stat-trend down">
-              <img class="trend-icon" src="../images/up.svg" alt="down" /> 15%
-              from yesterday
+              <img class="trend-icon" src="{% static 'images/up.svg' %}" alt="down" />
+              <span id="borrowed_today_trend">0%</span> from yesterday
             </div>
           </div>
         </div>
@@ -113,7 +109,7 @@
           </div>
 
           <div class="chart-card">
-            <h3>Books by Category</h3>
+            <h3>Most borrowed Categories</h3>
             <div class="chart-container">
               <canvas id="categoryChart"></canvas>
             </div>
