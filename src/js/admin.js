@@ -114,8 +114,8 @@ function loadBooks() {
           <td>${book.year || "-"}</td>
           <td><span class="status ${getStatusClass(book.status)}">${book.status}</span></td>
           <td class="Actions">
-            <a href="edit_book.html?id=${book.id}" class="icon-btn edit-btn"><img src="../images/edit.svg" alt="edit"></a>
-            <button class="icon-btn delete-btn" onclick="deleteBook(${book.id})"><img src="../images/delete.svg" alt="delete"></button>
+            <a href="edit_book.html?id=${book.id}" class="icon-btn edit-btn"><img src="{% static 'images/edit.svg' %}" alt="edit"></a>
+            <button class="icon-btn delete-btn" onclick="deleteBook(${book.id})"><img src="{% static 'images/delete.svg' %}" alt="delete"></button>
           </td>
         `;
 

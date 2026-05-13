@@ -28,7 +28,7 @@
       <button class="close" id="close-button">&times;</button>
       <nav class="nav-links">
         <ul>
-          <li><a href="{% url 'log_in' %}" class="navhome active" id="navhome"><span>Home</span></a></li>
+          <li><a href="{% url 'index' %}" class="navhome active" id="navhome"><span>Home</span></a></li>
           <li><a href="{% url 'browse_books_page' %}" class="navbrowse" id="navbrowse"><span>Browse Books</span></a></li>
           <li><a href="#" class="navborrowed" id="navborrowed"><span>My Borrowed Books</span></a></li>
         </ul>
@@ -37,7 +37,7 @@
       <div class="userAction">
         <div class="searchBox">
           <input type="search" class="searchInput" placeholder="search books.....">
-          <button class="searchIcon"><img src="../images/search_22dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
+          <button class="searchIcon"><img src="{% static 'images/search_22dp_000000_FILL0_wght400_GRAD0_opsz24.svg' %}"
               alt=""></button>
         </div>
         <a id="login" href="{% url 'log_in' %}">
@@ -79,27 +79,27 @@
       </div>
 
       <div class="top-categories-grid">
-        <a href="../html/browse-books.html?category=Software%20Engineering" class="category-card">
+        <a href="{%static 'html/browse-books.html?category=Software%20Engineering' %}" class="category-card">
           <img class="top-category-icon" src="../images/code.svg" alt="Software Engineering" />
           <span class="category-name">Software Engineering</span>
         </a>
-        <a href="../html/browse-books.html?category=Artificial%20Intelligence" class="category-card">
+        <a href="{% static 'html/browse-books.html?category=Artificial%20Intelligence' %}" class="category-card">
           <img class="top-category-icon" src="../images/ai.svg" alt="AI & Data Science" />
           <span class="category-name">AI & Data Science</span>
         </a>
-        <a href="../html/browse-books.html?category=Cybersecurity" class="category-card">
+        <a href="{% static 'html/browse-books.html?category=Cybersecurity' %}" class="category-card">
           <img class="top-category-icon" src="../images/security.svg" alt="Cybersecurity" />
           <span class="category-name">Cybersecurity</span>
         </a>
-        <a href="../html/browse-books.html?category=Operating%20Systems" class="category-card">
+        <a href="{% static 'html/browse-books.html?category=Operating%20Systems' %}" class="category-card">
           <img class="top-category-icon" src="../images/cpu.svg" alt="Embedded Systems" />
           <span class="category-name">Embedded Systems</span>
         </a>
-        <a href="../html/browse-books.html?category=Economics" class="category-card">
+        <a href="{% static 'html/browse-books.html?category=Economics' %}" class="category-card">
           <img class="top-category-icon" src="../images/chart.svg" alt="Management" />
           <span class="category-name">Economics</span>
         </a>
-        <a href="../html/browse-books.html?category=Mathematics" class="category-card">
+        <a href="{% static 'html/browse-books.html?category=Mathematics' %}" class="category-card">
           <img class="top-category-icon" src="../images/math.svg" alt="maths" />
           <span class="category-name">Maths</span>
         </a>
@@ -118,7 +118,7 @@
       <div class="books-grid">
         <div class="book-card">
           <div class="card-image-wrapper">
-            <a href="book.html?id=1"><img src="../images/books/book1.jpg" /> </a>
+            <a href="book.html?id=1"><img src="{% static 'images/books/book1.jpg' %}" /> </a>
           </div>
           <div class="card-info">
             <h3>Introduction to Algorithms</h3>
@@ -132,8 +132,8 @@
     <footer class="footer">
       <div class="footer-columns">
         <div class="footer-column">
-          <a href="{% url 'log_in' %}" class="footerLogo">
-            <img class="footerLogoIcon" src="../images/menu_book_16dp_E3E3E3_FILL0_wght400_GRAD0_opsz20.svg" alt="logo" />
+          <a href="{% url 'index' %}" class="footerLogo">
+            <img class="footerLogoIcon" src="{% static 'images/menu_book_16dp_E3E3E3_FILL0_wght400_GRAD0_opsz20.svg' %}" alt="logo" />
             <div class="logoText">
               <h2>Maktaba</h2>
               <p>FCAI-CU Library</p>
@@ -145,7 +145,7 @@
           <h3 class="footer-title">Links</h3>
           <ul class="footerLinks">
             <li>
-              <a href="{% url 'log_in' %}" class="footerhome"><span>Home</span></a>
+              <a href="{% url 'index' %}" class="footerhome"><span>Home</span></a>
             </li>
             <li>
               <a href="{% url 'browse_books_page' %}" class="footerbrowse"><span>Browse Books</span></a>
@@ -167,8 +167,8 @@
             <a href="tel:+201523456789" class="contactLink">+20 1523456789</a>
           </p>
           <div class="socialMedia">
-            <a href="https://facebook.com"><img src="../images/facebook.png" alt="" /></a>
-            <a href="https://linkedin.com"><img src="../images/linkedin.png" alt="" /></a>
+            <a href="https://facebook.com"><img src="{%static 'images/facebook.png'%}" alt=""></a>
+           <a href="https://linkedin.com"><img src="{%static 'images/linkedin.png'%}" alt=""></a>
           </div>
         </div>
       </div>
