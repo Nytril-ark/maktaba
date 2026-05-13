@@ -90,7 +90,7 @@ async function loadBooks() {
 
         <td class="Actions">
 
-          <a href="/api/admine/edit_book/?id=${book.id}" class="icon-btn edit-btn" title="Edit Book">
+          <a href="../edit_book/?id=${book.id}" class="icon-btn edit-btn" title="Edit Book">
 
             <img src="../images/edit.svg" alt="edit">
 
