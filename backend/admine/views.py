@@ -129,7 +129,10 @@ def add_book(request):
     if not request.user.is_authenticated or (not request.user.is_staff and not request.user.is_superuser):
         return JsonResponse({"error": "Forbidden"}, status=403)
     data = json.loads(request.body)
+    all_ids = [int(b.id) for b in Book.objects.all()]
+    next_id = str(max(all_ids) + 1) if all_ids else "1"
     book = Book.objects.create(
+        id=next_id,
         title=data.get("title"),
         authors=data.get("authors"),
         category=data.get("category"),
@@ -147,3 +150,21 @@ def add_book_page(request):
 
 def book_inventory_page(request):
     return render(request, 'book_inventory.html')
+
+def load_inventory(request):
+    books = list(Book.objects.all().values('id','title','authors','category','status','description'))
+    books.sort(key=lambda b: int(b['id']), reverse=True)
+    return JsonResponse({'books': books})
+
+
+@csrf_exempt
+@require_http_methods(["DELETE"])
+def delete_book(request, book_id):
+    if not request.user.is_authenticated or (not request.user.is_staff and not request.user.is_superuser):
+        return JsonResponse({"error": "Forbidden"}, status=403)
+    try:
+        book = Book.objects.get(id=book_id)
+        book.delete()
+        return JsonResponse({"deleted": book_id})
+    except Book.DoesNotExist:
+        return JsonResponse({"error": "Not found"}, status=404)
