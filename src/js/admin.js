@@ -53,44 +53,41 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-function loadBooks() {
-  const tableBody = document.getElementById("booksTableBody");
+async function loadBooks() {
+    const tableBody = document.getElementById("booksTableBody");
+    if (!tableBody) return;
 
-  if (!tableBody) return;
+    const res = await fetch('/api/admine/api/inventory/');
+    const data = await res.json();
 
-  let books = JSON.parse(localStorage.getItem("books")) || [];
+    tableBody.innerHTML = "";
 
-  tableBody.innerHTML = "";
-
-  books.forEach((book) => {
-    const row = document.createElement("tr");
-
-    row.innerHTML = `
-          <td>${book.id}</td>
-          <td class="book-title">${book.title}</td>
-          <td>${book.authors.join(", ")}</td>
-          <td>${book.category}</td>
-          <td>${book.isbn || "-"}</td>
-          <td>${book.year || "-"}</td>
-          <td><span class="status ${getStatusClass(book.status)}">${book.status}</span></td>
-          <td class="Actions">
-            <a href="edit_book.html?id=${book.id}" class="icon-btn edit-btn"><img src="{% static 'images/edit.svg' %}" alt="edit"></a>
-            <button class="icon-btn delete-btn" onclick="deleteBook(${book.id})"><img src="{% static 'images/delete.svg' %}" alt="delete"></button>
-          </td>
+    data.books.forEach((book) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${book.id}</td>
+            <td class="book-title">${book.title}</td>
+            <td>${book.authors}</td>
+            <td>${book.category}</td>
+            <td>-</td>
+            <td>-</td>
+            <td><span class="status ${getStatusClass(book.status)}">${book.status}</span></td>
+            <td class="Actions">
+                <button class="icon-btn delete-btn" onclick="deleteBook('${book.id}')"><img src="/static/images/delete.svg" alt="delete"></button>
+            </td>
         `;
-
-    tableBody.appendChild(row);
-  });
+        tableBody.appendChild(row);
+    });
 }
 
-function deleteBook(id) {
-  let books = JSON.parse(localStorage.getItem("books")) || [];
-
-  books = books.filter((book) => book.id !== id);
-
-  localStorage.setItem("books", JSON.stringify(books));
-
-  loadBooks();
+async function deleteBook(id) {
+    const res = await fetch(`/api/admine/api/delete_book/${id}/`, {
+        method: 'DELETE',
+        credentials: 'include',
+    });
+    if (res.ok) {
+        loadBooks();
+    }
 }
 
 
