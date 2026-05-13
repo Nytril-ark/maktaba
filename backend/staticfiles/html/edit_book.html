@@ -23,7 +23,7 @@
       </div>
 
       <ul class="sidbar-nav">
-        <li><a href="admin_dashboard.html">Dashboard</a></li>
+        <li><a href="{% url 'admin_dashboard' %}">Dashboard</a></li>
         <li><a href="book_inventory.html">Book Inventory</a></li>
         <li><a href="add_book.html">Add Book</a></li>
       </ul>
@@ -32,7 +32,7 @@
         <p id="username"></p>
         <p id="email"></p>
         <a href="#" id="logoutButton" class="signoutLink">
-          <img src="../images/logout_20dp_000000_FILL0_wght400_GRAD0_opsz20.svg" alt="">
+          <img  src="{%static 'images/logout_20dp_000000_FILL0_wght400_GRAD0_opsz20.svg'%}" alt="" alt="">
           logout
         </a>
       </div>

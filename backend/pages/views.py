@@ -7,3 +7,6 @@ from django.http import JsonResponse
 
 def index(request):
     return render(request,'index.html')
+
+def contact(request):
+    return render(request,'contact.html')

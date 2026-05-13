@@ -23,17 +23,17 @@
         <p>FCAI - Library</p>
       </div>
 
-      <ul class="sidbar-nav">
-        <li><a href="admin_dashboard.html">Dashboard</a></li>
-        <li><a href="book_inventory.html">Book Inventory</a></li>
-        <li><a href="add_book.html" class="active">Add Book</a></li>
-      </ul>
+        <ul class="sidbar-nav">
+            <li><a href="{% url 'admin_dashboard' %}">Dashboard</a></li>
+            <li><a href="{% url 'book_inventory' %}">Book Inventory</a></li>
+            <li><a href="{% url 'add_book_page' %}">Add Book</a></li>
+        </ul>
 
       <div class="sidebar-user">
         <p id="username"></p>
         <p id="email"></p>
-        <a href="../html/login.html" id="logoutButton" class="signoutLink">
-          <img src="../images/logout_20dp_000000_FILL0_wght400_GRAD0_opsz20.svg" alt="">
+        <a href="{% url 'log_in' %}" id="logoutButton" class="signoutLink">
+          <img  src="{%static 'images/logout_20dp_000000_FILL0_wght400_GRAD0_opsz20.svg'%}" alt="" alt="">
           logout
         </a>
       </div>
@@ -42,7 +42,7 @@
 
     <main class="main">
       <header class="page-header">
-        <a href="book_inventory.html" class="back-link">⬅️ Back to Inventory</a>
+        <a href="{% url 'book_inventory' %}" class="back-link">⬅️ Back to Inventory</a>
         <h1>Add Book</h1>
         <p>Add a new book to the library inventory</p>
 
@@ -85,15 +85,15 @@
           </div>
 
           <div class="form-row">
-            <div class="form-group">
-              <label>Publication year*</label>
-              <input type="number" placeholder="2009" required id="year">
-            </div>
-
-            <div class="form-group">
-              <label>Quantity *</label>
-              <input type="number" placeholder="19" required id="quantity">
-            </div>
+            <!-- <div class="form-group"> -->
+            <!--   <label>Publication year*</label> -->
+            <!--   <input type="number" placeholder="2009" required id="year"> -->
+            <!-- </div> -->
+            <!---->
+            <!-- <div class="form-group"> -->
+            <!--   <label>Quantity *</label> -->
+            <!--   <input type="number" placeholder="19" required id="quantity"> -->
+            <!-- </div> -->
 
           </div>
 

@@ -103,3 +103,47 @@ def load_borrow_stats(request):
     }
 
     return JsonResponse(data)
+
+
+
+
+
+
+
+
+
+
+
+
+######################################################################
+######################################################################
+
+from books.models import Book
+from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_http_methods
+import json
+
+@csrf_exempt
+@require_http_methods(["POST"])
+def add_book(request):
+    if not request.user.is_authenticated or (not request.user.is_staff and not request.user.is_superuser):
+        return JsonResponse({"error": "Forbidden"}, status=403)
+    data = json.loads(request.body)
+    book = Book.objects.create(
+        title=data.get("title"),
+        authors=data.get("authors"),
+        category=data.get("category"),
+        image_url=data.get("image_url", ""),
+        pages=data.get("pages", 0),
+        language=data.get("language", "English"),
+        description=data.get("description", ""),
+        status=data.get("status", "available"),
+        rating=data.get("rating", 0),
+    )
+    return JsonResponse({"id": book.id, "title": book.title}, status=201)
+
+def add_book_page(request):
+    return render(request, 'add_book.html')
+
+def book_inventory_page(request):
+    return render(request, 'book_inventory.html')

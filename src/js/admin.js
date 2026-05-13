@@ -52,46 +52,6 @@ document.addEventListener("DOMContentLoaded", () => {
   setInterval(updateDashboard,30000);
 });
 
-function handleAddBook() {
-  const form = document.getElementById("addBookForm");
-
-  if (!form) return;
-
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const title = document.getElementById("title").value;
-    const authors = document.getElementById("authors").value.split(",");
-    const category = document.getElementById("category").value;
-    const isbn = document.getElementById("isbn").value;
-    const year = document.getElementById("year").value;
-    const quantity = document.getElementById("quantity").value;
-    const status = document.getElementById("status").value;
-    const description = document.getElementById("description").value;
-
-    let books = JSON.parse(localStorage.getItem("books")) || [];
-
-    const newId = books.length ? books[books.length - 1].id + 1 : 1;
-
-    const newBook = {
-      id: newId,
-      title: title,
-      authors: authors.map((a) => a.trim()),
-      category: category,
-      isbn: isbn,
-      year: year,
-      quantity: quantity,
-      description: description,
-      status: status,
-    };
-
-    books.push(newBook);
-
-    localStorage.setItem("books", JSON.stringify(books));
-
-    window.location.href = "book_inventory.html";
-  });
-}
 
 function loadBooks() {
   const tableBody = document.getElementById("booksTableBody");
@@ -114,8 +74,8 @@ function loadBooks() {
           <td>${book.year || "-"}</td>
           <td><span class="status ${getStatusClass(book.status)}">${book.status}</span></td>
           <td class="Actions">
-            <a href="edit_book.html?id=${book.id}" class="icon-btn edit-btn"><img src="../images/edit.svg" alt="edit"></a>
-            <button class="icon-btn delete-btn" onclick="deleteBook(${book.id})"><img src="../images/delete.svg" alt="delete"></button>
+            <a href="edit_book.html?id=${book.id}" class="icon-btn edit-btn"><img src="{% static 'images/edit.svg' %}" alt="edit"></a>
+            <button class="icon-btn delete-btn" onclick="deleteBook(${book.id})"><img src="{% static 'images/delete.svg' %}" alt="delete"></button>
           </td>
         `;
 
@@ -133,62 +93,46 @@ function deleteBook(id) {
   loadBooks();
 }
 
-//edit function
-function handleEditBook() {
-  const form = document.querySelector("form");
 
-  if (!window.location.href.includes("edit_book.html")) return;
 
-  const params = new URLSearchParams(window.location.search);
-  const id = parseInt(params.get("id"));
+///////////////////////////////////////////////////////////////////////////////////////////
 
-  let books = JSON.parse(localStorage.getItem("books")) || [];
-  const book = books.find((b) => b.id === id);
+function handleAddBook() {
+    const form = document.getElementById("addBookForm");
+    if (!form) return;
 
-  if (!book) {
-    alert("Book not found!");
-    window.location.href = "book_inventory.html";
-    return;
-  }
+    form.addEventListener("submit", async function(e) {
+        e.preventDefault();
 
-  // get elements
-  const title = document.getElementById("editTitle");
-  const authors = document.getElementById("editAuthors");
-  const category = document.getElementById("editCategory");
-  const isbn = document.getElementById("editISBN");
-  const year = document.getElementById("editYear");
-  const quantity = document.getElementById("editQuantity");
-  const status = document.getElementById("editStatus");
-  const description = document.getElementById("editDescription");
+        const payload = {
+            title: document.getElementById("title").value,
+            authors: document.getElementById("authors").value,
+            category: document.getElementById("category").value,
+            isbn: document.getElementById("isbn").value,
+            status: document.getElementById("status").value,
+            description: document.getElementById("description").value,
+        };
 
-  //fill form
-  title.value = book.title;
-  authors.value = book.authors.join(", ");
-  category.value = book.category;
-  isbn.value = book.isbn;
-  year.value = book.year;
-  quantity.value = book.quantity || 0;
-  status.value = book.status;
-  description.value = book.description;
+      const res = await fetch("/api/admine/api/add_book/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+        credentials: "include",
+      });
 
-  // function to update Book
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
+        const data = await res.json();
 
-    book.title = title.value;
-    book.authors = authors.value.split(",").map((a) => a.trim());
-    book.category = category.value;
-    book.isbn = isbn.value;
-    book.year = year.value;
-    book.quantity = quantity.value;
-    book.status = status.value;
-    book.description = description.value;
+        if (!res.ok) {
+            alert(data.error);
+            return;
+        }
 
-    localStorage.setItem("books", JSON.stringify(books));
-
-    window.location.href = "book_inventory.html";
-  });
+        window.location.href = "/api/admine/dashboard/";
+    });
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+
 
 function getStatusClass(status) {
   if (status === "available") return "ava";

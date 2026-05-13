@@ -24,8 +24,11 @@ document.addEventListener( "DOMContentLoaded", () => {
     }
 
     if ( role === "Admin" ) {
-        if ( !window.location.href.includes( "admin_dashboard.html" ) && !window.location.href.includes( "book_inventory.html" ) && !window.location.href.includes( "add_book.html" ) && !window.location.href.includes( "edit_book.html" ) ) {
-            window.location.replace( "admin_dashboard.html" );
+        const path = window.location.pathname;
+        const adminPaths = ['/api/admine/'];
+        const isOnAdminPage = adminPaths.some(p => path.startsWith(p));
+        if (!isOnAdminPage) {
+            window.location.replace("/api/admine/dashboard/");
         }
     }
 
@@ -85,7 +88,7 @@ document.addEventListener( "DOMContentLoaded", () => {
             e.preventDefault();
             if ( role === "Guest" ) {
                 alert( "You have to login first" );
-                window.location.replace( "login.html" );
+                window.location.replace( "/api/accounts/login" );
             } else {
                 window.location.replace( '/api/borrowing/borrowedbooks/' );
             }
@@ -96,20 +99,7 @@ document.addEventListener( "DOMContentLoaded", () => {
 
 var allUsers = JSON.parse( localStorage.getItem( "AllUsers" ) ) || [];
 
-if ( allUsers.length === 0 ) {
-    
-    let adminUser = {
-        FirstName: "Admin",
-        LastName: "System",
-        Birthday: "2000-01-01",
-        UserName: "admin",
-        Email: "admin@library.com",
-        Password: "admin", 
-        role: "Admin"      
-    };
-    allUsers.push( adminUser );
-    localStorage.setItem( "AllUsers", JSON.stringify(allUsers) );
-}
+
 // browse books
 export async function getBooks() {
     const res = await fetch("/api/books/js/");
