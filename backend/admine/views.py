@@ -126,7 +126,7 @@ import json
 @csrf_exempt
 @require_http_methods(["POST"])
 def add_book(request):
-    if not request.user.is_authenticated or not request.user.is_staff:
+    if not request.user.is_authenticated or (not request.user.is_staff and not request.user.is_superuser):
         return JsonResponse({"error": "Forbidden"}, status=403)
     data = json.loads(request.body)
     book = Book.objects.create(
@@ -139,7 +139,6 @@ def add_book(request):
         description=data.get("description", ""),
         status=data.get("status", "available"),
         rating=data.get("rating", 0),
-        ISBN=data.get("isbn"),
     )
     return JsonResponse({"id": book.id, "title": book.title}, status=201)
 

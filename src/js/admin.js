@@ -113,12 +113,12 @@ function handleAddBook() {
             description: document.getElementById("description").value,
         };
 
-        const res = await fetch("http://127.0.0.1:8000/api/admine/api/add_book/", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload),
-            credentials: "include",
-        });
+      const res = await fetch("/api/admine/api/add_book/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+        credentials: "include",
+      });
 
         const data = await res.json();
 
