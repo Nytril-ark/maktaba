@@ -21,11 +21,9 @@
         </div>
 
         <ul class="sidbar-nav">
-          <li><a href="{% url 'admin_dashboard' %}">Dashboard</a></li>
-          <li>
-            <a href="book_inventory.html" class="active">Book Inventory</a>
-          </li>
-          <li><a href="add_book.html">Add Book</a></li>
+            <li><a href="{% url 'admin_dashboard' %}">Dashboard</a></li>
+            <li><a href="{% url 'book_inventory' %}">Book Inventory</a></li>
+            <li><a href="{% url 'add_book_page' %}">Add Book</a></li>
         </ul>
 
         <div class="sidebar-user">

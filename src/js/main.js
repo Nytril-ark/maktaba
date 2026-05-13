@@ -23,12 +23,12 @@ document.addEventListener( "DOMContentLoaded", () => {
         localStorage.setItem( "Role", "Guest" );
     }
 
-    if ( role != "Admin" ) {
-        if ( window.location.href.includes( "/api/admine/dashboard/" ) ||
-             window.location.href.includes( "book_inventory.html" ) ||
-             window.location.href.includes( "add_book.html" ) || 
-             window.location.href.includes( "edit_book.html" ) ) {
-            window.location.replace( "/api/accounts/login" );
+    if ( role === "Admin" ) {
+        const path = window.location.pathname;
+        const adminPaths = ['/api/admine/'];
+        const isOnAdminPage = adminPaths.some(p => path.startsWith(p));
+        if (!isOnAdminPage) {
+            window.location.replace("/api/admine/dashboard/");
         }
     }
 
