@@ -90,7 +90,7 @@ function setupBorrowButtons() {
 
     try {
       const params = new URLSearchParams(window.location.search);
-      const bookISBN = params.get("id");
+      const bookId = params.get("id");
       const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
       
       const btn = e.target;
@@ -101,7 +101,7 @@ function setupBorrowButtons() {
           'Content-Type': 'application/json',
           'X-CSRFToken': csrfToken
         },
-        body: JSON.stringify( { book_ISBN: bookISBN } )
+        body: JSON.stringify( { book_id: bookId } )
       } );
 
       const data = await response.json();

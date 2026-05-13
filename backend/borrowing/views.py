@@ -17,8 +17,8 @@ from books.models import Book
 @csrf_exempt
 def borrow_book(request):
     data = json.loads(request.body)
-    book_ISBN = data.get('book_ISBN')
-    book = Book.objects.get(ISBN=book_ISBN)
+    book_id = data.get('book_id')
+    book = Book.objects.get(id=book_id)
 
     already_borrowed=BorrowRecord.objects.filter(
         user=request.user,
@@ -33,7 +33,7 @@ def borrow_book(request):
             returnDate = datetime.datetime.now() + datetime.timedelta(weeks=2)
         )
         Book.objects.filter(
-            ISBN=book_ISBN,
+            id=book_id,
             ).update(
                 status='unavailable'
             )
@@ -51,14 +51,14 @@ def return_book(request, pk):
     
     updated=BorrowRecord.objects.filter(
         user=request.user,
-        book__ISBN = pk,
+        book_id = pk,
         status='borrowed'
     ).update(
         status='returned',
     )   
     
     Book.objects.filter(
-        ISBN=pk
+        id=pk
     ).update(
         status='available',
     )
@@ -80,7 +80,7 @@ def borrowed_books(request):
 
     for record in borrowed_records:
         books.append({
-            'id' : record.book.ISBN,
+            'id' : record.book.id,
             'title' : record.book.title,
             'authors' : [record.book.authors] if isinstance(record.book.authors,str) else record.book.authors,
             'category' : record.book.category
