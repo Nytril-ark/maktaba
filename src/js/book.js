@@ -108,7 +108,6 @@ function setupBorrowButtons() {
       
       if ( response.ok && data.status === 'success' ) {
         alert( data.message );
-        btn.innerText = "return";
       } else {
         alert( data.message );
       }
