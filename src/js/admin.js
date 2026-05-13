@@ -90,7 +90,7 @@ async function loadBooks() {
 
         <td class="Actions">
 
-          <a href="../edit_book/?id=${book.id}" class="icon-btn edit-btn" title="Edit Book">
+          <a href="/api/admine/edit_book/?id=${book.id}" class="icon-btn edit-btn" title="Edit Book">
 
             <img src="../images/edit.svg" alt="edit">
 
@@ -131,7 +131,8 @@ async function deleteBook(id) {
 ///////////////////////////////////////////////////////////////////////////////////////////
 async function handleEditBook() {
 
-  if (!window.location.href.includes("/api/admine/edit_book/")) return;
+  //if (!window.location.href.includes("/api/admine/edit_book/")) return;
+  if (!window.location.pathname.includes("edit_book")) return;
 
   const params = new URLSearchParams(window.location.search);
 
