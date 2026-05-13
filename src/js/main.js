@@ -47,7 +47,19 @@ document.addEventListener( "DOMContentLoaded", () => {
             e.preventDefault();
             sessionStorage.clear();
             localStorage.setItem( "Role", "Guest" );
-            await fetch('/api/accounts/api/logout/',{method:'POST'});
+            const getCookie=(name)=>{
+                let value=`; ${document.cookie}`;
+                let parts=value.split(`; ${name}=`);
+                if (parts.length==2)return parts.pop().split(';').shift();
+            }
+            try{
+                await fetch('/api/accounts/api/logout/',{method:'POST',headers:{'X-CSRFToken':getCookie('csrftoken') }});
+        
+            }
+            catch(error){
+                    console.log("log out error: ",error);
+            }
+            
             window.location.replace( "/api/accounts/login/" );
         } );
     }
