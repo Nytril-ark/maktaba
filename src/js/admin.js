@@ -52,46 +52,6 @@ document.addEventListener("DOMContentLoaded", () => {
   setInterval(updateDashboard,30000);
 });
 
-function handleAddBook() {
-  const form = document.getElementById("addBookForm");
-
-  if (!form) return;
-
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const title = document.getElementById("title").value;
-    const authors = document.getElementById("authors").value.split(",");
-    const category = document.getElementById("category").value;
-    const isbn = document.getElementById("isbn").value;
-    const year = document.getElementById("year").value;
-    const quantity = document.getElementById("quantity").value;
-    const status = document.getElementById("status").value;
-    const description = document.getElementById("description").value;
-
-    let books = JSON.parse(localStorage.getItem("books")) || [];
-
-    const newId = books.length ? books[books.length - 1].id + 1 : 1;
-
-    const newBook = {
-      id: newId,
-      title: title,
-      authors: authors.map((a) => a.trim()),
-      category: category,
-      isbn: isbn,
-      year: year,
-      quantity: quantity,
-      description: description,
-      status: status,
-    };
-
-    books.push(newBook);
-
-    localStorage.setItem("books", JSON.stringify(books));
-
-    window.location.href = "book_inventory.html";
-  });
-}
 
 function loadBooks() {
   const tableBody = document.getElementById("booksTableBody");

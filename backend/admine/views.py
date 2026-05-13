@@ -145,3 +145,6 @@ def add_book(request):
 
 def add_book_page(request):
     return render(request, 'add_book.html')
+
+def book_inventory_page(request):
+    return render(request, 'book_inventory.html')
