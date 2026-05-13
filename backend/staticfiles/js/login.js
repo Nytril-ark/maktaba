@@ -32,10 +32,9 @@ document.querySelector('form').addEventListener('submit',async function(e) {
     };
     localStorage.setItem("LogedUser",JSON.stringify(logedUser))
     if(result.role=="Admin"){
-      window.location.replace("/api/accounts/dashboard/");//we need to replace this path with django path
-    }
-    else{
-        window.location.replace("/");//we need to replace this path with django path
+        window.location.replace("/api/admine/dashboard/");
+    } else {
+        window.location.replace("/");
     }
  }
 

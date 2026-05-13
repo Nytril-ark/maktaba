@@ -1,17 +1,17 @@
   import { getBooks } from "./main.js";
 
-  function loadCategories(books) {
+  async function loadCategories(books) {
     const grid = document.querySelector(".categories-grid");
     if (!grid) return;
 
-    const mapped = books.map(b => b.category);
-    const filtered = mapped.filter(Boolean);
-    const uniqueSet = new Set(filtered);
-    const categories = Array.from(uniqueSet);
+    try {
+      const response = await fetch( '/api/top_categories/' )
+      const data = await response.json();
+      const categories = data.topCat;
 
-    grid.innerHTML = "";
+      grid.innerHTML = "";
 
-    categories.forEach(name => {
+      categories.forEach(name => {
       const card = document.createElement("a");
       card.href = `../html/browse-books.html?category=${encodeURIComponent(name)}`;
       card.className = "category-card";
@@ -23,6 +23,9 @@
 
       grid.appendChild(card);
     });
+    } catch ( error ) {
+      console.error( "Error fetching categories:", error );
+    }
   }
 
   const grid = document.querySelector(".categories-grid");
@@ -63,7 +66,7 @@
       `;
 
       grid.insertAdjacentHTML("beforeend", card);
-          } );
+      } );
       
     } catch ( error ) {
     console.error( "Error fetching books:", error );

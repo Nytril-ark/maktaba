@@ -14,7 +14,7 @@
 
 <body>
   <div class="container">
-    <a href="{% url 'log_in' %}" class="navLogo">
+    <a href="{% url 'index' %}" class="navLogo">
       <img class="Logo" src="{% static '/images/menu_book_16dp_E3E3E3_FILL0_wght400_GRAD0_opsz20.svg' %}" alt="logo">
       <div class="logoText">
         <h2>Maktaba</h2>
@@ -28,7 +28,7 @@
       <button class="close" id="close-button">&times;</button>
       <nav class="nav-links">
         <ul>
-          <li><a href="{% url 'log_in' %}" class="navhome active" id="navhome"><span>Home</span></a></li>
+          <li><a href="{% url 'index' %}" class="navhome active" id="navhome"><span>Home</span></a></li>
           <li><a href="{% url 'browse_books_page' %}" class="navbrowse" id="navbrowse"><span>Browse Books</span></a></li>
           <li><a href="#" class="navborrowed" id="navborrowed"><span>My Borrowed Books</span></a></li>
         </ul>
@@ -111,21 +111,10 @@
     </section>
     <section class="bestsellers-section">
       <div class="section-header">
-        <h2 class="categ-header-text" id="recomm">Recommendations</h2>
+        <h2 class="categ-header-text" id="recomm">Top rated Books</h2>
         <br />
       </div>
-
       <div class="books-grid">
-        <div class="book-card">
-          <div class="card-image-wrapper">
-            <a href="book.html?id=1"><img src="../images/books/book1.jpg" /> </a>
-          </div>
-          <div class="card-info">
-            <h3>Introduction to Algorithms</h3>
-            <p class="author">THOMAS H.CORMEN</p>
-          </div>
-          <a href="book.html?id=1" class="borrow-btn-hover">More details</a>
-        </div>
       </div>
     </section>
 

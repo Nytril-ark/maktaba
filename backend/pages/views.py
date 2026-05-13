@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.db.models import Count
 from django.http import JsonResponse
 from books.models import Book
 # Create your views here.
@@ -20,6 +21,20 @@ def top_rated_books(request):
         })
 
     return JsonResponse({'topRated':top_rated_data})
+
+def top_categories(request):
+    top_cats = Book.objects.values('category').annotate(
+            book_count=Count('category')
+        ).order_by('-book_count')[:5]
+    
+    categories_data = []
+    for cat in top_cats:
+        if cat['category']: 
+            categories_data.append({
+                'name': cat['category'],
+            })  
+    
+    return JsonResponse({'topCat':categories_data})
 
 def index(request):
     return render(request,'index.html')

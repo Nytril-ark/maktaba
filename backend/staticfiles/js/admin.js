@@ -133,62 +133,46 @@ function deleteBook(id) {
   loadBooks();
 }
 
-//edit function
-function handleEditBook() {
-  const form = document.querySelector("form");
 
-  if (!window.location.href.includes("edit_book.html")) return;
 
-  const params = new URLSearchParams(window.location.search);
-  const id = parseInt(params.get("id"));
+///////////////////////////////////////////////////////////////////////////////////////////
 
-  let books = JSON.parse(localStorage.getItem("books")) || [];
-  const book = books.find((b) => b.id === id);
+function handleAddBook() {
+    const form = document.getElementById("addBookForm");
+    if (!form) return;
 
-  if (!book) {
-    alert("Book not found!");
-    window.location.href = "book_inventory.html";
-    return;
-  }
+    form.addEventListener("submit", async function(e) {
+        e.preventDefault();
 
-  // get elements
-  const title = document.getElementById("editTitle");
-  const authors = document.getElementById("editAuthors");
-  const category = document.getElementById("editCategory");
-  const isbn = document.getElementById("editISBN");
-  const year = document.getElementById("editYear");
-  const quantity = document.getElementById("editQuantity");
-  const status = document.getElementById("editStatus");
-  const description = document.getElementById("editDescription");
+        const payload = {
+            title: document.getElementById("title").value,
+            authors: document.getElementById("authors").value,
+            category: document.getElementById("category").value,
+            isbn: document.getElementById("isbn").value,
+            status: document.getElementById("status").value,
+            description: document.getElementById("description").value,
+        };
 
-  //fill form
-  title.value = book.title;
-  authors.value = book.authors.join(", ");
-  category.value = book.category;
-  isbn.value = book.isbn;
-  year.value = book.year;
-  quantity.value = book.quantity || 0;
-  status.value = book.status;
-  description.value = book.description;
+        const res = await fetch("http://127.0.0.1:8000/api/admine/api/add_book/", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+            credentials: "include",
+        });
 
-  // function to update Book
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
+        const data = await res.json();
 
-    book.title = title.value;
-    book.authors = authors.value.split(",").map((a) => a.trim());
-    book.category = category.value;
-    book.isbn = isbn.value;
-    book.year = year.value;
-    book.quantity = quantity.value;
-    book.status = status.value;
-    book.description = description.value;
+        if (!res.ok) {
+            alert(data.error);
+            return;
+        }
 
-    localStorage.setItem("books", JSON.stringify(books));
-
-    window.location.href = "book_inventory.html";
-  });
+        window.location.href = "/api/admine/dashboard/";
+    });
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+
 
 function getStatusClass(status) {
   if (status === "available") return "ava";
