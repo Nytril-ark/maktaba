@@ -11,6 +11,11 @@
   display: flex;
   flex-direction: column;
   padding: 20px;
+  position: sticky;
+  top: 0;
+  height: 100vh; 
+   
+  box-sizing: border-box;
 }
 .main {
   flex-grow: 1;
@@ -208,6 +213,10 @@
   .sidebar {
     width: 100%;
     padding: 20px;
+    position: relative;
+    height: auto;
+    overflow-y: visible;
+
   }
   .sidbar-nav {
     display: flex;
