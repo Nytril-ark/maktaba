@@ -14,7 +14,7 @@
 
 <body>
   <div class="container">
-    <a href="/api/accounts/login/" class="navLogo">
+    <a href="{% url 'index' %}" class="navLogo">
       <img class="Logo" src="{% static '/images/menu_book_16dp_E3E3E3_FILL0_wght400_GRAD0_opsz20.svg' %}" alt="logo">
       <div class="logoText">
         <h2>Maktaba</h2>
@@ -28,8 +28,8 @@
       <button class="close" id="close-button">&times;</button>
       <nav class="nav-links">
         <ul>
-          <li><a href="/api/accounts/login/" class="navhome active" id="navhome"><span>Home</span></a></li>
-          <li><a href="../html/browse-books.html" class="navbrowse" id="navbrowse"><span>Browse Books</span></a></li>
+          <li><a href="{% url 'index' %}" class="navhome active" id="navhome"><span>Home</span></a></li>
+          <li><a href="{% url 'browse_books_page' %}" class="navbrowse" id="navbrowse"><span>Browse Books</span></a></li>
           <li><a href="#" class="navborrowed" id="navborrowed"><span>My Borrowed Books</span></a></li>
         </ul>
   
@@ -40,7 +40,7 @@
           <button class="searchIcon"><img src="../images/search_22dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
               alt=""></button>
         </div>
-        <a id="login" href="/api/accounts/login/">
+        <a id="login" href="{% url 'log_in' %}">
           <button class="loginButton">login</button>
         </a>
         <div id="profileSection" class="profile" style="display: none;">
@@ -67,8 +67,8 @@
         <h1>Improve your mind</h1>
         <p>Maktaba is an online library website where users can search and borrow books</p>
         <div class="image-button">
-          <a href="../html/browse-books.html" class="browse-btn">Let's start</a>
-          <a href="../html/contact.html" class="contact-btn">Contact-us</a>
+          <a href="{% url 'browse_books_page' %}" class="browse-btn">Let's start</a>
+          <a href="{% url 'contact' %}" class="contact-btn">Contact-us</a>
         </div>
       </div>
     </section>
@@ -132,7 +132,7 @@
     <footer class="footer">
       <div class="footer-columns">
         <div class="footer-column">
-          <a href="/api/accounts/login/" class="footerLogo">
+          <a href="{% url 'log_in' %}" class="footerLogo">
             <img class="footerLogoIcon" src="../images/menu_book_16dp_E3E3E3_FILL0_wght400_GRAD0_opsz20.svg" alt="logo" />
             <div class="logoText">
               <h2>Maktaba</h2>
@@ -145,13 +145,13 @@
           <h3 class="footer-title">Links</h3>
           <ul class="footerLinks">
             <li>
-              <a href="/api/accounts/login/" class="footerhome"><span>Home</span></a>
+              <a href="{% url 'log_in' %}" class="footerhome"><span>Home</span></a>
             </li>
             <li>
-              <a href="../html/browse-books.html" class="footerbrowse"><span>Browse Books</span></a>
+              <a href="{% url 'browse_books_page' %}" class="footerbrowse"><span>Browse Books</span></a>
             </li>
             <li>
-              <a href="../html/contact.html" class="footerborrowed"><span>Contact us</span></a>
+              <a href="{% url 'contact' %}" class="footerborrowed"><span>Contact us</span></a>
             </li>
           </ul>
         </div>

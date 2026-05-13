@@ -19,5 +19,5 @@ class Command(BaseCommand):
                 description = item.get('description',''),
                 status = item.get('status','available').lower(),
                 rating = item.get('rating',0),
-                ISBN=f"ISBN-{item.get('id', '000')}" 
+                id=f"{item.get('id', '000')}" 
             )

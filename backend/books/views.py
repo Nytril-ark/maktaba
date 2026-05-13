@@ -10,7 +10,7 @@ def get_books_api (request):
 
     for book in books:
         book_data.append({
-            "id":book.ISBN,
+            "id":book.id,
             "title":book.title,
             "authors":[book.authors] if isinstance(book.authors,str) else book.authors,
             "category":book.category,
