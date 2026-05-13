@@ -43,7 +43,7 @@
       var card = `
         <div class="book-card">
           <div class="card-image-wrapper">
-            <a href="../html/book.html?id=${book.id}">
+            <a href="/api/books/details/?id=${book.id}">
               <img src="${book.image?book.image:"/static/images/index-img2.jpg"}" alt="${book.title}">
             </a>
           </div>
