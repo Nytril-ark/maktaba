@@ -16,6 +16,10 @@ def get_books_api (request):
             "category":book.category,
             "status": book.status,
             "image":book.image_url,
+            "pages":book.pages,
+            "language": book.language,
+            "description": book.description,
+            "rating": book.rating,
         })
     return JsonResponse(book_data,safe=False)
 
