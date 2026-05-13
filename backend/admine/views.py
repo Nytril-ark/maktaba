@@ -168,3 +168,83 @@ def delete_book(request, book_id):
         return JsonResponse({"deleted": book_id})
     except Book.DoesNotExist:
         return JsonResponse({"error": "Not found"}, status=404)
+    
+
+
+#############################################################################
+#############################################################################
+def edit_book_page(request):
+
+    return render(request, 'edit_book.html')
+
+
+def get_single_book(request, book_id):
+
+    try:
+
+        book = Book.objects.get(id=book_id)
+
+        data = {
+
+            "id": book.id,
+
+            "title": book.title,
+
+            "authors": book.authors,
+
+            "category": book.category,
+
+            "isbn": book.ISBN,
+
+            "status": book.status,
+
+            "description": book.description,
+        }
+
+        return JsonResponse(data)
+
+    except Book.DoesNotExist:
+
+        return JsonResponse({
+
+            "error": "Book not found"
+
+        }, status=404)
+
+@csrf_exempt
+@require_http_methods(["PUT"])
+def update_book(request, book_id):
+
+    try:
+
+        book = Book.objects.get(id=book_id)
+
+        data = json.loads(request.body)
+
+        book.title = data.get("title")
+
+        book.authors = data.get("authors")
+
+        book.category = data.get("category")
+
+        book.ISBN = data.get("isbn")
+
+        book.status = data.get("status")
+
+        book.description = data.get("description")
+
+        book.save()
+
+        return JsonResponse({
+
+            "message": "Book updated successfully"
+
+        })
+
+    except Book.DoesNotExist:
+
+        return JsonResponse({
+
+            "error": "Book not found"
+
+        }, status=404)
