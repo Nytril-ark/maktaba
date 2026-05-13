@@ -98,7 +98,7 @@ async function loadPage() {
   const id = params.get("id");
 
   if (!id) {
-    window.location.href = "/Error";
+    window.location.href = "Error";
     return;
   }
   const data = await getBooks();
@@ -117,12 +117,12 @@ const borrowBtn = document.getElementById("borrowBookButton");
 
 function setupBorrowButtons() {
   borrowBtn.addEventListener( "click", async ( e ) => {
-    // if ( role === "Guest" ) {
-    //             alert( "You have to login first" );
-    //             window.location.replace( "/api/accounts/login" );
-    //         } else {
-    //             window.location.replace( '/api/borrowing/borrowedbooks/' );
-    //         }
+    if ( role === "Guest" ) {
+                alert( "You have to login first" );
+                window.location.replace( "/api/accounts/login" );
+            } else {
+                window.location.replace( '/api/borrowing/borrowedbooks/' );
+            }
     if (!borrowBtn) return;
     e.preventDefault();
 
