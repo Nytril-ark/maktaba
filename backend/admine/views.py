@@ -142,3 +142,6 @@ def add_book(request):
         ISBN=data.get("isbn"),
     )
     return JsonResponse({"id": book.id, "title": book.title}, status=201)
+
+def add_book_page(request):
+    return render(request, 'add_book.html')

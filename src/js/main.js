@@ -24,8 +24,11 @@ document.addEventListener( "DOMContentLoaded", () => {
     }
 
     if ( role === "Admin" ) {
-        if ( !window.location.href.includes( "admin_dashboard.html" ) && !window.location.href.includes( "book_inventory.html" ) && !window.location.href.includes( "add_book.html" ) && !window.location.href.includes( "edit_book.html" ) ) {
-            window.location.replace( "admin_dashboard.html" );
+        if ( !window.location.href.includes( "/api/admine/dashboard/" ) && 
+             !window.location.href.includes( "book_inventory.html" ) && 
+             !window.location.href.includes( "add_book.html" ) && 
+             !window.location.href.includes( "edit_book.html" ) ) {
+            window.location.replace( "/api/admine/dashboard/" );
         }
     }
 
