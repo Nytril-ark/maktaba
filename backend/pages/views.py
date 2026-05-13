@@ -8,7 +8,7 @@ from books.models import Book
 
 
 def top_rated_books(request):
-    top_rated_books=Book.objects.order_by('rating')[:10]
+    top_rated_books=Book.objects.order_by('-rating')[:10]
 
     top_rated_data = []
     for book in top_rated_books:

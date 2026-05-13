@@ -41,10 +41,10 @@ function setupReturnButtons() {
     if ( !e.target.classList.contains( "returnBtn" ) ) return;
 
     const csrfToken = document.querySelector( '[name=csrfmiddlewaretoken]' ).value;
-    const bookISBN =  e.target.dataset.id;
+    const bookId=  e.target.dataset.id;
     
     try {
-      const response = await fetch( `/api/borrowing/return/${bookISBN}/`, {
+      const response = await fetch( `/api/borrowing/return/${bookId}/`, {
         method: 'POST',
         'X-CSRFToken': csrfToken
       } );

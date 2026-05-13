@@ -1,27 +1,21 @@
   import { getBooks } from "./main.js";
 
-  async function loadCategories(books) {
-    const grid = document.querySelector(".categories-grid");
+  async function loadCategories() {
+    const grid = document.querySelector(".top-categories-grid");
     if (!grid) return;
+    grid.innerHTML = "";
 
     try {
-      const response = await fetch( '/api/top_categories/' )
+      const response = await fetch( '/api/top_categories' )
       const data = await response.json();
       const categories = data.topCat;
 
-      grid.innerHTML = "";
 
-      categories.forEach(name => {
-      const card = document.createElement("a");
-      card.href = `../html/browse-books.html?category=${encodeURIComponent(name)}`;
-      card.className = "category-card";
-
-      card.innerHTML = `
-        <span class="category-icon"></span>
-        <span class="category-name">${name}</span>
-      `;
-
-      grid.appendChild(card);
+      categories.forEach( cat => {
+      var card = `<a href="/api/books/browse?category=${cat.name}" class="category-card">
+          <span class="category-name">${cat.name}</span>
+        </a>`
+      grid.insertAdjacentHTML("beforeend", card);
     });
     } catch ( error ) {
       console.error( "Error fetching categories:", error );
@@ -49,8 +43,8 @@
       var card = `
         <div class="book-card">
           <div class="card-image-wrapper">
-            <a href="../html/book.html?id=${book.id}">
-              <img src="${book.image?book.image:"../images/index-img2.jpg"}" alt="${book.title}">
+            <a href="/api/books/details/?id=${book.id}">
+              <img src="${book.image?book.image:"/static/images/index-img2.jpg"}" alt="${book.title}">
             </a>
           </div>
 
@@ -77,7 +71,7 @@
 
   async function init() {
     const books = await getBooks();
-    loadCategories(books);
+    loadCategories();
     renderTopRated();
   }
 

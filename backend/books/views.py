@@ -7,7 +7,13 @@ from .models import Book
 def get_books_api (request):
     books =Book.objects.all()
     book_data = []
-
+    book_id = request.GET.get('id')
+    
+    if book_id:
+        books = Book.objects.filter(id=book_id)
+    else:
+        books = Book.objects.all()
+    
     for book in books:
         book_data.append({
             "id":book.id,

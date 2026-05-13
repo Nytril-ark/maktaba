@@ -49,126 +49,205 @@ document.addEventListener("DOMContentLoaded", () => {
   handleEditBook();
   deleteBook();
   updateDashboard();
-  setInterval(updateDashboard,30000);
+  setInterval(updateDashboard, 30000);
 });
 
-function handleAddBook() {
-  const form = document.getElementById("addBookForm");
 
-  if (!form) return;
-
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const title = document.getElementById("title").value;
-    const authors = document.getElementById("authors").value.split(",");
-    const category = document.getElementById("category").value;
-    const isbn = document.getElementById("isbn").value;
-    const year = document.getElementById("year").value;
-    const quantity = document.getElementById("quantity").value;
-    const status = document.getElementById("status").value;
-    const description = document.getElementById("description").value;
-
-    let books = JSON.parse(localStorage.getItem("books")) || [];
-
-    const newId = books.length ? books[books.length - 1].id + 1 : 1;
-
-    const newBook = {
-      id: newId,
-      title: title,
-      authors: authors.map((a) => a.trim()),
-      category: category,
-      isbn: isbn,
-      year: year,
-      quantity: quantity,
-      description: description,
-      status: status,
-    };
-
-    books.push(newBook);
-
-    localStorage.setItem("books", JSON.stringify(books));
-
-    window.location.href = "book_inventory.html";
-  });
-}
-
-function loadBooks() {
+async function loadBooks() {
   const tableBody = document.getElementById("booksTableBody");
-
   if (!tableBody) return;
+  try {
 
-  let books = JSON.parse(localStorage.getItem("books")) || [];
+    const response = await fetch(
+      "/api/admine/api/inventory/"
+    );
 
-  tableBody.innerHTML = "";
+    const data = await response.json();
 
-  books.forEach((book) => {
-    const row = document.createElement("tr");
+    const books = data.books;
 
-    row.innerHTML = `
-          <td>${book.id}</td>
-          <td class="book-title">${book.title}</td>
-          <td>${book.authors.join(", ")}</td>
-          <td>${book.category}</td>
-          <td>${book.isbn || "-"}</td>
-          <td>${book.year || "-"}</td>
-          <td><span class="status ${getStatusClass(book.status)}">${book.status}</span></td>
-          <td class="Actions">
-            <a href="edit_book.html?id=${book.id}" class="icon-btn edit-btn"><img src="{% static 'images/edit.svg' %}" alt="edit"></a>
-            <button class="icon-btn delete-btn" onclick="deleteBook(${book.id})"><img src="{% static 'images/delete.svg' %}" alt="delete"></button>
-          </td>
-        `;
+    tableBody.innerHTML = "";
 
-    tableBody.appendChild(row);
+    books.forEach((book) => {
+
+      const row = document.createElement("tr");
+
+      row.innerHTML = `
+
+        <td>${book.id}</td>
+
+        <td class="book-title">${book.title}</td>
+
+        <td>${book.authors}</td>
+
+        <td>${book.category}</td>
+
+        <td>
+          <span class="status ${getStatusClass(book.status)}">
+            ${book.status}
+          </span>
+        </td>
+
+        <td class="Actions">
+
+          <a href="/api/admine/edit_book/?id=${book.id}" class="icon-btn edit-btn" title="Edit Book">
+
+            <img src="../images/edit.svg" alt="edit">
+
+          </a>
+
+          <button class="icon-btn delete-btn" onclick="deleteBook('${book.id}')">
+
+            <img src="../images/delete.svg" alt="delete">
+
+          </button>
+
+        </td>
+      `;
+
+      tableBody.appendChild(row);
+
+    });
+
+  }
+
+  catch (error) {
+
+    console.error(error);
+
+  }
+}
+
+async function deleteBook(id) {
+  const res = await fetch(`/api/admine/api/delete_book/${id}/`, {
+    method: 'DELETE',
+    credentials: 'include',
   });
+  if (res.ok) {
+    loadBooks();
+  }
 }
 
-function deleteBook(id) {
-  let books = JSON.parse(localStorage.getItem("books")) || [];
+///////////////////////////////////////////////////////////////////////////////////////////
+async function handleEditBook() {
 
-  books = books.filter((book) => book.id !== id);
+  if (!window.location.href.includes("/api/admine/edit_book/")) return;
 
-  localStorage.setItem("books", JSON.stringify(books));
+  const params = new URLSearchParams(window.location.search);
 
-  loadBooks();
+  const id = params.get("id");
+
+  try {
+
+    const response = await fetch(
+
+      `/api/admine/api/book/${id}/`
+
+    );
+
+    const book = await response.json();
+
+    document.getElementById("editTitle").value = book.title;
+
+    document.getElementById("editAuthors").value = book.authors;
+
+    document.getElementById("editCategory").value = book.category;
+
+    document.getElementById("editISBN").value = book.isbn;
+
+    document.getElementById("editStatus").value = book.status;
+
+    document.getElementById("editDescription").value = book.description || "";
+
+
+    const form = document.querySelector("form");
+
+    form.addEventListener("submit", async function (e) {
+
+      e.preventDefault();
+
+      const updatedBook = {
+
+        title: document.getElementById("editTitle").value,
+
+        authors: document.getElementById("editAuthors").value,
+
+        category: document.getElementById("editCategory").value,
+
+        isbn: document.getElementById("editISBN").value,
+
+        status: document.getElementById("editStatus").value,
+
+        description: document.getElementById("editDescription").value,
+      };
+
+
+      const updateResponse = await fetch(
+
+        `/api/admine/api/update_book/${id}/`,
+        {
+
+          method: "PUT",
+
+          headers: {
+            "Content-Type": "application/json",
+          },
+
+          body: JSON.stringify(updatedBook),
+        }
+      );
+
+      const data = await updateResponse.json();
+
+      alert(data.message);
+
+      window.location.href = "/api/admine/book_inventory/";
+
+    });
+
+  }
+
+  catch (error) {
+
+    console.error(error);
+
+  }
 }
-
-
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 function handleAddBook() {
-    const form = document.getElementById("addBookForm");
-    if (!form) return;
+  const form = document.getElementById("addBookForm");
+  if (!form) return;
 
-    form.addEventListener("submit", async function(e) {
-        e.preventDefault();
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
 
-        const payload = {
-            title: document.getElementById("title").value,
-            authors: document.getElementById("authors").value,
-            category: document.getElementById("category").value,
-            isbn: document.getElementById("isbn").value,
-            status: document.getElementById("status").value,
-            description: document.getElementById("description").value,
-        };
+    const payload = {
+      title: document.getElementById("title").value,
+      authors: document.getElementById("authors").value,
+      category: document.getElementById("category").value,
+      isbn: document.getElementById("isbn").value,
+      status: document.getElementById("status").value,
+      description: document.getElementById("description").value,
+    };
 
-        const res = await fetch("http://127.0.0.1:8000/api/admine/api/add_book/", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload),
-            credentials: "include",
-        });
-
-        const data = await res.json();
-
-        if (!res.ok) {
-            alert(data.error);
-            return;
-        }
-
-        window.location.href = "/api/admine/dashboard/";
+    const res = await fetch("/api/admine/api/add_book/", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+      credentials: "include",
     });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      alert(data.error);
+      return;
+    }
+
+    window.location.href = "/api/admine/dashboard/";
+  });
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////
@@ -211,9 +290,9 @@ function saveBooks() {
   localStorage.setItem("books", JSON.stringify(books));
 }
 
-function updateTrends(elementID, val){
+function updateTrends(elementID, val) {
   const element = document.getElementById(elementID);
-  if(!element){
+  if (!element) {
     return;
   }
   const container = element.parentElement;
@@ -221,62 +300,62 @@ function updateTrends(elementID, val){
 
   element.innerText = `${val}%`;
 
-  if (val > 0){
-    if (icon){ 
+  if (val > 0) {
+    if (icon) {
       icon.style.transform = "rotate(0deg)";
     }
   }
-  else if(val < 0){
+  else if (val < 0) {
     if (icon) {
       icon.style.transform = "rotate(180deg)";
     }
   }
-  else{
-    if(icon){
+  else {
+    if (icon) {
       icon.src = "/static/images/dash.svg";
     }
   }
 }
 
-function recentBorrows(data){
-  const recentList  = document.querySelector(".activity-list");
+function recentBorrows(data) {
+  const recentList = document.querySelector(".activity-list");
   recentList.innerHTML = "";
-  if(data.recent_borrowers.length === 0){
+  if (data.recent_borrowers.length === 0) {
     recentList.innerHTML = "<li>No recent activity.</li>";
   }
-  else{
-      data.recent_borrowers.forEach(act => {
-        const li = document.createElement("li");
+  else {
+    data.recent_borrowers.forEach(act => {
+      const li = document.createElement("li");
 
-        let actionText = "borrowed";
-        if (act.status === "returned") {
-          actionText = "returned";
-        }
+      let actionText = "borrowed";
+      if (act.status === "returned") {
+        actionText = "returned";
+      }
 
-        li.innerHTML = 
+      li.innerHTML =
         `<p><strong>${act.name}</strong> ${actionText} "${act.book}"</p>
         <span class="time">${act.borrowdate}</span>`;
-        recentList.appendChild(li);
-   });
+      recentList.appendChild(li);
+    });
   }
 }
 
 async function getDashboardData() {
-   try{
-      const [bookResponse,borrowResponse] = await Promise.all([
-        fetch('/api/admine/api/books_stats/'),
-        fetch('/api/admine/api/borrow_stats/')
-      ]);
-      if(!bookResponse.ok || !borrowResponse.ok) {
-        throw new Error('Problem with network');
-      }
+  try {
+    const [bookResponse, borrowResponse] = await Promise.all([
+      fetch('/api/admine/api/books_stats/'),
+      fetch('/api/admine/api/borrow_stats/')
+    ]);
+    if (!bookResponse.ok || !borrowResponse.ok) {
+      throw new Error('Problem with network');
+    }
 
     const bookData = await bookResponse.json();
     const borrowData = await borrowResponse.json();
-    return {...bookData,...borrowData};
-   }catch(error){
-      console.error(error);
-      return null;
+    return { ...bookData, ...borrowData };
+  } catch (error) {
+    console.error(error);
+    return null;
   }
 }
 
@@ -286,24 +365,24 @@ async function loadCards(data) {
   const borrowers = document.getElementById("Active-Borrowers");
   const overdue = document.getElementById("Overdue-Books");
   const borrowedToday = document.getElementById("Borrowed-Today");
-  
-  
-  if(books){
+
+
+  if (books) {
     books.innerText = data.books;
   }
-  if(borrowers){
+  if (borrowers) {
     borrowers.innerText = data.borrowers;
   }
-  if(overdue){
+  if (overdue) {
     overdue.innerText = data.overdue;
   }
-  if(borrowedToday){
+  if (borrowedToday) {
     borrowedToday.innerText = data.borrow_today;
   }
 
-  updateTrends("borrower_trend",data.borrower_trend);
-  updateTrends("overdue_trend",data.overdue_trend);
-  updateTrends("borrowed_today_trend",data.borrow_today_trend);
+  updateTrends("borrower_trend", data.borrower_trend);
+  updateTrends("overdue_trend", data.overdue_trend);
+  updateTrends("borrowed_today_trend", data.borrow_today_trend);
 }
 
 async function loadCharts(data) {
@@ -330,9 +409,9 @@ async function loadCharts(data) {
   const ctx2 = document.getElementById("categoryChart");
 
   if (ctx2) {
-     if(pieChart){
-        pieChart.destroy();
-      }
+    if (pieChart) {
+      pieChart.destroy();
+    }
     pieChart = new Chart(ctx2, {
       type: "pie",
       data: {
@@ -381,14 +460,14 @@ async function loadCharts(data) {
 }
 
 
-async function updateDashboard(){
-    let data = await getDashboardData();
-    if(!data){
-      return;
-    }
-    loadCards(data);
-    loadCharts(data);
-    recentBorrows(data);
+async function updateDashboard() {
+  let data = await getDashboardData();
+  if (!data) {
+    return;
+  }
+  loadCards(data);
+  loadCharts(data);
+  recentBorrows(data);
 }
 // window.onload = function () {
 //   loadCharts();
