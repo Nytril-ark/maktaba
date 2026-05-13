@@ -23,12 +23,12 @@ document.addEventListener( "DOMContentLoaded", () => {
         localStorage.setItem( "Role", "Guest" );
     }
 
-    if ( role != "Admin" ) {
-        if ( window.location.href.includes( "/api/admine/dashboard/" ) ||
-             window.location.href.includes( "book_inventory.html" ) ||
-             window.location.href.includes( "add_book.html" ) || 
-             window.location.href.includes( "edit_book.html" ) ) {
-            window.location.replace( "/api/accounts/login" );
+    if ( role === "Admin" ) {
+        const path = window.location.pathname;
+        const adminPaths = ['/api/admine/'];
+        const isOnAdminPage = adminPaths.some(p => path.startsWith(p));
+        if (!isOnAdminPage) {
+            window.location.replace("/api/admine/dashboard/");
         }
     }
 
@@ -47,8 +47,20 @@ document.addEventListener( "DOMContentLoaded", () => {
             e.preventDefault();
             sessionStorage.clear();
             localStorage.setItem( "Role", "Guest" );
-            await fetch('/api/accounts/api/logout/',{method:'POST'});
-            window.location.replace( "/api/accounts/login/" );
+            const getCookie=(name)=>{
+                let value=`; ${document.cookie}`;
+                let parts=value.split(`; ${name}=`);
+                if (parts.length==2)return parts.pop().split(';').shift();
+            }
+            try{
+                await fetch('/api/accounts/api/logout/',{method:'POST',headers:{'X-CSRFToken':getCookie('csrftoken') }});
+        
+            }
+            catch(error){
+                    console.log("log out error: ",error);
+            }
+            
+            window.location.replace( "/" );
         } );
     }
 
