@@ -60,7 +60,7 @@ document.addEventListener( "DOMContentLoaded", () => {
                     console.log("log out error: ",error);
             }
             
-            window.location.replace( "/api/accounts/login/" );
+            window.location.replace( "/" );
         } );
     }
 
