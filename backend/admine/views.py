@@ -194,8 +194,6 @@ def get_single_book(request, book_id):
 
             "category": book.category,
 
-            "isbn": book.ISBN,
-
             "status": book.status,
 
             "description": book.description,
@@ -226,8 +224,6 @@ def update_book(request, book_id):
         book.authors = data.get("authors")
 
         book.category = data.get("category")
-
-        book.ISBN = data.get("isbn")
 
         book.status = data.get("status")
 

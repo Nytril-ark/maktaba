@@ -47,7 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
   handleAddBook();
   loadBooks();
   handleEditBook();
-  deleteBook();
   updateDashboard();
   setInterval(updateDashboard, 30000);
 });
@@ -72,38 +71,25 @@ async function loadBooks() {
 
       const row = document.createElement("tr");
 
-      row.innerHTML = `
-
-        <td>${book.id}</td>
-
-        <td class="book-title">${book.title}</td>
-
-        <td>${book.authors}</td>
-
-        <td>${book.category}</td>
-
-        <td>
-          <span class="status ${getStatusClass(book.status)}">
-            ${book.status}
-          </span>
-        </td>
-
-        <td class="Actions">
-
-          <a href="/api/admine/edit_book/?id=${book.id}" class="icon-btn edit-btn" title="Edit Book">
-
-            <img src="../images/edit.svg" alt="edit">
-
-          </a>
-
-          <button class="icon-btn delete-btn" onclick="deleteBook('${book.id}')">
-
-            <img src="../images/delete.svg" alt="delete">
-
-          </button>
-
-        </td>
-      `;
+row.innerHTML = `
+  <td>${book.id}</td>
+  <td class="book-title">${book.title}</td>
+  <td>${book.authors}</td>
+  <td>${book.category}</td>
+  <td>
+    <span class="status ${getStatusClass(book.status)}">
+      ${book.status}
+    </span>
+  </td>
+  <td class="Actions">
+    <a href="/api/admine/edit_book/?id=${book.id}" class="icon-btn edit-btn" title="Edit Book">
+      <img src="/static/images/edit.svg" alt="edit">
+    </a>
+    <button class="icon-btn delete-btn" onclick="deleteBook('${book.id}')">
+      <img src="/static/images/delete.svg" alt="delete">
+    </button>
+  </td>
+`;
 
       tableBody.appendChild(row);
 
@@ -130,88 +116,49 @@ async function deleteBook(id) {
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 async function handleEditBook() {
-
-  //if (!window.location.href.includes("/api/admine/edit_book/")) return;
   if (!window.location.pathname.includes("edit_book")) return;
 
   const params = new URLSearchParams(window.location.search);
-
   const id = params.get("id");
 
+  if (!id) return;
+
   try {
-
-    const response = await fetch(
-
-      `/api/admine/api/book/${id}/`
-
-    );
-
+    const response = await fetch(`/api/admine/api/book/${id}/`);
     const book = await response.json();
 
     document.getElementById("editTitle").value = book.title;
-
     document.getElementById("editAuthors").value = book.authors;
-
     document.getElementById("editCategory").value = book.category;
-
-    document.getElementById("editISBN").value = book.isbn;
-
     document.getElementById("editStatus").value = book.status;
-
     document.getElementById("editDescription").value = book.description || "";
-
 
     const form = document.querySelector("form");
 
     form.addEventListener("submit", async function (e) {
-
       e.preventDefault();
 
       const updatedBook = {
-
         title: document.getElementById("editTitle").value,
-
         authors: document.getElementById("editAuthors").value,
-
         category: document.getElementById("editCategory").value,
-
-        isbn: document.getElementById("editISBN").value,
-
         status: document.getElementById("editStatus").value,
-
         description: document.getElementById("editDescription").value,
       };
 
-
-      const updateResponse = await fetch(
-
-        `/api/admine/api/update_book/${id}/`,
-        {
-
-          method: "PUT",
-
-          headers: {
-            "Content-Type": "application/json",
-          },
-
-          body: JSON.stringify(updatedBook),
-        }
-      );
+      const updateResponse = await fetch(`/api/admine/api/update_book/${id}/`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(updatedBook),
+      });
 
       const data = await updateResponse.json();
-
       alert(data.message);
-
       window.location.href = "/api/admine/book_inventory/";
-
     });
 
-  }
-
-  catch (error) {
-
+  } catch (error) {
     console.error(error);
-
   }
 }
 

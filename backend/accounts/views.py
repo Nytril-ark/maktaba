@@ -52,7 +52,7 @@ def login_Page(request):
      return render(request,'login.html')        
 
 def SignUP_Page(request):
-     return render(request,'signUp.html') 
+    return render(request,'signup.html')
 
 def ForgetPass(request):
      return render(request,'forget_password.html')
