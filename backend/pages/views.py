@@ -41,3 +41,5 @@ def index(request):
 
 def contact(request):
     return render(request,'contact.html')
+def Error(request):
+    return render(request,'404.html')
