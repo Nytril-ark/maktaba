@@ -98,7 +98,7 @@ async function loadPage() {
   const id = params.get("id");
 
   if (!id) {
-    window.location.href = "/Error";
+    window.location.href = "Error";
     return;
   }
   const data = await getBooks();
@@ -117,7 +117,6 @@ const borrowBtn = document.getElementById("borrowBookButton");
 
 function setupBorrowButtons() {
   borrowBtn.addEventListener( "click", async ( e ) => {
-    
     if (!borrowBtn) return;
     e.preventDefault();
 

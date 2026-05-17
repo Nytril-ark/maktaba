@@ -120,8 +120,6 @@ function setupBorrowButtons() {
     if ( role === "Guest" ) {
                 alert( "You have to login first" );
                 window.location.replace( "/api/accounts/login" );
-            } else {
-                window.location.replace( '/api/borrowing/borrowedbooks/' );
             }
     if (!borrowBtn) return;
     e.preventDefault();
