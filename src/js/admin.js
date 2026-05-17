@@ -1,47 +1,6 @@
 let pieChart = null;
 let lineChart = null;
 
-function initializeDefaultBooks() {
-  let books = JSON.parse(localStorage.getItem("books"));
-
-  if (books && books.length > 0) return;
-
-  const defaultBooks = [
-    {
-      id: 1,
-      title: "Introduction to Algorithms",
-      authors: ["Thomas H. Cormen"],
-      category: "Computer Science",
-      isbn: "970-02600",
-      year: 2009,
-      status: "available",
-      description: "",
-    },
-    {
-      id: 2,
-      title: "Clean Code",
-      authors: ["Robert C. Martin"],
-      category: "Software Engineering",
-      isbn: "970-02601",
-      year: 2006,
-      status: "borrowed",
-      description: "",
-    },
-    {
-      id: 3,
-      title: "Artificial Intelligence",
-      authors: ["Stuart Russell"],
-      category: "AI & ML",
-      isbn: "970-0700",
-      year: 2024,
-      status: "available",
-      description: "",
-    },
-  ];
-
-  localStorage.setItem("books", JSON.stringify(defaultBooks));
-}
-
 document.addEventListener("DOMContentLoaded", () => {
   initializeDefaultBooks();
   handleAddBook();
@@ -71,7 +30,7 @@ async function loadBooks() {
 
       const row = document.createElement("tr");
 
-row.innerHTML = `
+      row.innerHTML = `
   <td>${book.id}</td>
   <td class="book-title">${book.title}</td>
   <td>${book.authors}</td>
@@ -209,34 +168,6 @@ function getStatusClass(status) {
   return "";
 }
 
-//Draw Charts
-let books = JSON.parse(localStorage.getItem("books")) || [
-  {
-    id: 1,
-    title: "Clean Code",
-    author: "Robert C. Martin",
-    category: "Software Engineering",
-    status: "Available",
-  },
-  {
-    id: 2,
-    title: "Introduction to Algorithms",
-    author: "Clifford Stein",
-    category: "Software Engineering",
-    status: "Available",
-  },
-  {
-    id: 3,
-    title: "Cyber Security And Data protection",
-    author: "Ronald L.Rivest",
-    category: "Cyber Security",
-    status: "Available",
-  },
-];
-
-function saveBooks() {
-  localStorage.setItem("books", JSON.stringify(books));
-}
 
 function updateTrends(elementID, val) {
   const element = document.getElementById(elementID);
